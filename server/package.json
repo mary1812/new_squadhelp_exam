@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "babel-node": "babel-node",
-    "start": "nodemon --exec babel-node ./src/index.js",
-    "test": "jest",
-    "build": "babel src -d dist"
+
+    "start": "nodemon ./src/index.js",
+    "test": "jest"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
