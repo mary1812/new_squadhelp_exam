@@ -8,6 +8,11 @@ const validators = require('../middlewares/validators');
 const chatController = require('../controllers/chatController');
 const upload = require('../utils/fileUpload');
 const router = express.Router();
+const authRouter = require('./authRouter');
+
+ // authRouter
+ 
+router.use('/auth', authRouter);
 
 router.post(
   '/registration',
@@ -21,6 +26,8 @@ router.post(
   validators.validateLogin,
   userController.login,
 );
+
+// contestRouter
 
 router.post(
   '/dataForContest',

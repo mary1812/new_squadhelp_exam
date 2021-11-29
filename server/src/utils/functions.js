@@ -22,8 +22,8 @@ module.exports.createWhereForAllContests = (
   Object.assign(object.where, {
     status: {
       [ bd.Sequelize.Op.or ]: [
-        CONSTANTS.CONTEST_STATUS_FINISHED,
-        CONSTANTS.CONTEST_STATUS_ACTIVE,
+        CONSTANTS.CONTEST_STATUS.FINISHED,
+        CONSTANTS.CONTEST_STATUS.ACTIVE,
       ],
     },
   });
