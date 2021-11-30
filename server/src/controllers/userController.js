@@ -38,7 +38,7 @@ module.exports.login = async (req, res, next) => {
 module.exports.registration = async (req, res, next) => {
   try {
     const newUser = await userQueries.userCreation(
-      Object.assign(req.body, { password: req.hashPass })
+      Object.assign(req.body, { password: req.body.password })
     );
     const accessToken = jwt.sign(
       {

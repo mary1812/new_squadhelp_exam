@@ -17,7 +17,6 @@ router.use('/auth', authRouter);
 router.post(
   '/registration',
   validators.validateRegistrationData,
-  hashPass,
   userController.registration,
 );
 
