@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     async comparePasswords(password) {
-      return bcrypt.compare(password, foundUser.password);
+      return bcrypt.compare(password, this.password);
     }
 
     static associate({ Offer, Contest, Rating }) {
