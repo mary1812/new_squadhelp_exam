@@ -1,6 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
-const { ROLES } = require('../constants');
+const { ROLES, SALT_ROUNDS } = require('../constants');
 const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       return bcrypt.compare(password, this.password);
     }
 
-    static associate({ Offer, Contest, Rating }) {
+    static associate({ Offer, Contest, Rating, RefreshToken }) {
       User.hasMany(Offer, {
         foreignKey: 'userId',
         targetKey: 'id',
@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(Rating, {
         foreignKey: 'userId',
         targetKey: 'id',
+      });
+
+      User.hasMany(RefreshToken, {
+        foreignKey: 'userId',
       });
     }
   }
