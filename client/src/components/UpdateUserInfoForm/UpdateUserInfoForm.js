@@ -75,7 +75,7 @@ const UpdateUserInfoForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { data, error } = state.userStore;
+  const { data, error } = state.auth;
   return {
     error,
     initialValues: {

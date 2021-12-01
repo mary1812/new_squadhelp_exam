@@ -64,7 +64,7 @@ const Brief = (props) => {
     isEditContest, contestData, changeEditContest, role, goChat, clearUpdateContestStore,
   } = props;
   const { error } = props.updateContestStore;
-  const { id } = props.userStore.data;
+  const { id } = props.auth.data;
   if (!isEditContest) {
     return (
       <ContestInfo
@@ -90,8 +90,8 @@ const Brief = (props) => {
 
 const mapStateToProps = (state) => {
   const { isEditContest } = state.contestByIdStore;
-  const { updateContestStore, userStore } = state;
-  return { updateContestStore, userStore, isEditContest };
+  const { updateContestStore, auth } = state;
+  return { updateContestStore, auth, isEditContest };
 };
 
 const mapDispatchToProps = (dispatch) => ({

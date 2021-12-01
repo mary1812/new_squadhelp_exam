@@ -222,7 +222,7 @@ const Home = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { isFetching } = state.userStore;
+  const { isFetching } = state.auth;
   return { isFetching };
 };
 

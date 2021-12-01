@@ -4,7 +4,7 @@ import { onlyForNotAuthorize } from '../../actions/actionCreator';
 import Spinner from '../Spinner/Spinner';
 
 const OnlyNotAuthorizedUserHoc = (Component) => {
-  const mapStateToProps = (state) => state.userStore;
+  const mapStateToProps = (state) => state.auth;
 
   const mapDispatchToProps = (dispatch) => ({
     checkAuth: (data) => dispatch(onlyForNotAuthorize(data)),

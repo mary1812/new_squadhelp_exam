@@ -174,7 +174,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => {
   const { changeMarkError, isShowModal } = state.contestByIdStore;
-  const { id, role } = state.userStore.data;
+  const { id, role } = state.auth.data;
   const { messagesPreview } = state.chatStore;
   return {
     changeMarkError, id, role, messagesPreview, isShowModal,

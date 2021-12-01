@@ -12,7 +12,7 @@ const ChatContainer = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { data } = state.userStore;
+  const { data } = state.auth;
   return { data };
 };
 

@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
-import getUserReducer from './userReducer';
 import dataForContestReducer from './dataForContestReducer';
 import payReducer from './payReducer';
 import getContestsReducer from './getContestsReducer';
@@ -12,7 +11,6 @@ import chatReducer from './chatReducer';
 import userProfileReducer from './userProfileReducer';
 
 const appReducer = combineReducers({
-  userStore: getUserReducer,
   auth: authReducer,
   dataForContest: dataForContestReducer,
   payment: payReducer,

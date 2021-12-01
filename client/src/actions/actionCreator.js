@@ -22,7 +22,7 @@ export const clearErrorSignUpAndLogin = () => ({
   type: ACTION.AUTH_ACTION_CLEAR_ERROR,
 });
 
-export const clearUserStore = () => ({
+export const clearauth = () => ({
   type: ACTION.CLEAR_USER_STORE,
 });
 

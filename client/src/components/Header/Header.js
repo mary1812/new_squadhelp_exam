@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './Header.module.sass';
 import CONSTANTS from '../../constants';
-import { getUserAction, clearUserStore, headerRequest } from '../../actions/actionCreator';
+import { getUserAction, clearauth, headerRequest } from '../../actions/actionCreator';
 
 class Header extends React.Component {
   componentDidMount() {
@@ -14,7 +14,7 @@ class Header extends React.Component {
 
     logOut = () => {
       localStorage.clear();
-      this.props.clearUserStore();
+      this.props.clearauth();
       this.props.history.replace('/login');
     };
 
@@ -197,10 +197,10 @@ class Header extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => state.userStore;
+const mapStateToProps = (state) => state.auth;
 const mapDispatchToProps = (dispatch) => ({
   getUser: () => dispatch(headerRequest()),
-  clearUserStore: () => dispatch(clearUserStore()),
+  clearauth: () => dispatch(clearauth()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

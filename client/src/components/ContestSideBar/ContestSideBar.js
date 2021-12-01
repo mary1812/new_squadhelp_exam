@@ -70,6 +70,6 @@ const ContestSideBar = (props) => {
   return renderContestInfo();
 };
 
-const mapStateToProps = (state) => state.userStore;
+const mapStateToProps = (state) => state.auth;
 
 export default connect(mapStateToProps, null)(ContestSideBar);
