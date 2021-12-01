@@ -5,7 +5,9 @@
     "database": "squadhelp-dev",
     "host": "db-dev",
     "dialect": "postgres",
-    "operatorsAliases": "Op"
+    "operatorsAliases": "Op",
+    "migrationStorage": "json",
+    "seederStorage": "json"
   },
   "test": {
     "username": "postgres",
