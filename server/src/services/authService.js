@@ -1,5 +1,6 @@
 const JwtService = require('./jwtService');
 const { MAX_DEVICES_AMOUNT } = require('../constants');
+const { prepareUser } = require('../utils/userUtils');
 
 module.exports.createSession = async (user) => {
   const tokenPair = await JwtService.createTokenPair(user);
@@ -14,7 +15,7 @@ module.exports.createSession = async (user) => {
     await user.createRefreshToken({ value: tokenPair.refreshToken });
   }
 
-  return { user, tokenPair };
+  return { user: prepareUser(user), tokenPair };
 };
 
 module.exports.refreshSession = async (refreshToken) => {
@@ -23,7 +24,7 @@ module.exports.refreshSession = async (refreshToken) => {
   refreshToken.update({ value: tokenPair.refreshToken });
 
   return {
-    user,
+    user: prepareUser(user),
     tokenPair,
   };
 };

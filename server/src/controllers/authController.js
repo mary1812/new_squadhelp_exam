@@ -17,7 +17,7 @@ module.exports.login = async (req, res, next) => {
       const data = await AuthService.createSession(user);
 
       // 4 оправить на клиент
-      res.status(200).send({ data });
+      return res.status(200).send({ data });
     }
 
     // 5 если в части 2 была ошибка кидаемся ошибкой

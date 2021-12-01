@@ -9,6 +9,7 @@ const chatController = require('../controllers/chatController');
 const upload = require('../utils/fileUpload');
 const router = express.Router();
 const authRouter = require('./authRouter');
+const { verifyAccessToken } = require('../services/jwtService');
 
  // authRouter
  
@@ -26,17 +27,23 @@ router.post(
   userController.login,
 );
 
+router.post(
+  '/getUser',
+  checkToken.checkAuth,
+);
+
+router.use(verifyAccessToken);
 // contestRouter
 
 router.post(
   '/dataForContest',
-  checkToken.checkToken,
+  
   contestController.dataForContest,
 );
 
 router.post(
   '/pay',
-  checkToken.checkToken,
+  
   basicMiddlewares.onlyForCustomer,
   upload.uploadContestFiles,
   basicMiddlewares.parseBody,
@@ -46,45 +53,42 @@ router.post(
 
 router.post(
   '/getCustomersContests',
-  checkToken.checkToken,
+  
   contestController.getCustomersContests,
 );
 
 router.get(
   '/getContestById',
-  checkToken.checkToken,
+  
   basicMiddlewares.canGetContest,
   contestController.getContestById,
 );
 
 router.post(
   '/getAllContests',
-  checkToken.checkToken,
+  
   basicMiddlewares.onlyForCreative,
   contestController.getContests,
 );
 
-router.post(
-  '/getUser',
-  checkToken.checkAuth,
-);
+
 
 router.get(
   '/downloadFile/:fileName',
-  checkToken.checkToken,
+  
   contestController.downloadFile,
 );
 
 router.post(
   '/updateContest',
-  checkToken.checkToken,
+  
   upload.updateContestFile,
   contestController.updateContest,
 );
 
 router.post(
   '/setNewOffer',
-  checkToken.checkToken,
+  
   upload.uploadLogoFiles,
   basicMiddlewares.canSendOffer,
   contestController.setNewOffer,
@@ -92,95 +96,95 @@ router.post(
 
 router.post(
   '/setOfferStatus',
-  checkToken.checkToken,
+  
   basicMiddlewares.onlyForCustomerWhoCreateContest,
   contestController.setOfferStatus,
 );
 
 router.post(
   '/changeMark',
-  checkToken.checkToken,
+  
   basicMiddlewares.onlyForCustomer,
   userController.changeMark,
 );
 
 router.post(
   '/updateUser',
-  checkToken.checkToken,
+  
   upload.uploadAvatar,
   userController.updateUser,
 );
 
 router.post(
   '/cashout',
-  checkToken.checkToken,
+  
   basicMiddlewares.onlyForCreative,
   userController.cashout,
 );
 
 router.post(
   '/newMessage',
-  checkToken.checkToken,
+  
   chatController.addMessage,
 );
 
 router.post(
   '/getChat',
-  checkToken.checkToken,
+  
   chatController.getChat,
 );
 
 router.post(
   '/getPreview',
-  checkToken.checkToken,
+  
   chatController.getPreview,
 );
 
 router.post(
   '/blackList',
-  checkToken.checkToken,
+  
   chatController.blackList,
 );
 
 router.post(
   '/favorite',
-  checkToken.checkToken,
+  
   chatController.favoriteChat,
 );
 
 router.post(
   '/createCatalog',
-  checkToken.checkToken,
+  
   chatController.createCatalog,
 );
 
 router.post(
   '/updateNameCatalog',
-  checkToken.checkToken,
+  
   chatController.updateNameCatalog,
 );
 
 router.post(
   '/addNewChatToCatalog',
-  checkToken.checkToken,
+  
   chatController.addNewChatToCatalog,
 );
 
 router.post(
   '/removeChatFromCatalog',
-  checkToken.checkToken,
+  
   chatController.removeChatFromCatalog,
 );
 
 router.post(
   '/deleteCatalog',
-  checkToken.checkToken,
+  
   chatController.deleteCatalog,
 );
 
 router.post(
   '/getCatalogs',
-  checkToken.checkToken,
+  
   chatController.getCatalogs,
 );
 
