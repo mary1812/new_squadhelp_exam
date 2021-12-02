@@ -2,7 +2,7 @@ import { put, select } from 'redux-saga/effects';
 import remove from 'lodash/remove';
 import isEqual from 'lodash/isEqual';
 import ACTION from '../actions/actionTypes';
-import * as restController from '../api/rest/restController';
+import * as restController from '../api/http/restController';
 
 export function* previewSaga() {
   try {

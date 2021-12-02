@@ -1,6 +1,6 @@
 import { put, select } from 'redux-saga/effects';
 import ACTION from '../actions/actionTypes';
-import * as restController from '../api/rest/restController';
+import * as restController from '../api/http/restController';
 import CONSTANTS from '../constants';
 
 export function* changeMarkSaga(action) {

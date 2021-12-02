@@ -1,12 +1,11 @@
 import { put } from 'redux-saga/effects';
 import ACTION from '../actions/actionTypes';
-import history from '../browserHistory';
-import * as restController from '../api/rest/restController';
+import {AuthAPI} from '../api/http/';
 
 export function* loginSaga(action) {
   yield put({ type: ACTION.AUTH_ACTION_REQUEST });
   try {
-    const {data: {data: {user}}} = yield restController.loginRequest(action.data);
+    const {data: {data: {user}}} = yield AuthAPI.login(action.data);
     action.history.replace('/');
     yield put({ type: ACTION.AUTH_ACTION_SUCCESS, data: user });
   } catch (err) {
@@ -17,7 +16,7 @@ export function* loginSaga(action) {
 export function* registerSaga(action) {
   yield put({ type: ACTION.AUTH_ACTION_REQUEST });
   try {
-    const {data: {data: {user}}} = yield restController.registerRequest(action.data);
+    const {data: {data: {user}}} = yield AuthAPI.registration(action.data);
     action.history.replace('/');
     yield put({ type: ACTION.AUTH_ACTION_SUCCESS, data: user });
   } catch (e) {

@@ -14,18 +14,6 @@ const { checkAccessToken } = require('../middlewares/tokenMw');
  
 router.use('/auth', authRouter);
 
-router.post(
-  '/registration',
-  validators.validateRegistrationData,
-  userController.registration,
-);
-
-router.post(
-  '/login',
-  validators.validateLogin,
-  userController.login,
-);
-
 // router.post(
 //   '/getUser',
 //   checkToken.checkAuth,

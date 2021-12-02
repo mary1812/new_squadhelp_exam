@@ -2,7 +2,7 @@ import { put } from 'redux-saga/effects';
 import ACTION from '../actions/actionTypes';
 import history from '../browserHistory';
 import CONSTANTS from '../constants';
-import * as restController from '../api/rest/restController';
+import * as restController from '../api/http/restController';
 
 export function* paymentSaga(action) {
   yield put({ type: ACTION.PAYMENT_ACTION_REQUEST });
