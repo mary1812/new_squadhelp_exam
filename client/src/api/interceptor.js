@@ -19,7 +19,7 @@ httpClient.interceptors.request.use((config) => {
 
 httpClient.interceptors.response.use((response) => {
   console.log(response);
-  if (response.data.data.tokenPair) {
+  if (response.data?.data?.tokenPair) {
     const {data: {data: {tokenPair: {refreshToken , accessToken: access}}}} =response;
 
     window.localStorage.setItem(CONTANTS.REFRESH_TOKEN, refreshToken );

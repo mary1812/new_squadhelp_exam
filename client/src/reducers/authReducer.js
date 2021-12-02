@@ -18,6 +18,7 @@ export default function (state = initialState, action) {
       return {
         isFetching: false,
         error: null,
+        data: action.data
       };
     }
     case ACTION.AUTH_ACTION_ERROR: {

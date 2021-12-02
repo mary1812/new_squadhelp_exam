@@ -26,10 +26,10 @@ router.post(
   userController.login,
 );
 
-router.post(
-  '/getUser',
-  checkToken.checkAuth,
-);
+// router.post(
+//   '/getUser',
+//   checkToken.checkAuth,
+// );
 
 router.use(checkAccessToken);
 // contestRouter
