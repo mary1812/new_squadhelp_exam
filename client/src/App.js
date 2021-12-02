@@ -18,6 +18,7 @@ import ContestCreationPage from './pages/ContestCreation/ContestCreationPage';
 import CONSTANTS from './constants';
 import browserHistory from './browserHistory';
 import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 class App extends Component {
   render() {
@@ -36,37 +37,67 @@ class App extends Component {
         />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={OnlyNotAuthorizedUserHoc(LoginPage)} />
-          <Route exact path="/registration" component={OnlyNotAuthorizedUserHoc(RegistrationPage)} />
-          <Route exact path="/payment" component={PrivateHoc(Payment)} />
-          <Route exact path="/startContest" component={PrivateHoc(StartContestPage)} />
-          <Route
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/registration" component={RegistrationPage} />
+          <PrivateRoute
+            roles={['creator', 'customer']}
             exact
-            path="/startContest/nameContest"
-            component={PrivateHoc(ContestCreationPage, {
-              contestType: CONSTANTS.NAME_CONTEST,
-              title: 'Company Name',
-            })}
+            path="/payment"
+            component={Payment}
           />
-          <Route
+
+          <PrivateRoute
+            roles={['customer']}
             exact
-            path="/startContest/taglineContest"
-            component={PrivateHoc(ContestCreationPage, {
-              contestType: CONSTANTS.TAGLINE_CONTEST,
-              title: 'TAGLINE',
-            })}
+            path="/startContest"
+            component={StartContestPage}
           />
-          <Route
+
+          <PrivateRoute exact path="/startContest/nameContest">
+            <ContestCreationPage
+              title="Company Name"
+              contestType={CONSTANTS.NAME_CONTEST}
+            />
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/startContest/taglineContest">
+            <ContestCreationPage
+              title="TAGLINE"
+              contestType={CONSTANTS.TAGLINE_CONTEST}
+            />
+          </PrivateRoute>
+          
+          <PrivateRoute
+            roles={['customer']}
             exact
             path="/startContest/logoContest"
-            component={PrivateHoc(ContestCreationPage, {
-              contestType: CONSTANTS.LOGO_CONTEST,
-              title: 'LOGO',
-            })}
+          >
+            <ContestCreationPage
+              title="LOGO"
+              contestType={CONSTANTS.LOGO_CONTEST}
+            />
+          </PrivateRoute>
+
+          <PrivateRoute
+            roles={['customer', 'creator']}
+            exact
+            path="/dashboard"
+            component={Dashboard}
           />
-          <Route exact path="/dashboard" component={PrivateHoc(Dashboard)} />
-          <Route exact path="/contest/:id" component={PrivateHoc(ContestPage)} />
-          <Route exact path="/account" component={PrivateHoc(UserProfile)} />
+
+          <PrivateRoute
+            roles={['customer', 'creator']}
+            exact
+            path="/contest/:id"
+            component={ContestPage}
+          />
+          
+          <PrivateRoute
+            roles={['customer', 'creator']}
+            exact
+            path="/account"
+            component={UserProfile}
+          />
           <Route component={NotFound} />
         </Switch>
         <ChatContainer />
