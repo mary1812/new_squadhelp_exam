@@ -1,6 +1,5 @@
 const express = require('express');
 const basicMiddlewares = require('../middlewares/basicMiddlewares');
-const hashPass = require('../middlewares/hashPassMiddle');
 const userController = require('../controllers/userController');
 const contestController = require('../controllers/contestController');
 const checkToken = require('../middlewares/checkToken');
@@ -9,7 +8,7 @@ const chatController = require('../controllers/chatController');
 const upload = require('../utils/fileUpload');
 const router = express.Router();
 const authRouter = require('./authRouter');
-const { verifyAccessToken } = require('../services/jwtService');
+const { checkAccessToken } = require('../middlewares/tokenMw');
 
  // authRouter
  
@@ -32,7 +31,7 @@ router.post(
   checkToken.checkAuth,
 );
 
-router.use(verifyAccessToken);
+router.use(checkAccessToken);
 // contestRouter
 
 router.post(

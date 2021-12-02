@@ -1,7 +1,7 @@
 const createHttpError = require('http-errors');
 const JwtService = require('../services/jwtService');
 
-module.exports.checkRefreshToken = async(token) => {
+module.exports.checkRefreshToken = async(req, res, next) => {
   try {
     const { body : {refreshToken}} = req;
 
@@ -13,7 +13,7 @@ module.exports.checkRefreshToken = async(token) => {
   }
 }
 
-module.exports.checkAccessToken = async(token) => {
+module.exports.checkAccessToken = async(req, res, next) => {
   try {
     const { headers: {authorization}} = req;
     if(authorization) {
