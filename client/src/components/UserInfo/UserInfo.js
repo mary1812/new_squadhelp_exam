@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UpdateUserInfoForm from '../UpdateUserInfoForm/UpdateUserInfoForm';
-import { updateUserData, changeEditModeOnUserProfile } from '../../actions/actionCreator';
+import {
+  updateUserData,
+  changeEditModeOnUserProfile,
+} from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 import styles from './UserInfo.module.sass';
 
@@ -15,50 +18,57 @@ const UserInfo = (props) => {
     props.updateUser(formData);
   };
 
-  const { isEdit, changeEditMode, data } = props;
   const {
-    avatar, firstName, lastName, displayName, email, role, balance,
-  } = data;
+    isEdit,
+    changeEditMode,
+    data: { avatar, firstName, lastName, displayName, email, role, balance },
+  } = props;
+
   return (
     <div className={styles.mainContainer}>
-      {isEdit ? <UpdateUserInfoForm onSubmit={updateUserData} />
-        : (
+      {isEdit ? (
+        <UpdateUserInfoForm onSubmit={updateUserData} />
+      ) : (
+        <div className={styles.infoContainer}>
+          <img
+            src={
+              !avatar 
+                ? CONSTANTS.ANONYM_IMAGE_PATH
+                : `${CONSTANTS.publicURL}${avatar}`
+            }
+            className={styles.avatar}
+            alt="user"
+          />
           <div className={styles.infoContainer}>
-            <img
-              src={avatar === 'anon.png' ? CONSTANTS.ANONYM_IMAGE_PATH : `${CONSTANTS.publicURL}${avatar}`}
-              className={styles.avatar}
-              alt="user"
-            />
-            <div className={styles.infoContainer}>
-              <div className={styles.infoBlock}>
-                <span className={styles.label}>First Name</span>
-                <span className={styles.info}>{firstName}</span>
-              </div>
-              <div className={styles.infoBlock}>
-                <span className={styles.label}>Last Name</span>
-                <span className={styles.info}>{lastName}</span>
-              </div>
-              <div className={styles.infoBlock}>
-                <span className={styles.label}>Display Name</span>
-                <span className={styles.info}>{displayName}</span>
-              </div>
-              <div className={styles.infoBlock}>
-                <span className={styles.label}>Email</span>
-                <span className={styles.info}>{email}</span>
-              </div>
-              <div className={styles.infoBlock}>
-                <span className={styles.label}>Role</span>
-                <span className={styles.info}>{role}</span>
-              </div>
-              {role === CONSTANTS.CREATOR && (
-                <div className={styles.infoBlock}>
-                  <span className={styles.label}>Balance</span>
-                  <span className={styles.info}>{`${balance}$`}</span>
-                </div>
-              )}
+            <div className={styles.infoBlock}>
+              <span className={styles.label}>First Name</span>
+              <span className={styles.info}>{firstName}</span>
             </div>
+            <div className={styles.infoBlock}>
+              <span className={styles.label}>Last Name</span>
+              <span className={styles.info}>{lastName}</span>
+            </div>
+            <div className={styles.infoBlock}>
+              <span className={styles.label}>Display Name</span>
+              <span className={styles.info}>{displayName}</span>
+            </div>
+            <div className={styles.infoBlock}>
+              <span className={styles.label}>Email</span>
+              <span className={styles.info}>{email}</span>
+            </div>
+            <div className={styles.infoBlock}>
+              <span className={styles.label}>Role</span>
+              <span className={styles.info}>{role}</span>
+            </div>
+            {role === CONSTANTS.CREATOR && (
+              <div className={styles.infoBlock}>
+                <span className={styles.label}>Balance</span>
+                <span className={styles.info}>{`${balance}$`}</span>
+              </div>
+            )}
           </div>
-        )}
+        </div>
+      )}
       <div
         onClick={() => changeEditMode(!isEdit)}
         className={styles.buttonEdit}
