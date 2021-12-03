@@ -123,7 +123,7 @@ module.exports.updateContest = async (req, res, next) => {
 
 module.exports.setNewOffer = async (req, res, next) => {
   const obj = {};
-  if (req.body.contestType === CONSTANTS.LOGO_CONTEST) {
+  if (req.body.contestType === CONSTANTS.CONTEST_TYPES.LOGO) {
     obj.fileName = req.file.filename;
     obj.originalFileName = req.file.originalname;
   } else {
@@ -137,8 +137,8 @@ module.exports.setNewOffer = async (req, res, next) => {
     delete result.userId;
     controller.getNotificationController().emitEntryCreated(
       req.body.customerId);
-    const User = Object.assign({}, req.tokenData, { id: req.tokenData.userId });
-    res.send(Object.assign({}, result, { User }));
+    const user = await User.findOne({where: {id: req.tokenData.userId}, attributes: {exclude: ['password']}});
+    res.send(Object.assign({}, result, { User: user }));
   } catch (e) {
     return next(new ServerError());
   }

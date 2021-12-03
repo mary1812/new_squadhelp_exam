@@ -4,7 +4,7 @@ const multer = require('multer');
 const ServerError = require('../errors/ServerError');
 const env = process.env.NODE_ENV || 'development';
 const CONSTANTS = require('../constants');
-const devFilePath = path.resolve(CONSTANTS.FILES_PATH, '/images');
+const devFilePath = path.resolve(CONSTANTS.FILES_PATH, 'images');
 
 const filePath = env === 'production'
   ? '/var/www/html/images/'
