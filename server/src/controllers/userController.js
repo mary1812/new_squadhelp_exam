@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const CONSTANTS = require('../constants');
-const { sequelize, Contest, Rating, Offer } = require('../models');
+const { sequelize,Sequelize, Contest, Rating, Offer } = require('../models');
 const {Op} = require('sequelize');
 const NotUniqueEmail = require('../errors/NotUniqueEmail');
 const moment = require('moment');
@@ -84,13 +84,13 @@ function getQuery(offerId, userId, mark, isFirst, transaction) {
 module.exports.changeMark = async (req, res, next) => {
   let sum = 0;
   let avg = 0;
-  let transaction;
+  const transaction = await sequelize.transaction({
+    isolationLevel: Sequelize.Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED,
+  });
   const { isFirst, offerId, mark, creatorId } = req.body;
   const userId = req.tokenData.userId;
   try {
-    transaction = await sequelize.transaction({
-      isolationLevel: sequelize.Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED,
-    });
+
     const query = getQuery(offerId, userId, mark, isFirst, transaction);
     await query();
     const offersArray = await Rating.findAll({
@@ -119,9 +119,9 @@ module.exports.changeMark = async (req, res, next) => {
 };
 
 module.exports.payment = async (req, res, next) => {
-  let transaction;
+  const transaction= await sequelize.transaction();
   try {
-    transaction = await sequelize.transaction();
+    transaction 
     await bankQueries.updateBankBalance(
       {
         balance: sequelize.literal(`
@@ -196,9 +196,9 @@ module.exports.updateUser = async (req, res, next) => {
 };
 
 module.exports.cashout = async (req, res, next) => {
-  let transaction;
+  const transaction = await sequelize.transaction();
   try {
-    transaction = await sequelize.transaction();
+
     const updatedUser = await userQueries.updateUser(
       { balance: sequelize.literal('balance - ' + req.body.sum) },
       req.tokenData.userId,
