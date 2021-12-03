@@ -53,7 +53,7 @@ const ContestSideBar = (props) => {
           <span className={styles.labelCustomerInfo}>About Contest Holder</span>
           <div className={styles.customerInfo}>
             <img
-              src={User.avatar === 'anon.png' ? CONSTANTS.ANONYM_IMAGE_PATH : `${CONSTANTS.publicURL}${User.avatar}`}
+              src={ !User.avatar ? CONSTANTS.ANONYM_IMAGE_PATH : `${CONSTANTS.publicURL}${User.avatar}`}
               alt="user"
             />
             <div className={styles.customerNameContainer}>
