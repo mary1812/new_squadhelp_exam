@@ -134,6 +134,9 @@ export default function (state = initialState, action) {
         isShowModal: action.data,
       };
     }
+    case ACTION.CLEAR_STORE: {
+      return {...initialState};
+    }
     default:
       return state;
   }

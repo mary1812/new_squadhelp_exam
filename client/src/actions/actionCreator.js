@@ -28,7 +28,7 @@ export const clearErrorSignUpAndLogin = () => ({
 });
 
 export const clearauth = () => ({
-  type: ACTION.CLEAR_USER_STORE,
+  type: ACTION.CLEAR_STORE,
 });
 
 export const clearAddOfferError = () => ({

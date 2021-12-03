@@ -20,6 +20,9 @@ export default function (state = initialState, action) {
         isEdit: action.data,
       };
     }
+    case ACTION.CLEAR_STORE: {
+      return {...initialState};
+    }
     default:
       return state;
   }

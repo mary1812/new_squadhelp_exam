@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './Header.module.sass';
 import CONSTANTS from '../../constants';
-import { getUserAction, clearauth, headerRequest } from '../../actions/actionCreator';
+import { clearauth, headerRequest } from '../../actions/actionCreator';
 
 class Header extends React.Component {
 
     logOut = () => {
-      localStorage.clear();
       this.props.clearauth();
       this.props.history.replace('/login');
     };
@@ -65,6 +64,8 @@ class Header extends React.Component {
         </>
       );
     };
+
+    
 
     render() {
       if (this.props.isFetching) {

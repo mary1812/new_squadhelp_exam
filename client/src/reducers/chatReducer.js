@@ -240,6 +240,9 @@ export default function (state = initialState, action) {
         error: null,
       };
     }
+    case ACTION.CLEAR_STORE: {
+      return {...initialState};
+    }
     default:
       return state;
   }

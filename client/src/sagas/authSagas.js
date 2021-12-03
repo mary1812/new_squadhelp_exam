@@ -33,3 +33,8 @@ export function * refreshSaga (action) {
     yield put({ type: ACTION.AUTH_ACTION_ERROR, error: error.response });
   }
 }
+
+export function * logoutSaga (action) {
+  yield AuthAPI.logout();
+  
+}

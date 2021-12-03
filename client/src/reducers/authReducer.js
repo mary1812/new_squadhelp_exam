@@ -10,12 +10,14 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case ACTION.AUTH_ACTION_REQUEST: {
       return {
+        ...state,
         isFetching: true,
         error: null,
       };
     }
     case ACTION.AUTH_ACTION_SUCCESS: {
       return {
+        ...state,
         isFetching: false,
         error: null,
         data: action.data
@@ -23,6 +25,7 @@ export default function (state = initialState, action) {
     }
     case ACTION.AUTH_ACTION_ERROR: {
       return {
+        ...state,
         isFetching: false,
         error: action.error,
       };
@@ -34,7 +37,7 @@ export default function (state = initialState, action) {
       };
     }
     case ACTION.AUTH_ACTION_CLEAR: {
-      return initialState;
+      return {...initialState};
     }
     case ACTION.GET_USER_REQUEST: {
       return {
@@ -60,12 +63,8 @@ export default function (state = initialState, action) {
         data: null,
       };
     }
-    case ACTION.CLEAR_USER_STORE: {
-      return {
-        ...state,
-        data: null,
-        error: null,
-      };
+    case ACTION.CLEAR_STORE: {
+      return {...initialState};
     }
     case ACTION.UPDATE_USER_DATA_SUCCESS: {
       return {

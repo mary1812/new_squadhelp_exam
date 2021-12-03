@@ -31,6 +31,9 @@ export default function (state = initialState, action) {
     case ACTION.CLEAR_PAYMENT_STORE: {
       return initialState;
     }
+    case ACTION.CLEAR_STORE: {
+      return {...initialState};
+    }
     default:
       return state;
   }
