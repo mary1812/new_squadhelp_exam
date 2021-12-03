@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { ToastContainer } from 'react-toastify';
@@ -19,91 +19,102 @@ import CONSTANTS from './constants';
 import browserHistory from './browserHistory';
 import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { useDispatch } from 'react-redux';
+import { authActionRefresh } from './actions/actionCreator';
 
-class App extends Component {
-  render() {
-    return (
-      <Router history={browserHistory}>
-        <ToastContainer
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnVisibilityChange
-          draggable
-          pauseOnHover
+function App(props) {
+  const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    const refreshToken = window.localStorage.getItem(CONSTANTS.REFRESH_TOKEN);
+
+    if(refreshToken) {
+      dispatch(authActionRefresh(refreshToken));
+    }
+
+  }, []);
+
+  return (
+    <Router history={browserHistory}>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnVisibilityChange
+        draggable
+        pauseOnHover
+      />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/registration" component={RegistrationPage} />
+        <PrivateRoute
+          roles={['creator', 'customer']}
+          exact
+          path="/payment"
+          component={Payment}
         />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/registration" component={RegistrationPage} />
-          <PrivateRoute
-            roles={['creator', 'customer']}
-            exact
-            path="/payment"
-            component={Payment}
-          />
 
-          <PrivateRoute
-            roles={['customer']}
-            exact
-            path="/startContest"
-            component={StartContestPage}
-          />
+        <PrivateRoute
+          roles={['customer']}
+          exact
+          path="/startContest"
+          component={StartContestPage}
+        />
 
-          <PrivateRoute exact path="/startContest/nameContest">
-            <ContestCreationPage
-              title="Company Name"
-              contestType={CONSTANTS.NAME_CONTEST}
-            />
-          </PrivateRoute>
-
-          <PrivateRoute exact path="/startContest/taglineContest">
-            <ContestCreationPage
-              title="TAGLINE"
-              contestType={CONSTANTS.TAGLINE_CONTEST}
-            />
-          </PrivateRoute>
-          
-          <PrivateRoute
-            roles={['customer']}
-            exact
-            path="/startContest/logoContest"
-          >
-            <ContestCreationPage
-              title="LOGO"
-              contestType={CONSTANTS.LOGO_CONTEST}
-            />
-          </PrivateRoute>
-
-          <PrivateRoute
-            roles={['customer', 'creator']}
-            exact
-            path="/dashboard"
-            component={Dashboard}
+        <PrivateRoute exact path="/startContest/nameContest">
+          <ContestCreationPage
+            title="Company Name"
+            contestType={CONSTANTS.NAME_CONTEST}
           />
+        </PrivateRoute>
 
-          <PrivateRoute
-            roles={['customer', 'creator']}
-            exact
-            path="/contest/:id"
-            component={ContestPage}
+        <PrivateRoute exact path="/startContest/taglineContest">
+          <ContestCreationPage
+            title="TAGLINE"
+            contestType={CONSTANTS.TAGLINE_CONTEST}
           />
-          
-          <PrivateRoute
-            roles={['customer', 'creator']}
-            exact
-            path="/account"
-            component={UserProfile}
+        </PrivateRoute>
+
+        <PrivateRoute
+          roles={['customer']}
+          exact
+          path="/startContest/logoContest"
+        >
+          <ContestCreationPage
+            title="LOGO"
+            contestType={CONSTANTS.LOGO_CONTEST}
           />
-          <Route component={NotFound} />
-        </Switch>
-        <ChatContainer />
-      </Router>
-    );
-  }
+        </PrivateRoute>
+
+        <PrivateRoute
+          roles={['customer', 'creator']}
+          exact
+          path="/dashboard"
+          component={Dashboard}
+        />
+
+        <PrivateRoute
+          roles={['customer', 'creator']}
+          exact
+          path="/contest/:id"
+          component={ContestPage}
+        />
+
+        <PrivateRoute
+          roles={['customer', 'creator']}
+          exact
+          path="/account"
+          component={UserProfile}
+        />
+        <Route component={NotFound} />
+      </Switch>
+      <ChatContainer />
+    </Router>
+  );
 }
 
 export default App;

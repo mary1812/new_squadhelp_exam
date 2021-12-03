@@ -6,6 +6,11 @@ export const authActionLogin = (data, history) => ({
   history,
 });
 
+export const authActionRefresh = (refreshToken) => ({
+  type: ACTION.AUTH_ACTION_REFRESH,
+  data: {refreshToken}
+});
+
 export const authActionRegister = (data, history) => ({
   type: ACTION.AUTH_ACTION_REGISTER,
   data,

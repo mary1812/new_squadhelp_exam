@@ -23,3 +23,13 @@ export function* registerSaga(action) {
     yield put({ type: ACTION.AUTH_ACTION_ERROR, error: e.response });
   }
 }
+
+export function * refreshSaga (action) {
+  yield put({ type: ACTION.AUTH_ACTION_REQUEST });
+  try {
+    const {data: {data: {user}}} = yield AuthAPI.refresh(action.data);
+    yield put({ type: ACTION.AUTH_ACTION_SUCCESS, data: user });
+  } catch (error) {
+    yield put({ type: ACTION.AUTH_ACTION_ERROR, error: error.response });
+  }
+}
