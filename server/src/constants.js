@@ -1,3 +1,5 @@
+const path = require('path');
+
 const {
   env: {
     ACCESS_TOKEN_SECRET,
@@ -43,7 +45,7 @@ module.exports = {
     REJECTED: 'rejected',
     WON: 'won',
   },
-  FILES_PATH: 'public/',
+  FILES_PATH: path.resolve(__dirname, '..', 'public'),
   SOCKET_CONNECTION: 'connection',
   SOCKET_SUBSCRIBE: 'subscribe',
   SOCKET_UNSUBSCRIBE: 'unsubscribe',
