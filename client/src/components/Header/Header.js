@@ -6,20 +6,11 @@ import CONSTANTS from '../../constants';
 import { getUserAction, clearauth, headerRequest } from '../../actions/actionCreator';
 
 class Header extends React.Component {
-  componentDidMount() {
-    if (!this.props.data) {
-      this.props.getUser();
-    }
-  }
 
     logOut = () => {
       localStorage.clear();
       this.props.clearauth();
       this.props.history.replace('/login');
-    };
-
-    startContests = () => {
-      this.props.history.push('/startContest');
     };
 
     renderLoginButtons = () => {
@@ -189,7 +180,7 @@ class Header extends React.Component {
                 </ul>
               </div>
               {this.props.data && this.props.data.role !== CONSTANTS.CREATOR
-                        && <div className={styles.startContestBtn} onClick={this.startContests}>START CONTEST</div>}
+                        && <Link className={styles.startContestBtn} to='/startContest'>START CONTEST</Link>}
             </div>
           </div>
         </div>
