@@ -21,7 +21,7 @@ const RegistrationPage = (props) => {
               to="/login"
               style={{ textDecoration: 'none' }}
             >
-              <span>Login</span>
+              <span style={{color: 'white'}}>Login</span>
             </Link>
           </div>
         </div>
