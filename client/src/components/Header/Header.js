@@ -44,7 +44,7 @@ class Header extends React.Component {
                 <li>
                   <Link to="http:/www.google.com" style={{ textDecoration: 'none' }}><span>Affiliate Dashboard</span></Link>
                 </li>
-                <li><span onClick={this.logOut}>Logout</span></li>
+                <li><Link><span onClick={this.logOut}>Logout</span></Link></li>
               </ul>
             </div>
             <img src={`${CONSTANTS.STATIC_IMAGES_PATH}email.png`} className={styles.emailIcon} alt="email" />
