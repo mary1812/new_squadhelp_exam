@@ -30,6 +30,42 @@ export default {
   CREATE_NEW_CATALOG_AND_ADD_CHAT: 'CREATE_NEW_CATALOG_AND_ADD_CHAT',
   USER_INFO_MODE: 'USER_INFO_MODE',
   CASHOUT_MODE: 'CASHOUT_MODE',
+  SECTION_CARDS_ITEMS: [{
+    img: {
+      src: '',
+      alt: 'Group of creative experts'
+    },
+    header: 'Launch a Contest',
+    text: 'Work with hundreds of creative experts to get custom name suggestions for your business or brand. All names are auto-checked for URL availability.',
+    link: {
+      href: '/',
+      text: 'Launch a Contest'
+    }
+  },
+  {
+    img: {
+      src: '',
+      alt: 'Computer with page of names'
+    },
+    header: 'Explore Names For Sale',
+    text: 'Our branding team has curated thousands of pre-made names that you can purchase instantly. All names include a matching URL and a complimentary Logo Design.',
+    link: {
+      href: '/',
+      text: 'Explore Names For Sale'
+    }
+  },
+  {
+    img: {
+      src: '',
+      alt: 'Hand with the light'
+    },
+    header: 'Agency-level Managed Contests',
+    text: 'Our Managed contests combine the power of crowdsourcing with the rich experience of our branding consultants. Get a complete agency-level experience at a fraction of Agency costs.',
+    link: {
+      href: '/',
+      text: 'Learn More'
+    }
+  }],
   HEADER_ANIMATION_TEXT: [
     'a Company',
     'a Brand',
