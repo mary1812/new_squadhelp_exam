@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './Header.module.sass';
+import HowItWorks from '../../pages/HowItWorks/HowItWorks';
+import HowItWorksComponent from '../HowItWorksComponent/HowItWorksComponent';
 import CONSTANTS from '../../constants';
 import { clearauth, headerRequest } from '../../actions/actionCreator';
 
@@ -117,7 +119,7 @@ class Header extends React.Component {
                       alt="menu"
                     />
                     <ul>
-                      <li><a href="http://www.google.com">HOW IT WORKS</a></li>
+                      <li><Link to="./howitworks">HOW IT WORKS</Link></li>
                       <li><a href="http://www.google.com">PRICING</a></li>
                       <li><a href="http://www.google.com">AGENCY SERVICE</a></li>
                       <li><a href="http://www.google.com">ACTIVE CONTESTS</a></li>
