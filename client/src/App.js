@@ -2,6 +2,7 @@ import React, { Component, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { ToastContainer } from 'react-toastify';
+import HowItWorks from './pages/HowItWorks/HowItWorks';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import Payment from './pages/Payment/Payment';
@@ -48,6 +49,7 @@ function App(props) {
         pauseOnHover
       />
       <Switch>
+        <Route exact path="/howitworks" component={HowItWorks}/>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/registration" component={RegistrationPage} />
