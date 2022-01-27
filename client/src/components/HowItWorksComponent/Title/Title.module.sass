@@ -1,16 +1,22 @@
 $hColor: #1E2022
 $pColor: #77838F
 $bColor: #377DFF
+$aColor: #FFFFFF
+  
 
-
-.sectionContainer
+.titleContainer
   display: flex
   align-items: center
   justify-content: space-between
-  font-family: 'Poppins', sans-serif
+  font-family: Poppins, sans-serif
   line-height: 1.5
   padding: 32px 15px
-
+  
+.textSection
+  width: 50%
+  height: 1000
+  padding: 0px 15px  
+   
   small
     color: $bColor
     font-size: 11px
@@ -28,10 +34,21 @@ $bColor: #377DFF
    font-weight: 600
    margin-bottom: 8px
    
+  
   p 
     color: $pColor
     margin-bottom: 16px
+
+  a
+    color: $aColor
+    background-color: $bColor 
+    border-radius: 99px
+    box-sizing: border-box
+    padding: 12px 16px
+    min-width: 155px
+    cursor: pointer
     
+  a::before
+    content: "\25B6"
     
-  
   
