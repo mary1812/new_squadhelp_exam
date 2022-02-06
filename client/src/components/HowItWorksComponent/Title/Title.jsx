@@ -1,26 +1,43 @@
-import React from 'react';
-import styles from './Title.module.sass'
-// import title from "../../../../public/staticImages/howItWorksImages/titleChange.png"
-import CONSTANTS from '../../../constants';
-
+import React from "react";
+import { Button } from "react-bootstrap";
+import CONSTANTS from "../../../constants";
 
 const Title = () => {
   return (
-    <div>
-      <div className={styles.titleContainer}>
-        <section className={styles.textSection}>
-        <small>World's #1 Naming Platform</small>
-        <h1>How Does Squadhelp Work?</h1>
-        <p>Squadhelp helps you come up with a great name for your business by combining the power of crowdsourcing with sophisticated technology and Agency-level validation services.</p>
-        <a className="text"> <span className="playVideo" ></span>  Play Video</a>
-        </section>
-
-        <section className={styles.imgSection}>
-        <img src={`${CONSTANTS.STATIC_IMAGES_PATH}titlePhone.png`} alt="Smartphone" />
-        </section>
+    <>
+      <div className="container-space-1">
+        <div className="container">
+        <div className="row justify-content-lg-between align-items-center">
+          <div className="col col-lg-6">
+            <small className="btn btn-xs btn-soft-primary btn-pill mb-2 disabled" >
+              World's #1 Naming Platform
+            </small>
+            <div className="mb-4">
+              <h1 className="h1">How Does Squadhelp Work?</h1>
+              <p>
+                Squadhelp helps you come up with a great name for your business
+                by combining the power of crowdsourcing with sophisticated
+                technology and Agency-level validation services.
+              </p>
+              <div className="mb-9">
+              <Button className = "btn transition-3d-hover mb-2 mb-sm-0 mr-sm-2">
+                 {" "}Play Video{" "} 
+              </Button>
+              </div>
+            </div>
+          </div>
+          <div className="col col-lg-6 mb-4">
+            <img
+              src={`${CONSTANTS.STATIC_IMAGES_PATH}titlePhone.png`}
+              alt="Smartphone"
+            />
+          </div>
+        </div>
       </div>
-    </div>
+      </div>
+    </>
   );
-}
+};
 
 export default Title;
+
