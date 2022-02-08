@@ -1,54 +1,92 @@
-$hColor: #1E2022
-$pColor: #77838F
-$bColor: #377DFF
-$aColor: #FFFFFF
+// .btn-video::before
+//   content: '\25B6'
+  
+//   button
+//   padding: 12px 16px
+//   margin-top: 16px
+//   border-radius: 99px
+//   box-shadow: 0 4px 11px rgba(55, 125, 255, 0.35)
+//   transition: all 0.2s ease-in-out
+
+
+
+
+
+  //  $hColor: #1E2022
+// $pColor: #77838F
+// $bColor: #377DFF
+// $aColor: #FFFFFF
+  
+  
+// .titleContainer
+//   display: flex
+//   align-items: center
+//   justify-content: space-between
+//   font-family: Poppins, sans-serif
+//   line-height: 1.5
+//   padding: 32px 15px
+  
+// .textSection
+//   width: 50%
+//   height: 1000
+//   padding: 0px 15px  
+   
+//   small
+//     color: $bColor
+//     font-size: 11px
+//     cursor: default
+//     background: #377DFF1A
+//     display: inline-block
+//     border-radius: 15px
+//     margin-bottom: 8px
+//     padding: 7px 15px
   
 
-.titleContainer
-  display: flex
-  align-items: center
-  justify-content: space-between
-  font-family: Poppins, sans-serif
-  line-height: 1.5
-  padding: 32px 15px
-  
-.textSection
-  width: 50%
-  height: 1000
-  padding: 0px 15px  
+//   h1
+//    color: $hColor
+//    font-size: 40px
+//    font-weight: 600
+//    margin-bottom: 8px
    
-  small
-    color: $bColor
-    font-size: 11px
-    cursor: default
-    background: #377DFF1A
-    display: inline-block
-    border-radius: 15px
-    margin-bottom: 8px
-    padding: 7px 15px
   
+//   p 
+//     color: $pColor
+//     margin-bottom: 16px
 
-  h1
-   color: $hColor
-   font-size: 40px
-   font-weight: 600
-   margin-bottom: 8px
-   
-  
-  p 
-    color: $pColor
-    margin-bottom: 16px
+//   a
+//     color: $aColor
+//     background-color: $bColor 
+//     border-radius: 99px
+//     box-sizing: border-box
+//     padding: 12px 16px
+//     min-width: 155px
+//     cursor: pointer
+    
+//   a::before
+//     content: "\25B6"
+    
+
+.titleContainer                
+  button
+    padding: 12px 16px
+    margin-top: 16px
+    border-radius: 99px
+    box-shadow: 0 4px 11px rgba(55, 125, 255, 0.35)
+    transition: all 0.2s ease-in-out
+
+  a:hover 
+    transform: translateY(-3px) 
+    transition: all 0.2s ease-in-out
+    box-shadow: 0 4px 11px rgba(55, 125, 255, 0.35)
+
+  a:focus 
+    outline: 0 none
+    box-shadow: 0   
 
   a
-    color: $aColor
-    background-color: $bColor 
-    border-radius: 99px
-    box-sizing: border-box
     padding: 12px 16px
-    min-width: 155px
-    cursor: pointer
-    
-  a::before
-    content: "\25B6"
-    
-  
+
+  button:hover
+    transform: translateY(-3px)
+  button::before
+    content: '\25B6'

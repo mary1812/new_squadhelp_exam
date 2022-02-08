@@ -1,11 +1,12 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import CONSTANTS from "../../../constants";
+import styles from "./Title.module.sass";
 
 const Title = () => {
   return (
     <>
-      <div className="container-space-1">
+      <div className={`container-space-1 ${styles.titleContainer}`}>
         <div className="container">
         <div className="row justify-content-lg-between align-items-center">
           <div className="col col-lg-6">
@@ -20,13 +21,13 @@ const Title = () => {
                 technology and Agency-level validation services.
               </p>
               <div className="mb-9">
-              <Button className = "btn transition-3d-hover mb-2 mb-sm-0 mr-sm-2">
+              <Button className = "btn btn-video transition-3d-hover mb-2 mb-sm-0 mr-sm-2">
                  {" "}Play Video{" "} 
               </Button>
               </div>
             </div>
           </div>
-          <div className="col col-lg-6 mb-4">
+          <div className="col col-lg-5 mb-4">
             <img
               src={`${CONSTANTS.STATIC_IMAGES_PATH}titlePhone.png`}
               alt="Smartphone"
@@ -35,6 +36,7 @@ const Title = () => {
         </div>
       </div>
       </div>
+     
     </>
   );
 };

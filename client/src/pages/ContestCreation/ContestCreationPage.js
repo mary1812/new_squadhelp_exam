@@ -1,23 +1,31 @@
-import React, { useRef } from 'react';
-import { connect } from 'react-redux';
-import styles from './ContestCreationPage.module.sass';
-import { saveContestToStore, clearDataForContest } from '../../actions/actionCreator';
-import NextButton from '../../components/NextButton/NextButton';
-import ContestForm from '../../components/ContestForm/ContestForm';
-import BackButton from '../../components/BackButton/BackButton';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
-import { useHistory } from 'react-router';
+import React, { useRef } from "react";
+import { connect } from "react-redux";
+import styles from "./ContestCreationPage.module.sass";
+import {
+  saveContestToStore,
+  clearDataForContest,
+} from "../../actions/actionCreator";
+import NextButton from "../../components/NextButton/NextButton";
+import ContestForm from "../../components/ContestForm/ContestForm";
+import BackButton from "../../components/BackButton/BackButton";
+import ProgressBar from "../../components/ProgressBar/ProgressBar";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import { useHistory } from "react-router";
 
 const ContestCreationPage = (props) => {
   const formRef = useRef();
   const history = useHistory();
-  const contestData = props.contestStore.contests[props.contestType] ? props.contestStore.contests[props.contestType] : { contestType: props.contestType };
+  const contestData = props.contestStore.contests[props.contestType]
+    ? props.contestStore.contests[props.contestType]
+    : { contestType: props.contestType };
 
   const handleSubmit = (values) => {
     props.saveContest({ type: props.contestType, info: values });
-    const route = props.bundleStore.bundle[props.contestType] === 'payment' ? '/payment' : `${props.bundleStore.bundle[props.contestType]}Contest`;
+    const route =
+      props.bundleStore.bundle[props.contestType] === "payment"
+        ? "/payment"
+        : `${props.bundleStore.bundle[props.contestType]}Contest`;
     history.push(route);
   };
 
@@ -27,18 +35,17 @@ const ContestCreationPage = (props) => {
     }
   };
 
-  !props.bundleStore.bundle && history.replace('/startContest');
+  !props.bundleStore.bundle && history.replace("/startContest");
 
   return (
     <div>
       <Header />
       <div className={styles.startContestHeader}>
         <div className={styles.startContestInfo}>
-          <h2>
-            {props.title}
-          </h2>
+          <h2>{props.title}</h2>
           <span>
-            Tell us a bit more about your business as well as your preferences so that creatives get a better idea about what you are looking for
+            Tell us a bit more about your business as well as your preferences
+            so that creatives get a better idea about what you are looking for
           </span>
         </div>
         <ProgressBar currentStep={2} />
@@ -71,11 +78,12 @@ const mapStateToProps = (state) => {
   return { contestStore, bundleStore };
 };
 
-const mapDispatchToProps = (dispatch) => (
-  {
-    saveContest: (data) => dispatch(saveContestToStore(data)),
-    clearDataForContest: () => dispatch(clearDataForContest()),
-  }
-);
+const mapDispatchToProps = (dispatch) => ({
+  saveContest: (data) => dispatch(saveContestToStore(data)),
+  clearDataForContest: () => dispatch(clearDataForContest()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContestCreationPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContestCreationPage);
