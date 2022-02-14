@@ -80,8 +80,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Contest',
-      timestamps: false,
+      modelName: 'Contest'
     }
   );
   return Contest;
