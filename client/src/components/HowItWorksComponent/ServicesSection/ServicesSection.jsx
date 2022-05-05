@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./ServicesSection.module.sass";
-import { Card, CardGroup, Button, Row, Col, Stack } from "react-bootstrap";
+import styles from "./ServicesSection.module.sass"
+import { Card,  Button} from "react-bootstrap";
 import CONSTANTS from "../../../constants";
 
 const ServicesSection = () => {
   return (
-    <div className="container ">
+    <div className={styles.btnCard}>
       <div className="my-5 w-md-80 w-lg-80 text-center mx-md-auto mb-9">
         <small className="btn btn-xs btn-soft-primary btn-pill mb-2 disabled">
           Our Services
@@ -31,7 +31,7 @@ const ServicesSection = () => {
               suggestions for your business or brand. All names are auto-checked
               for URL availability.
             </Card.Text>
-            <Button variant="primary" className="btn-card">Go somewhere</Button>
+            <Button variant="primary" >Launch a Contest</Button>
           </Card.Body >
         </Card>
         <Card style={{ width: "350px" }}  className="py-5">
