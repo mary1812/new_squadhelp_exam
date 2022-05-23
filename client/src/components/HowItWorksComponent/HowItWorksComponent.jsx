@@ -6,21 +6,27 @@ import ContestsWork from "./ContestsWork/ContestsWork";
 import Questions from "./Questions/Questions";
 import StatInformation from "./StatInformation/StatInformation";
 import { Container } from "react-bootstrap";
+import GetStarted from "./GetStarted/GetStarted";
+import ContactInformation from "./ContactInformation/ContactInformation";
 
 const HowItWorksComponent = () => {
   return (
-    <Container>
-      <div className={styles.mainContainer}>
-        <Title />
-        <ServicesSection />
-        <ContestsWork />
-        <Questions />
+    <div>
+      <Container className={styles.mainContainer}>
+        <div >
+          <Title />
+          <ServicesSection />
+          <ContestsWork />
+          <Questions />
+        </div>
+      </Container>
+      <GetStarted />
+      <Container className={styles.mainContainer}>
         <StatInformation />
-      </div>
-    </Container>
+        <ContactInformation/>
+      </Container>
+    </div>
   );
 };
 
 export default HowItWorksComponent;
-
-// className={styles.mainContainer}
