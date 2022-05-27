@@ -8,6 +8,7 @@ import StatInformation from "./StatInformation/StatInformation";
 import { Container } from "react-bootstrap";
 import GetStarted from "./GetStarted/GetStarted";
 import ContactInformation from "./ContactInformation/ContactInformation";
+import Footer from "./Footer/Footer";
 
 const HowItWorksComponent = () => {
   return (
@@ -23,7 +24,8 @@ const HowItWorksComponent = () => {
       <GetStarted />
       <Container className={styles.mainContainer}>
         <StatInformation />
-        <ContactInformation/>
+        <ContactInformation />
+        <Footer/>
       </Container>
     </div>
   );
