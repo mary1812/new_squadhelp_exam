@@ -5,7 +5,7 @@ import styles from "./ContactInformation.module.sass";
 const ContactInformation = () => {
   return (
     <div>
-      <div className="row no-gutters align-items-lg-center mb-5 mt-5">
+      <div className="row no-gutters align-items-lg-center justify-content-center mb-5 mt-5">
         <div className="col-lg-6 shadow-lg rounded">
           <div className="py-5 px-5 px-sm-9">
             <ul className={`${styles.contactInfo} list-unstyled p-0`}>
