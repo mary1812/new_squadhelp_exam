@@ -1,0 +1,24 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.timer{
+  padding: 15px 30px;
+  background-color: bisque;
+
+}
+
+.headerTimer{
+font-size: 24px;
+padding: 10px 2px;
+}
+
+.firstTimer{
+  display: flex;
+}
+
+.counter{
+  display: flex;
+}
