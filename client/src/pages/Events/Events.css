@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.eventsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
