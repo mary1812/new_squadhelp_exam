@@ -1,0 +1,32 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.inputdataEvents{
+  display:flex;
+  flex-direction: column;
+}
+
+.headerCreateTimer{
+  font-size: 30px;
+}
+
+.buttonCreateTimer{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.inputForm{
+  display: flex;
+  flex-direction: column;
+}
