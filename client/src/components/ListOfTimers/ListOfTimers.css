@@ -5,5 +5,54 @@
 }
 
 .listTimersContainer{
-  background-color: aqua;
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.progressLabel {
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+  max-height: 50px;
+  padding-left: 10px;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+}
+
+.remainingTime{
+  display: flex;
+} 
+.headerOfListTimers{
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+.listOfEvents{
+  margin-top: 20px;
+}
+
+.faBtn{
+  height: 100%;
+  background-color: transparent;
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
+}
+
+.btnDeleteDone{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: min-content;
+  margin-left: 10px;
+}
+
+.wrapperBtnProgress{
+  display: flex;
 }
