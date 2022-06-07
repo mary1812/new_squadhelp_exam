@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
 import './CountdownTimer.css';
-import Box from '@mui/material/Box';
 
 const CountdownTimer = (props) => { 
   const [timerDays, setTimerDays] = useState('00');
@@ -45,7 +44,7 @@ const CountdownTimer = (props) => {
   return (
     <div>
       <section className='timerContainer'>
-        <h2 className='headerTimer'>Live upcomming checks</h2>
+        {/* <h2 className='headerTimer'>Live upcomming checks</h2> */}
         <section className='timer'>
           <div className='firstTimer'>
             <section className='counter'>
