@@ -5,11 +5,11 @@ import { Formik, Field, Form } from "formik";
 import "./CreateNewTimer.css";
 
 const CreateNewTimer = () => {
-  // const [value, setValue] = useState('');
   const [events, setEvents] = useContext(TimerContext);
 
   const addEvents = (eventName, eventEndDate, eventNotification) => {
     const newEvent = {
+      eventCreateDate: Date.now(),
       eventName: eventName,
       eventEndDate: eventEndDate,
       eventNotification: eventNotification,
@@ -18,17 +18,6 @@ const CreateNewTimer = () => {
     setEvents(newEvents);
   };
 
-  // console.log(events);
-  // window.localStorage.events = JSON.stringify(events);
-
-  // const getFieldValue = (event) => {
-  //   const userValue = event.target.value;
-  //   console.log(userValue);
-  // }
-  // const changeValue = (event) => {
-  //   setValue({value: event.target.value})
-  // }
-  
   const submitHandler = (values, formikBag) => {
     const { eventName, eventEndDate, eventNotification } = values;
     addEvents(eventName, eventEndDate, eventNotification);
@@ -48,10 +37,9 @@ const CreateNewTimer = () => {
         onSubmit={submitHandler}
       >
         <Form className="inputForm">
-          <Field type="name" placeholder="enter event name" name="eventName" />
-          <Field type="date" name="eventEndDate" />
-          <Field type="date" name="eventNotification" />
-          {/* <input value={value} onChange={changeValue}/> */}
+          <Field type="name" placeholder="enter event name" name="eventName" className="fieldName" required/>
+          <Field type="date" name="eventEndDate" className="fieldEventDate" required/>
+          <Field type="date" name="eventNotification" className="fieldNotificationDate" required />
           <button type="submit" className="buttonCreateTimer">
             Create
           </button>
