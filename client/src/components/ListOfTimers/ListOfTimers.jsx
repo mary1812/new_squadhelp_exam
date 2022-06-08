@@ -19,29 +19,32 @@ const ListOfTimers = () => {
       <section key={event.eventName} className="listOfEvents">
         <div className="wrapperBtnProgress">
           <div>
-        <Grid container spacing={1} justify="space-between">
-          <Grid item xs={12} spacing={0}>
-            <div>
-              <span className="progressLabel">{event.eventName}</span>
-            </div>
-            <TimerProgressBar
-              progressDate={event.eventEndDate}
-              createDate={event.eventCreateDate}
-            />
-            <CountdownTimer countdownDate={event.eventEndDate} />
-          </Grid>
+            <Grid container spacing={1} justify="space-between">
+              <Grid item xs={12} spacing={0}>
+                <div>
+                  <span className="progressLabel">{event.eventName}</span>
+                </div>
+                <TimerProgressBar
+                  progressDate={event.eventEndDate}
+                  createDate={event.eventCreateDate}
+                  color={Date.now()>= Date.parse(event.eventEndDate) ? "secondary" : "primary"}
+                />
+                <CountdownTimer countdownDate={event.eventEndDate} />
+              </Grid>
             </Grid>
-            </div>
-        <div className="btnDelete">
-          <button className="faBtnDelete" onClick={() => {
-              event.isDeleted = !event.isDeleted;
-              setEvents(events.filter((event) => !event.isDeleted));
-            }}>
-            <i class="far fa-trash-alt"></i>
-          </button>
-         
           </div>
+          <div className="btnDelete">
+            <button
+              className="faBtnDelete"
+              onClick={() => {
+                event.isDeleted = !event.isDeleted;
+                setEvents(events.filter((event) => !event.isDeleted));
+              }}
+            >
+              <i class="far fa-trash-alt"></i>
+            </button>
           </div>
+        </div>
       </section>
     );
   });
