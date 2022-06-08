@@ -5,8 +5,8 @@
 }
 
 .listTimersContainer{
+  min-width: 500px;
   background-color: #FFFFFF;
-  border: 1px solid black;
   border-radius: 5px;
   padding: 15px;
 }
@@ -37,7 +37,7 @@
   margin-top: 20px;
 }
 
-.faBtn{
+.faBtnDelete{
   height: 100%;
   background-color: transparent;
   padding: 3px;
@@ -45,7 +45,7 @@
   border-radius: 10px;
 }
 
-.btnDeleteDone{
+.btnDelete{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
