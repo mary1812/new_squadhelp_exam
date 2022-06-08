@@ -1,11 +1,8 @@
 import React, { useState, useMemo } from "react";
 import "./Events.css";
 import { TimerContext } from "../../contexts";
-
 import ListOfTimers from "../../components/ListOfTimers/ListOfTimers";
 import CreateNewTimer from "../../components/CreateNewTimer/CreateNewTimer";
-import TimerProgressBar from "../../components/TimerProgressBar";
-
 const Events = () => {
   const [events, setEvents] = useState([]);
 
@@ -15,14 +12,12 @@ const Events = () => {
     }
   }, []);
 
-
   return (
     <TimerContext.Provider value={[events, setEvents]}>
       <div className="eventsContainer">
         <ListOfTimers />
         <CreateNewTimer />
       </div>
-      {/* <TimerProgressBar/> */}
     </TimerContext.Provider>
   );
 };
