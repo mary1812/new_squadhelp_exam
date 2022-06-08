@@ -9,6 +9,8 @@ const Events = () => {
   useMemo(() => {
     if (window.localStorage.getItem('events') !== null) {      
       setEvents(JSON.parse(window.localStorage.events))
+    } else {
+      setEvents([])
     }
   }, []);
 
