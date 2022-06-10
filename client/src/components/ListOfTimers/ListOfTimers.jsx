@@ -8,7 +8,6 @@ import TimerProgressBar from "../TimerProgressBar/TimerProgressBar";
 
 const ListOfTimers = () => {
   const [events, setEvents] = useContext(TimerContext);
-
   console.log(events);
   if (events.length >= 0) {
     window.localStorage.events = JSON.stringify(events);
@@ -27,6 +26,8 @@ const ListOfTimers = () => {
                 <TimerProgressBar
                   progressDate={event.eventEndDate}
                   createDate={event.eventCreateDate}
+                  eventEndTime={event.eventEndTime}
+                  eventNotificationTime={event.eventNotificationTime}
                   color={Date.now()>= Date.parse(event.eventEndDate) ? "secondary" : "primary"}
                 />
                 <CountdownTimer countdownDate={event.eventEndDate} />
