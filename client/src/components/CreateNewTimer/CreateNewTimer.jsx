@@ -39,7 +39,6 @@ const CreateNewTimer = () => {
       eventEndTime,
       eventNotificationTime
     );
-    console.log( eventEndDate + ' ' + eventEndTime)
     formikBag.resetForm();
   };
 

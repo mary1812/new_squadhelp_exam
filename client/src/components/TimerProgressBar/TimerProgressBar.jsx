@@ -13,29 +13,10 @@ export default function TimerProgressBar(props) {
     );
   }
   const [progress, setProgress] = React.useState(dateInPercent());
-  // setProgress(dateInPercent)
-
-  // React.useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setProgress((oldProgress) => {
-  //       if (oldProgress === 100) {
-  //         return 0;
-  //       }
-  //       const diff = Math.random() * 10;
-  //       return Math.min(oldProgress + diff, 100);
-  //     });
-  //   }, 500);
-
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, []);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      console.log(progress);
-      console.log(msTime);
-      
+    
       setProgress((oldProgress) =>
         oldProgress >= 100
           ? 0
@@ -50,12 +31,13 @@ export default function TimerProgressBar(props) {
   }, [setProgress]);
 
   return (
-    <div>
+    <div className="muiProgressBar">
       <LinearProgress
         variant="determinate"
         color={props.color}
-        value={progress}
+        value={progress >= 100 ? 0 : progress}
         style={{ height: "50px", borderRadius: "5px" }}
+        classname="linearProgress"
       />
     </div>
   );
