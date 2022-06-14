@@ -9,3 +9,23 @@
   justify-content: space-around;
   margin-top: 50px;
 }
+
+@media screen and (max-width: 1024px){
+ .eventsContainer{
+   display: flex;
+   flex-direction: column;
+ } 
+
+ .createNewTimer{
+   display: flex;
+   justify-content: center;
+ }
+ 
+} 
+@media screen and (min-width: 320px) and (max-width: 420px) {
+  .createNewTimer{
+    margin-left: 80px;
+    display: flex;
+    justify-content: center;
+  }
+}

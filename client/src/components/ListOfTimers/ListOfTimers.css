@@ -56,3 +56,35 @@
 .wrapperBtnProgress{
   display: flex;
 }
+
+@media screen and (max-width:1024px) {
+  .headerOfListTimers{
+    display: flex;
+    justify-content:space-around;
+
+  }
+  .wrapperBtnProgress{
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .progressBarBtn{
+    max-width: 400px;
+    justify-content: center;
+  }
+
+  .firstTimer{
+    margin-right: 200px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .progressBarBtn{
+    max-width: 300px;
+    justify-content: center;
+  }
+  .firstTimer{
+    margin-right: 300px;
+  }
+} 

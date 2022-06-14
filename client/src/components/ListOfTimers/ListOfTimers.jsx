@@ -8,7 +8,6 @@ import TimerProgressBar from "../TimerProgressBar/TimerProgressBar";
 
 const ListOfTimers = () => {
   const [events, setEvents] = useContext(TimerContext);
-  console.log(events);
   if (events.length >= 0) {
     window.localStorage.events = JSON.stringify(events);
   }
@@ -17,7 +16,7 @@ const ListOfTimers = () => {
     return (
       <section key={event.eventName} className="listOfEvents">
         <div className="wrapperBtnProgress">
-          <div>
+          <div className="progressBarBtn">
             <Grid container spacing={1} justify="space-between">
               <Grid item xs={12} spacing={0}>
                 <div>

@@ -3,6 +3,7 @@ import "./Events.css";
 import { TimerContext } from "../../contexts";
 import ListOfTimers from "../../components/ListOfTimers/ListOfTimers";
 import CreateNewTimer from "../../components/CreateNewTimer/CreateNewTimer";
+import NotificationCircle from "../../components/NotificationCircle/NotificationCircle";
 const Events = () => {
   const [events, setEvents] = useState([]);
 
@@ -17,8 +18,9 @@ const Events = () => {
   return (
     <TimerContext.Provider value={[events, setEvents]}>
       <div className="eventsContainer">
-        <ListOfTimers />
-        <CreateNewTimer />
+        <div className="listOfTimers"><ListOfTimers /></div>
+        <div className="createNewTimer"><CreateNewTimer /></div>
+        <NotificationCircle/>
       </div>
     </TimerContext.Provider>
   );
