@@ -57,21 +57,3 @@
   font-size: 12px;
   color: #1976d2;
 }
-
-::-webkit-input-placeholder {
-  font-family: Georgia;
-  font-size: 12px;
-}
-::-moz-placeholder {
-  font-family: Georgia;
-  font-size: 12px;
-}
-:-ms-input-placeholder {
-  font-family: Georgia;
-  font-size: 12px;
-}
-:-moz-placeholder {
-  font-family: Georgia;
-  font-size: 12px;
-}
-
