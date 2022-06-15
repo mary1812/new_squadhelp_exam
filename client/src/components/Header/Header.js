@@ -6,6 +6,7 @@ import HowItWorks from "../../pages/HowItWorks/HowItWorks";
 import HowItWorksComponent from "../HowItWorksComponent/HowItWorksComponent";
 import CONSTANTS from "../../constants";
 import { clearauth, headerRequest } from "../../actions/actionCreator";
+import NotificationCircle from "../NotificationCircle/NotificationCircle";
 
 class Header extends React.Component {
   logOut = () => {
@@ -33,14 +34,21 @@ class Header extends React.Component {
             />
             <ul>
               <li>
-                <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                <Link to="/dashboard" style={{ textDecoration: "none"}}>
                   <span>View Dashboard</span>
                 </Link>
               </li>
               <li>
-                <Link to="/account" style={{ textDecoration: "none" }}>
+                <Link to="/account" >
                   <span>My Account</span>
                 </Link>
+              </li>
+              <li>
+              {this.props.data && this.props.data.role !== CONSTANTS.CREATOR && (
+              <Link to="/events" style={{ textDecoration: "none"}}>
+                <NotificationCircle />
+              </Link>
+            )}
               </li>
               <li>
                 <Link
