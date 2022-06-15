@@ -13,7 +13,7 @@
 @media screen and (max-width: 1024px){
  .eventsContainer{
    display: flex;
-   flex-direction: column;
+   flex-direction: column-reverse;
  } 
 
  .createNewTimer{
