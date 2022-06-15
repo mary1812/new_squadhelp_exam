@@ -11,10 +11,13 @@ const ListOfTimers = () => {
   if (events.length >= 0) {
     window.localStorage.events = JSON.stringify(events);
   }
+  const compireDates = (event1, event2) => {
+    return Date.parse(event1.eventEndDate) - Date.parse(event2.eventEndDate)
+  }
 
-  const eventsArray = events.map((event) => {
+  const eventsArray = events.sort(compireDates).map((event) => {
     return (
-      <section key={event.eventName} className="listOfEvents">
+      <section key={event.eventName + event.eventEndDate} className="listOfEvents">
         <div className="wrapperBtnProgress">
           <div className="progressBarBtn">
             <Grid container spacing={1} justify="space-between">
@@ -27,7 +30,7 @@ const ListOfTimers = () => {
                   createDate={event.eventCreateDate}
                   eventEndTime={event.eventEndTime}
                   eventNotificationTime={event.eventNotificationTime}
-                  color={Date.now()>= Date.parse(event.eventEndDate) ? "secondary" : "primary"}
+                  color={Date.now()>= Date.parse(event.eventNotification) ? (Date.now() >= Date.parse(event.eventEndDate) ? "inherit" : "error") : "success"}
                 />
                 <CountdownTimer countdownDate={event.eventEndDate} />
               </Grid>
