@@ -21,7 +21,7 @@ const NotificationCircle = () => {
   return (
     <div className="badgeWithCircle">
       <Badge badgeContent={count} color="primary" className="badgeCircle">
-        <p className="eventIcon">events</p>
+        <p className="eventIcon">Events</p>
       </Badge>
     </div>
   );
