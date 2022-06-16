@@ -4,18 +4,19 @@ import "./NotificationCircle.css";
 
 const NotificationCircle = () => {
   const [count, setCount] = useState(0);
-  const eventsFromStore = JSON.parse(window.localStorage.events);
-
+  
   useEffect(() => {
-    for (let i = 0; i < eventsFromStore.length; i++){
-      if (Date.now() >= Date.parse(eventsFromStore[i].eventNotification)){
-        setCount(prevState => prevState + 1)
-      }
-      console.log(count)
-      console.log(eventsFromStore.eventNotification)
-      console.log(Date.parse(eventsFromStore[0].eventNotification))
-     
+    if (window.localStorage.getItem('events') !== null) {
+      const eventsFromStore = JSON.parse(window.localStorage.events);
+      for (let i = 0; i < eventsFromStore.length; i++){
+        if (Date.now() >= Date.parse(eventsFromStore[i].eventNotification)){
+          setCount(prevState => prevState + 1)
+        }}
     }
+    else {
+      setCount(0)
+    }
+    
   }, []);
 
   return (
