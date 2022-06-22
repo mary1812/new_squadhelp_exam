@@ -1,8 +1,14 @@
 .inActive{
   color: #77838f;
   font-weight: 400;
-  border: 0.5px solid #77838f;
-  border-radius: 3px;
+  border: 0.5px solid #c0c6cd83;
+  border-radius: 5px;
+  min-height: 110px;
+  max-height: 110px;
+}
+
+.textInCard{
+  max-width: 285px;
 }
 
 .notActive:hover{
@@ -34,6 +40,8 @@
 }
 
 .textInBadge{
+  word-wrap: break-word;
+  text-align: center;
   font-size: 12px;
 }
 
