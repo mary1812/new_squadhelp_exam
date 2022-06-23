@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ButtonComponent.css";
 
 export default function ButtonComponent(props) {
-
+  
   return (
         <div
           class={`card card-frame text-center mb-5 inActive ${
