@@ -42,8 +42,8 @@ const StatInformation = () => {
               ></img>
               <p className="mb-0">
                 <span className="text-dark fw-normal"> 140+ Industries </span>
-                 supported <br/> across more than
-                <span className="text-dark fw-normal"> 85 countries </span> <br/> -
+                supported <br/> across more than
+                <span className="text-dark fw-normal"> 85 countries </span> <br /> -
                 and counting.
               </p>
             </div>
@@ -91,3 +91,13 @@ export default StatInformation;
 //   counting.
 // </p>
 // </Col>
+
+{/* <div
+  class="vr"
+  style={{
+    height: "60px",
+    transform: "rotate(20deg)",
+    position: "absolute",
+    marginLeft: "150px",
+  }}
+/>; */}

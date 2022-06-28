@@ -10,7 +10,7 @@ const Title = () => {
         <div className="container">
         <div className="row justify-content-lg-between align-items-center">
           <div className="col col-lg-6">
-            <small className="btn btn-xs btn-soft-primary btn-pill mb-2 disabled" >
+            <small className="btn btn-xs btn-soft-primary btn-pill mb-2 pe-none " >
               World's #1 Naming Platform
             </small>
             <div className="mb-4">

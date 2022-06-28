@@ -28,7 +28,7 @@ const QuestionBox = ({ dataForQuestionBox, index }) => {
           <span className={arrowClasses}></span>
         </Button>
         <Collapse
-          style={{ padding: "16px", border: "1px solid #e7eaf3" }}
+          style={{ padding: "16px", border: "1px solid #e7eaf3"}}
           in={open}
         >
           <div id="example-collapse-text">{dataForQuestionBox.answer}</div>

@@ -4,8 +4,9 @@ import styles from "./ContestsWork.module.sass"
 
 const ContestsWork = () => {
   return (
-    <div className="container space-2 space-md-3 py-5 ">
-      
+    <div className={styles.ct}>
+    <div className="cntswork border-top border-bottom space-top-1 vw-100 mt-5 mb-5">
+    <div className="container  space-2 space-md-3 py-5 mt-5 ">
       <div className="text-center">
         <img
           className="mx-auto"
@@ -21,14 +22,14 @@ const ContestsWork = () => {
             className="mx-auto me-5"
             src={`${CONSTANTS.STATIC_IMAGES_PATH}bigPictureApplicationStages.png`}
             alt="left"
-          />
+            />
+            
           {/* <img
             className="mx-auto"
             src={`${CONSTANTS.STATIC_IMAGES_PATH}liApplicationStages.png`}
             alt="list group"
           /> */}
         </div>
-
         <div className="col col-lg-5 row justify-content-lg-between align-items-center">
           
           <ul className={styles.contestList}>
@@ -70,7 +71,10 @@ const ContestsWork = () => {
           </ul>
         </div>
       </div>
+      </div>
+      </div>
     </div>
+
   );
 };
 

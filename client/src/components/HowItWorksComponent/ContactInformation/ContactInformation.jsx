@@ -27,13 +27,14 @@ const ContactInformation = () => {
                   </p>
                 </div>
               </li>
+
               <li className="border-top py-3" />
               <li className={styles.media}>
                 <span
                   className={`${styles.btnSoftPrimary} btn btn-sm btn-icon rounded-circle p-0`}
                 >
                   <span
-                    className={`${styles.fasBtn} fas fa-angle-right btn-icon__inner`}
+                    className={`${styles.fasBtn} fas fa-angle-right btn-icon__inner `}
                   ></span>
                 </span>
                 <div className="media-body">

@@ -14,18 +14,22 @@ const HowItWorksComponent = () => {
   return (
     <div>
       <Container className={styles.mainContainer}>
-        <div >
-          <Title />
-          <ServicesSection />
-          <ContestsWork />
-          <Questions />
-        </div>
+        <Title />
+        <ServicesSection />
       </Container>
-      <GetStarted />
+
+        <ContestsWork />
+
+      <Container className={styles.mainContainer}>
+      <Questions />
+      </Container>
+ 
+        <GetStarted />
+   
       <Container className={styles.mainContainer}>
         <StatInformation />
         <ContactInformation />
-        <Footer/>
+        <Footer />
       </Container>
     </div>
   );

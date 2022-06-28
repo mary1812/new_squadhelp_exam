@@ -7,7 +7,7 @@ const ServicesSection = () => {
   return (
     <div className={styles.btnCard}>
       <div className="my-5 w-md-80 w-lg-80 text-center mx-md-auto mb-9">
-        <small className="btn btn-xs btn-soft-primary btn-pill mb-2 disabled">
+        <small className="btn btn-xs btn-soft-primary btn-pill mb-2 pe-none">
           Our Services
         </small>
         <h2 className="h2 fw-normal">3 Ways To Use Squadhelp</h2>
@@ -17,7 +17,7 @@ const ServicesSection = () => {
       </div>
 
       <div  className="mx-5">
-        <div className="d-flex justify-content-around text-center ">
+        <div className="d-flex justify-content-around text-center">
         <Card style={{ width: "350px"}} className="py-5">
           <Card.Img
             className="mx-auto"
