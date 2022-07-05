@@ -1,5 +1,6 @@
 import React from 'react';
 import HowItWorksComponent from '../../components/HowItWorksComponent/HowItWorksComponent';
+import styles from "./HowItWorks.module.sass"
 
 const HowItWorks = () => {
   return (

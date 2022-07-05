@@ -18,7 +18,7 @@ const HowItWorksComponent = () => {
         <ServicesSection />
       </Container>
 
-        <ContestsWork />
+      <ContestsWork className={styles.ctnContainerWrap } />
 
       <Container className={styles.mainContainer}>
       <Questions />

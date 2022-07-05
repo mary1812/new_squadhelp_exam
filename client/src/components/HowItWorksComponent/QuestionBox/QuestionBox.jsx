@@ -22,13 +22,14 @@ const QuestionBox = ({ dataForQuestionBox, index }) => {
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
           aria-expanded={open}
+          style={{borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px"}}
         >
           {" "}
           {dataForQuestionBox.question}{" "}
           <span className={arrowClasses}></span>
         </Button>
         <Collapse
-          style={{ padding: "16px", border: "1px solid #e7eaf3"}}
+          style={{ padding: "16px", border: "1px solid #e7eaf3", borderBottomRightRadius: "5px", borderBottomLeftRadius: "5px"}}
           in={open}
         >
           <div id="example-collapse-text">{dataForQuestionBox.answer}</div>

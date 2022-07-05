@@ -16,8 +16,8 @@ const ServicesSection = () => {
         </p>
       </div>
 
-      <div  className="mx-5">
-        <div className="d-flex justify-content-around text-center">
+      <div>
+        <div className={styles.cardsSection}>
         <Card style={{ width: "350px"}} className="py-5">
           <Card.Img
             className="mx-auto"

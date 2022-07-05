@@ -7,11 +7,11 @@ const GetStarted = () => {
     <div className={styles.font}>
       <div className={styles.gradientPrimary}>
         <div className={styles.textInfo}>
-          <h3 className="h2 text-info font-weight-semi-bold mb-2">
+          <h3 className="h2 mb-2" style={{color: "#00dffc"}}>
             Ready to get started?
           </h3>
          
-          <p className="lead text-white mb-3 fw-normal">
+          <p className="h5 text-white mb-3 mt-3" style={{fontWeight: "500"}}>
             Fill out your contest brief and begin receiving custom name
             suggestions within minutes.
           </p>
@@ -21,7 +21,7 @@ const GetStarted = () => {
         <div
               class="vr"
               style={{ height: "65px", transform: "rotate(15deg)", position: "absolute",
-              marginLeft: "-230px", marginTop:"80px"}}
+              marginLeft: "-190px", marginTop:"80px"}}
             ></div>
         <div
               class="vr"
