@@ -20,15 +20,15 @@ const HowItWorksComponent = () => {
 
       <ContestsWork className={styles.ctnContainerWrap } />
 
-      <Container className={styles.mainContainer}>
+      <Container className={` px-0 ${styles.mainContainer}`}>
       <Questions />
       </Container>
  
         <GetStarted />
    
       <Container className={styles.mainContainer}>
-        <StatInformation />
-        <ContactInformation />
+        <StatInformation/>
+        <ContactInformation/>
         <Footer />
       </Container>
     </div>
