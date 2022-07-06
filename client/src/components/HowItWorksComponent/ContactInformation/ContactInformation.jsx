@@ -4,7 +4,7 @@ import styles from "./ContactInformation.module.sass";
 
 const ContactInformation = () => {
   return (
-    <div>
+    <div className="pt-3 pb-5">
       <div className="row no-gutters align-items-lg-center justify-content-center mb-5 mt-5">
         <div className="col-lg-7 shadow-lg rounded">
           <div className="py-5 px-5 px-sm-9">
@@ -44,7 +44,7 @@ const ContactInformation = () => {
                   <h4 className="h4 mb-1">Satisfaction Guarantee</h4>
                   <p className={`${styles.small} mb-4`}>
                     Of course! We have policies in place to ensure that you are
-                    satisfied with your experience.
+                    satisfied with your experience.{" "}
                     <a href="/" data-modal-effect="fadein">
                       Learn more
                     </a>

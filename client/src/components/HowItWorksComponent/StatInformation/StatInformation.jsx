@@ -5,7 +5,7 @@ import CONSTANTS from "../../../constants";
 const StatInformation = () => {
   return (
     <div>
-      <div>
+      <div className="pb-5 pt-2">
         <div className="row justify-content-lg-center">
           <div className="col-md-4 mb-7 mb-lg-0">
             <div className="u-indicator-vertical-line text-center px-5">

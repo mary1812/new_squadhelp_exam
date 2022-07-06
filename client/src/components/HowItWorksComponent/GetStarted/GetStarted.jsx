@@ -21,12 +21,12 @@ const GetStarted = () => {
         <div
               class="vr"
               style={{ height: "65px", transform: "rotate(15deg)", position: "absolute",
-              marginLeft: "-190px", marginTop:"80px"}}
+              marginLeft: "-190px", marginTop:"90px"}}
             ></div>
         <div
               class="vr"
               style={{ height: "65px", transform: "rotate(15deg)", position: "absolute",
-              marginLeft: "200px", marginTop:"80px"}}
+              marginLeft: "200px", marginTop:"90px"}}
         ></div>
       
       </div>
