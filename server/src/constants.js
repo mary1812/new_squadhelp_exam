@@ -35,6 +35,7 @@ module.exports = {
     PENDING: 'pending',
   },
   CONTESTS_DEFAULT_DIR: 'public/contestFiles/',
+  WINSTON_LOGS_PATH: 'logs/server.log',
   CONTEST_TYPES: {
     NAME: 'name',
     LOGO: 'logo',

@@ -7,7 +7,6 @@ const router = require('./router');
 const controller = require('./socketInit');
 const handlerError = require('./handlerError/handler');
 const CONSTANTS = require('./constants');
-const logger = require('./config/winston')
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -22,9 +21,4 @@ const server = http.createServer(app);
 server.listen(PORT,
   () => console.log(`Example app listening on port ${ PORT }!`));
 controller.createConnection(server);
-
-
-logger.info('text info');
-logger.warn('text warn');
-logger.error('text error');
 

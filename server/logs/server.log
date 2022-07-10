@@ -1,0 +1,43 @@
+{message: "Cannot read property 'filename' of undefined", time: 1657477252862, code: 500, stackTrace: {TypeError: Cannot read property 'filename' of undefined
+    at module.exports.parseBody (/server/src/middlewares/basicMiddlewares.js:11:47)
+    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/server/node_modules/express/lib/router/route.js:137:13)
+    at /server/src/utils/fileUpload.js:54:12
+    at Array.<anonymous> (/server/node_modules/multer/lib/make-middleware.js:53:37)
+    at listener (/server/node_modules/on-finished/index.js:169:15)
+    at onFinish (/server/node_modules/on-finished/index.js:100:5)
+    at callback (/server/node_modules/ee-first/index.js:55:10)
+    at IncomingMessage.onevent (/server/node_modules/ee-first/index.js:93:5)
+    at IncomingMessage.emit (events.js:327:22)
+    at endReadableNT (internal/streams/readable.js:1327:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)}}
+{message: "jwt expired", time: 1657477337163, code: 419, stackTrace: {TokenExpiredError: jwt expired
+    at /server/node_modules/jsonwebtoken/verify.js:152:21
+    at getSecret (/server/node_modules/jsonwebtoken/verify.js:90:14)
+    at module.exports (/server/node_modules/jsonwebtoken/verify.js:94:10)
+    at internal/util.js:297:30
+    at new Promise (<anonymous>)
+    at internal/util.js:296:12
+    at Object.module.exports.verifyAccessToken (/server/src/services/jwtService.js:43:10)
+    at module.exports.checkAccessToken (/server/src/middlewares/tokenMw.js:22:40)
+    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/server/node_modules/express/lib/router/index.js:317:13)
+    at /server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)}}
+{message: "Cannot read property 'filename' of undefined", time: 1657477337209, code: 500, stackTrace: {TypeError: Cannot read property 'filename' of undefined
+    at module.exports.parseBody (/server/src/middlewares/basicMiddlewares.js:11:47)
+    at Layer.handle [as handle_request] (/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/server/node_modules/express/lib/router/route.js:137:13)
+    at /server/src/utils/fileUpload.js:54:12
+    at Array.<anonymous> (/server/node_modules/multer/lib/make-middleware.js:53:37)
+    at listener (/server/node_modules/on-finished/index.js:169:15)
+    at onFinish (/server/node_modules/on-finished/index.js:100:5)
+    at callback (/server/node_modules/ee-first/index.js:55:10)
+    at IncomingMessage.onevent (/server/node_modules/ee-first/index.js:93:5)
+    at IncomingMessage.emit (events.js:327:22)
+    at endReadableNT (internal/streams/readable.js:1327:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)}}
