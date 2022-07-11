@@ -2,3 +2,4 @@
 node_modules/
 uploadFiles/
 sequelize-*.json
+*.log
