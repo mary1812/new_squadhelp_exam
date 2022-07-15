@@ -98,7 +98,7 @@ class Header extends React.Component {
                       alt="menu"
                     />
                     <ul>
-                      <li><a href="http://www.google.com">Beauty</a></li>
+                      <li ><a href="http://www.google.com">Beauty</a></li>
                       <li><a href="http://www.google.com">Consulting</a></li>
                       <li><a href="http://www.google.com">E-Commerce</a></li>
                       <li><a href="http://www.google.com">Fashion & Clothing</a></li>
@@ -117,64 +117,62 @@ class Header extends React.Component {
                       alt="menu"
                     />
                     <ul>
-                      <li><a href="http://www.google.com">HOW IT WORKS</a></li>
-                      <li><a href="http://www.google.com">PRICING</a></li>
-                      <li><a href="http://www.google.com">AGENCY SERVICE</a></li>
-                      <li><a href="http://www.google.com">ACTIVE CONTESTS</a></li>
-                      <li><a href="http://www.google.com">WINNERS</a></li>
-                      <li><a href="http://www.google.com">LEADERBOARD</a></li>
+                      <li><a href="http://www.google.com">How it works</a></li>
+                      <li><a href="http://www.google.com">Pricing</a></li>
+                      <li><a href="http://www.google.com">Agency service</a></li>
+                      <li><a href="http://www.google.com">Active contests</a></li>
+                      <li><a href="http://www.google.com">Winners</a></li>
+                      <li><a href="http://www.google.com">Leaderboard</a></li>
                       <li className={styles.last}>
                         <a href="http://www.google.com">
-                            BECOME A
-                            CREATIVE
+                            Become a creative
 </a>
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <span>Our Work</span>
+                    <span>OUR WORK</span>
                     <img
                       src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`}
                       alt="menu"
                     />
                     <ul>
-                      <li><a href="http://www.google.com">NAMES</a></li>
-                      <li><a href="http://www.google.com">TAGLINES</a></li>
-                      <li><a href="http://www.google.com">LOGOS</a></li>
+                      <li><a href="http://www.google.com">Names</a></li>
+                      <li><a href="http://www.google.com">Taglines</a></li>
+                      <li><a href="http://www.google.com">Logos</a></li>
                       <li className={styles.last}>
-                        <a href="http://www.google.com">TESTIMONIALS</a>
+                        <a href="http://www.google.com">Testimonials</a>
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <span>Names For Sale</span>
+                    <span>NAMES FOR SALE</span>
                     <img src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`} alt="menu" />
                     <ul>
-                      <li><a href="http://www.google.com">POPULAR NAMES</a></li>
-                      <li><a href="http://www.google.com">SHORT NAMES</a></li>
-                      <li><a href="http://www.google.com">INTRIGUING NAMES</a></li>
-                      <li><a href="http://www.google.com">NAMES BY CATEGORY</a></li>
-                      <li><a href="http://www.google.com">VISUAL NAME SEARCH</a></li>
+                      <li><a href="http://www.google.com">Popular names</a></li>
+                      <li><a href="http://www.google.com">Short names</a></li>
+                      <li><a href="http://www.google.com">Intriguing names</a></li>
+                      <li><a href="http://www.google.com">Names by category</a></li>
+                      <li><a href="http://www.google.com">Visual name search</a></li>
                       <li className={styles.last}>
                         <a href="http://www.google.com">
-                            SELL YOUR
-                            DOMAINS
+                            Sell your domains 
 </a>
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <span>Blog</span>
+                    <span>BLOG</span>
                     <img
                       src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`}
                       alt="menu"
                     />
                     <ul>
-                      <li><a href="http://www.google.com">ULTIMATE NAMING GUIDE</a></li>
-                      <li><a href="http://www.google.com">POETIC DEVICES IN BUSINESS NAMING</a></li>
-                      <li><a href="http://www.google.com">CROWDED BAR THEORY</a></li>
+                      <li><a href="http://www.google.com">Ultimate naming guide</a></li>
+                      <li><a href="http://www.google.com">Poetic devices in business naming</a></li>
+                      <li><a href="http://www.google.com">Crowded bar theory</a></li>
                       <li className={styles.last}>
-                        <a href="http://www.google.com">ALL ARTICLES</a>
+                        <a href="http://www.google.com">All articles</a>
                       </li>
                     </ul>
                   </li>
