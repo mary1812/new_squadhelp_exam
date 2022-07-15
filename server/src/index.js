@@ -24,14 +24,38 @@ setInterval(() => {
     if (err) {
       console.log("Error", err);
     } else {
-      const data = fs.readFileSync(fileName, "utf-8");
-      const dataArray = data.split(";");
-      
-      const outputArray = dataArray.map((obj) => {
-        const parsedLog = JSON.parse(obj)
-        return `{message: ${parsedLog.message}, code: ${parsedLog.code}, time: ${parsedLog.time}}`;
+      fs.readFile(fileName, "utf-8", function (error, data) {
+        if (error) {
+          console.log(error);
+        }
+        const dataArray = data.split(";");
+        dataArray.pop();
+        const outputArray = dataArray.map((logString) => {
+          console.log(logString);
+          const parsedLog = JSON.parse(logString);
+          delete parsedLog.stackTrace;
+          return parsedLog;
+        });
+
+        fs.writeFile(
+          fileName,
+          JSON.stringify(outputArray, null, 2),
+          function (err, data) {
+            if (!err) {
+              console.log("Done");
+              fs.writeFile("./logs/server.log", "", function (err, data) {
+                if (!err) {
+                  console.log("Cleared");
+                } else {
+                  console.log(err);
+                }
+              });
+            } else {
+              console.log(err);
+            }
+          }
+        );
       });
-      fs.writeFile(fileName, JSON.stringify(outputArray), console.log("Done"))
     }
   });
 }, 50000);
