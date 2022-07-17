@@ -3,7 +3,6 @@ const logger = require("./../src/config/winston");
 const CONSTANTS = require("../src/constants");
 
 const dailyReport = () => {
-  setInterval(() => {
     const fileName = `./logs/${Date.now()}.log`;
     fs.copyFile(CONSTANTS.WINSTON_LOGS_PATH, fileName, function (err) {
       if (err) {
@@ -46,8 +45,7 @@ const dailyReport = () => {
           }
         });
       }
-    });
-  }, 500000);
+  });
 };
 
 module.exports = dailyReport;

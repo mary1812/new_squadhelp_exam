@@ -36,6 +36,7 @@ module.exports = {
   },
   CONTESTS_DEFAULT_DIR: 'public/contestFiles/',
   WINSTON_LOGS_PATH: 'logs/server.log',
+  DAILY_CRON: '00 12 * * *',
   CONTEST_TYPES: {
     NAME: 'name',
     LOGO: 'logo',

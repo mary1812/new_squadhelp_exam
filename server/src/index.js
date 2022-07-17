@@ -8,6 +8,7 @@ const controller = require("./socketInit");
 const handlerError = require("./handlerError/handler");
 const CONSTANTS = require("./constants");
 const dailyReport = require("./../logger/dailyReport")
+var CronJob = require('cron').CronJob;
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -18,7 +19,13 @@ app.use("/public", express.static(CONSTANTS.FILES_PATH));
 app.use(router);
 app.use(handlerError);
 
-dailyReport ();
+var job = new CronJob(
+  CONSTANTS.DAILY_CRON,
+  function () {
+    dailyReport ();
+  }
+)
+job.start()
 
 const server = http.createServer(app);
 server.listen(PORT, () =>
