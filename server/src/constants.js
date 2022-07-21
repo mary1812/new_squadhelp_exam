@@ -27,6 +27,7 @@ module.exports = {
   ROLES: {
     CUSTOMER: 'customer',
     CREATOR: 'creator',
+    MODERATOR: 'moderator'
   },
   CREATOR_ENTRIES: 'creator_entries',
   CONTEST_STATUS: {
