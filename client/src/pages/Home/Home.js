@@ -13,6 +13,10 @@ const Home = (props) => {
   const [index, setIndex] = useState(0);
   const [styleName, setStyle] = useState(styles.headline__static);
   let timeout;
+  
+  if (props && props.data && props.data.role && props.data.role === 'moderator') {
+    props.history.replace("/moderation")
+  }
 
   useEffect(() => {
     timeout = setInterval(() => {
@@ -222,8 +226,8 @@ const Home = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { isFetching } = state.auth;
-  return { isFetching };
+  const { isFetching, data } = state.auth;
+  return { isFetching, data };
 };
 
 export default connect(mapStateToProps, null)(Home);

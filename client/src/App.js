@@ -22,6 +22,7 @@ import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatCo
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { useDispatch } from 'react-redux';
 import { authActionRefresh } from './actions/actionCreator';
+import ModeratorPage from './pages/ModeratorPage/ModeratorPage';
 
 function App(props) {
   const dispatch = useDispatch();
@@ -112,6 +113,7 @@ function App(props) {
           path="/account"
           component={UserProfile}
         />
+        <PrivateRoute roles={["moderator"]} exact path="/moderation" component={ModeratorPage} />
         <Route component={NotFound} />
       </Switch>
       <ChatContainer />
