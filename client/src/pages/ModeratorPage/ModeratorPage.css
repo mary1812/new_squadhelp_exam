@@ -1,0 +1,18 @@
+.containerModerPage{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.logoModerPage{
+  
+  display: flex;
+  
+}
