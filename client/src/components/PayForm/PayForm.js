@@ -1,12 +1,12 @@
-import React from 'react';
-import Cards from 'react-credit-cards';
-import { Form, Formik } from 'formik';
-import 'react-credit-cards/es/styles-compiled.css';
-import { connect } from 'react-redux';
-import styles from './PayForm.module.sass';
-import { changeFocusOnCard } from '../../actions/actionCreator';
-import PayInput from '../InputComponents/PayInput/PayInput';
-import Schems from '../../validators/validationSchems';
+import React from "react";
+import Cards from "react-credit-cards";
+import { Form, Formik } from "formik";
+import "react-credit-cards/es/styles-compiled.css";
+import { connect } from "react-redux";
+import styles from "./PayForm.module.sass";
+import { changeFocusOnCard } from "../../actions/actionCreator";
+import PayInput from "../InputComponents/PayInput/PayInput";
+import Schems from "../../validators/validationSchems";
 
 const PayForm = (props) => {
   const changeFocusOnCard = (name) => {
@@ -23,24 +23,26 @@ const PayForm = (props) => {
       <span className={styles.headerInfo}>Payment Information</span>
       <Formik
         initialValues={{
-          focusOnElement: '', name: '', number: '', cvc: '', expiry: '',
+          focusOnElement: "",
+          name: "",
+          number: "",
+          cvc: "",
+          expiry: "",
         }}
         onSubmit={pay}
         validationSchema={Schems.PaymentSchema}
       >
         {({ values }) => {
-          const {
-            name, number, expiry, cvc,
-          } = values;
+          const { name, number, expiry, cvc } = values;
 
           return (
             <>
               <div className={styles.cardContainer}>
                 <Cards
-                  number={number || ''}
-                  name={name || ''}
-                  expiry={expiry || ''}
-                  cvc={cvc || ''}
+                  number={number || ""}
+                  name={name || ""}
+                  expiry={expiry || ""}
+                  cvc={cvc || ""}
                   focused={focusOnElement}
                 />
               </div>
@@ -50,44 +52,44 @@ const PayForm = (props) => {
                   <PayInput
                     name="name"
                     classes={{
-                        container: styles.inputContainer,
-                        input: styles.input,
-                        notValid: styles.notValid,
-                        error: styles.error,
-                      }}
+                      container: styles.inputContainer,
+                      input: styles.input,
+                      notValid: styles.notValid,
+                      error: styles.error,
+                    }}
                     type="text"
                     label="name"
                     changeFocus={changeFocusOnCard}
                   />
                 </div>
                 {!isPayForOrder && (
-                <div className={styles.bigInput}>
-                  <span>Sum</span>
-                  <PayInput
-                        name="sum"
-                        classes={{
-                          container: styles.inputContainer,
-                          input: styles.input,
-                          notValid: styles.notValid,
-                          error: styles.error,
-                        }}
-                        type="text"
-                        label="sum"
-                      />
-                </div>
-                )}
-                <div className={styles.bigInput}>
-                  <span>Card Number</span>
-                  <PayInput
-                    isInputMask
-                    mask="9999 9999 9999 9999 999"
-                    name="number"
-                    classes={{
+                  <div className={styles.bigInput}>
+                    <span>Sum</span>
+                    <PayInput
+                      name="sum"
+                      classes={{
                         container: styles.inputContainer,
                         input: styles.input,
                         notValid: styles.notValid,
                         error: styles.error,
                       }}
+                      type="text"
+                      label="sum"
+                    />
+                  </div>
+                )}
+                <div className={styles.bigInput}>
+                  <span>Card Number</span>
+                  <PayInput
+                    isInputMask
+                    mask="9999 9999 9999 9999"
+                    name="number"
+                    classes={{
+                      container: styles.inputContainer,
+                      input: styles.input,
+                      notValid: styles.notValid,
+                      error: styles.error,
+                    }}
                     type="text"
                     label="card number"
                     changeFocus={changeFocusOnCard}
@@ -97,36 +99,36 @@ const PayForm = (props) => {
                   <div className={styles.smallInput}>
                     <span>* Expires</span>
                     <PayInput
-                        isInputMask
-                        mask="99/99"
-                        name="expiry"
-                        classes={{
-                            container: styles.inputContainer,
-                            input: styles.input,
-                            notValid: styles.notValid,
-                            error: styles.error,
-                          }}
-                        type="text"
-                        label="expiry"
-                        changeFocus={changeFocusOnCard}
-                      />
+                      isInputMask
+                      mask="99/99"
+                      name="expiry"
+                      classes={{
+                        container: styles.inputContainer,
+                        input: styles.input,
+                        notValid: styles.notValid,
+                        error: styles.error,
+                      }}
+                      type="text"
+                      label="expiry"
+                      changeFocus={changeFocusOnCard}
+                    />
                   </div>
                   <div className={styles.smallInput}>
                     <span>* Security Code</span>
                     <PayInput
-                        isInputMask
-                        mask="9999"
-                        name="cvc"
-                        classes={{
-                            container: styles.inputContainer,
-                            input: styles.input,
-                            notValid: styles.notValid,
-                            error: styles.error,
-                          }}
-                        type="text"
-                        label="cvc"
-                        changeFocus={changeFocusOnCard}
-                      />
+                      isInputMask
+                      mask="9999"
+                      name="cvc"
+                      classes={{
+                        container: styles.inputContainer,
+                        input: styles.input,
+                        notValid: styles.notValid,
+                        error: styles.error,
+                      }}
+                      type="text"
+                      label="cvc"
+                      changeFocus={changeFocusOnCard}
+                    />
                   </div>
                 </div>
               </Form>
@@ -134,18 +136,20 @@ const PayForm = (props) => {
           );
         }}
       </Formik>
-      {isPayForOrder
-            && <div className={styles.totalSum}><span>Total: $100.00</span></div>}
+      {isPayForOrder && (
+        <div className={styles.totalSum}>
+          <span>Total: $100.00</span>
+        </div>
+      )}
       <div className={styles.buttonsContainer}>
         <button form="myForm" className={styles.payButton} type="submit">
-          <span>{isPayForOrder ? 'Pay Now' : 'CashOut'}</span>
+          <span>{isPayForOrder ? "Pay Now" : "CashOut"}</span>
         </button>
-        {isPayForOrder
-                && (
-                <div onClick={() => props.back()} className={styles.backButton}>
-                  <span>Back</span>
-                </div>
-                )}
+        {isPayForOrder && (
+          <div onClick={() => props.back()} className={styles.backButton}>
+            <span>Back</span>
+          </div>
+        )}
       </div>
     </div>
   );
