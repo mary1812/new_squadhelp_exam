@@ -99,6 +99,11 @@ export const setOffer = (data) => ({
   data,
 });
 
+export const getOffers = (data) => ({
+  type: ACTION.GET_OFFERS_FOR_MODERATOR_ACTION,
+  data,
+});
+
 export const setOfferStatus = (data) => ({
   type: ACTION.SET_OFFER_STATUS_ACTION,
   data,
