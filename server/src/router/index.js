@@ -9,7 +9,7 @@ const upload = require('../utils/fileUpload');
 const router = express.Router();
 const authRouter = require('./authRouter');
 const { checkAccessToken } = require('../middlewares/tokenMw');
-
+const offerController = require('../controllers/offerController');
  // authRouter
  
 router.use('/auth', authRouter);
@@ -58,7 +58,11 @@ router.post(
   contestController.getContests,
 );
 
-
+router.get(
+  '/getOffers',
+  basicMiddlewares.canGetOffer,
+  offerController.getOffers
+)
 
 router.get(
   '/downloadFile/:fileName',

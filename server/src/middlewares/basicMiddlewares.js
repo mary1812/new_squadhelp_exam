@@ -1,4 +1,4 @@
-const { Contest, Sequelize } = require('../models');
+const { Contest, Sequelize, Offer } = require('../models');
 const RightsError = require('../errors/RightsError');
 const ServerError = require('../errors/ServerError');
 const CONSTANTS = require('../constants');
@@ -33,6 +33,20 @@ module.exports.canGetContest = async (req, res, next) => {
             ],
           },
         },
+      });
+    }
+    result ? next() : next(new RightsError());
+  } catch (e) {
+    next(new ServerError(e));
+  }
+};
+
+module.exports.canGetOffer = async (req, res, next) => {
+  let result = null;
+  try {
+    if (req.tokenData.role === CONSTANTS.ROLES.MODERATOR) {
+      result = await Offer.findAll({
+        where: { status: CONSTANTS.OFFER_STATUSES.PENDING },
       });
     }
     result ? next() : next(new RightsError());
