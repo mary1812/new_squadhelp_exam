@@ -3,6 +3,16 @@ import ACTION from '../actions/actionTypes';
 import * as restController from '../api/http/restController';
 import CONSTANTS from '../constants';
 
+export function* getOffersSaga(action) {
+  yield put({ type: ACTION.GET_OFFERS_FOR_MODERATOR_ACTION_REQUEST });
+  try {
+    const { data } = yield restController.getOffers(action.data);
+    yield put({ type: ACTION.GET_OFFERS_FOR_MODERATOR_ACTION_SUCCESS, data });
+  } catch (e) {
+    yield put({ type: ACTION.GET_OFFERS_FOR_MODERATOR_ACTION_ERROR, error: e.response });
+  }
+}
+
 export function* changeMarkSaga(action) {
   try {
     const { data } = yield restController.changeMark(action.data);

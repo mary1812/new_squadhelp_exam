@@ -11,7 +11,7 @@ import {
   getContestByIdSaga,
   downloadContestFileSaga,
 } from './contestsSagas';
-import { changeMarkSaga, setOfferStatusSaga, addOfferSaga } from './offerSagas';
+import { changeMarkSaga, setOfferStatusSaga, addOfferSaga, getOffersSaga } from './offerSagas';
 import {
   previewSaga,
   getDialog,
@@ -47,6 +47,7 @@ function* rootSaga() {
   yield takeLatest(ACTION.SET_OFFER_STATUS_ACTION, setOfferStatusSaga);
   yield takeLatest(ACTION.CHANGE_MARK_ACTION, changeMarkSaga);
   yield takeLatest(ACTION.UPDATE_USER_DATA, updateUserData);
+  yield takeEvery(ACTION.GET_OFFERS_FOR_MODERATOR_ACTION, getOffersSaga);
   // yield takeLatest(ACTION.ONLY_FOR_NOT_AUTHORIZE_USERS, notAuthorizeSaga);
   // yield takeLatest(ACTION.HEADER_REQUEST_AUTHORIZE, headerRequest);
   yield takeLatest(ACTION.GET_PREVIEW_CHAT_ASYNC, previewSaga);

@@ -37,3 +37,5 @@ export const getContestById = (data) => httpClient.get('getContestById', {
     contestId: data.contestId,
   },
 });
+
+export const getOffers = (data) => httpClient.get('getOffers', data)
