@@ -47,6 +47,8 @@ module.exports = {
     PENDING: 'pending',
     REJECTED: 'rejected',
     WON: 'won',
+    VOIDED: 'voided',
+    VERIFIED: 'verified'
   },
   FILES_PATH: path.resolve(__dirname, '..', 'public'),
   SOCKET_CONNECTION: 'connection',

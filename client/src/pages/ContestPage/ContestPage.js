@@ -68,7 +68,7 @@ class ContestPage extends React.Component {
     return (
       contestCreatorId === userId &&
       contestStatus === CONSTANTS.CONTEST_STATUS_ACTIVE &&
-      offerStatus === CONSTANTS.OFFER_STATUS_PENDING
+      offerStatus === CONSTANTS.OFFER_STATUS_VERIFIED
     );
   };
 
