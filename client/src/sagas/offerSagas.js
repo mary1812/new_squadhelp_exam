@@ -58,3 +58,13 @@ export function* setOfferStatusSaga(action) {
     yield put({ type: ACTION.SET_OFFER_STATUS_ERROR, error: e.response });
   }
 }
+
+export function* setOfferStatusByModeratorSaga(action) {
+  yield put({ type: ACTION.SET_OFFER_STATUS_BY_MODERATOR_ACTION_REQUEST });
+  try {
+    const { data } = yield restController.setOfferStatusByModerator(action.data);
+    yield put({ type: ACTION.SET_OFFER_STATUS_BY_MODERATOR_ACTION_SUCCESS, data });
+  } catch (e) {
+    yield put({ type: ACTION.SET_OFFER_STATUS_BY_MODERATOR_ACTION_ERROR, error: e.response });
+  }
+}
