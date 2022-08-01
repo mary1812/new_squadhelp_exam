@@ -93,6 +93,13 @@ router.post(
 );
 
 router.post(
+  '/setOfferStatusByModerator',
+  
+  basicMiddlewares.canJudgeOffer,
+  offerController.setOfferStatusByModerator,
+);
+
+router.post(
   '/changeMark',
   
   basicMiddlewares.onlyForCustomer,

@@ -55,6 +55,20 @@ module.exports.canGetOffer = async (req, res, next) => {
   }
 };
 
+module.exports.canJudgeOffer = async (req, res, next) => {
+  let result = null;
+  try {
+    if (req.tokenData.role === CONSTANTS.ROLES.MODERATOR) {
+      result = await Offer.findAll({
+        where: { id: req.body.offerId }
+      })
+    }
+    result ?  next() : next(new RightsError())
+  } catch (error) {
+    next(new ServerError(error))
+  }
+}
+
 module.exports.onlyForCreative = (req, res, next) => {
   if (req.tokenData.role === CONSTANTS.ROLES.CUSTOMER) {
     next(new RightsError());
