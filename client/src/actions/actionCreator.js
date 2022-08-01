@@ -109,6 +109,11 @@ export const setOfferStatus = (data) => ({
   data,
 });
 
+export const setOfferStatusByModerator = (data) => ({
+  type: ACTION.SET_OFFER_STATUS_BY_MODERATOR_ACTION,
+  data
+})
+
 export const createCatalog = (data) => ({
   type: ACTION.CREATE_CATALOG_REQUEST,
   data,

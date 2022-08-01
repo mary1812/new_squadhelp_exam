@@ -1,15 +1,16 @@
-import { combineReducers } from 'redux';
-import authReducer from './authReducer';
-import dataForContestReducer from './dataForContestReducer';
-import payReducer from './payReducer';
-import getContestsReducer from './getContestsReducer';
-import storeContestReducer from './storeContestReducer';
-import bundleReducer from './bundleReducer';
-import getContestByIdReducer from './getContestByIdReducer';
-import updateContestReducer from './updateContestReducer';
-import chatReducer from './chatReducer';
-import userProfileReducer from './userProfileReducer';
-import getOffersReducer from './getOffersReducer';
+import { combineReducers } from "redux";
+import authReducer from "./authReducer";
+import dataForContestReducer from "./dataForContestReducer";
+import payReducer from "./payReducer";
+import getContestsReducer from "./getContestsReducer";
+import storeContestReducer from "./storeContestReducer";
+import bundleReducer from "./bundleReducer";
+import getContestByIdReducer from "./getContestByIdReducer";
+import updateContestReducer from "./updateContestReducer";
+import chatReducer from "./chatReducer";
+import userProfileReducer from "./userProfileReducer";
+import getOffersReducer from "./getOffersReducer";
+import moderationOfferReducer from "./moderationOfferReducer";
 
 const appReducer = combineReducers({
   auth: authReducer,
@@ -22,7 +23,8 @@ const appReducer = combineReducers({
   updateContestStore: updateContestReducer,
   chatStore: chatReducer,
   userProfile: userProfileReducer,
-  offersList: getOffersReducer
+  offersList: getOffersReducer,
+  setOfferStatusByModerator: moderationOfferReducer,
 });
 
 export default appReducer;
