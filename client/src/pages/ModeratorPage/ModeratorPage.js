@@ -7,6 +7,7 @@ import {
   clearauth,
   getOffers,
   headerRequest,
+  setOfferStatusByModerator
 } from "../../actions/actionCreator";
 import SpinnerLoader from "../../components/Spinner/Spinner";
 
@@ -15,6 +16,24 @@ const ModeratorPage = (props) => {
     props.clearauth();
     props.history.replace("/login");
   };
+
+  const approveHandler = (offerObj) => {
+    props.setOfferStatusByModerator({
+      offerId: offerObj.id,
+      command: CONSTANTS.OFFER_STATUS_VERIFIED,
+      creatorId: offerObj.userId,
+      contestId: offerObj.contestId
+    })
+  }
+
+  const rejectHandler = (offerObj) => {
+    props.setOfferStatusByModerator({
+      offerId: offerObj.id,
+      command: CONSTANTS.OFFER_STATUS_VOIDED,
+      creatorId: offerObj.userId,
+      contestId: offerObj.contestId
+    })
+  }
 
   useEffect(() => props.getOffers(), []);
   return (
@@ -44,6 +63,9 @@ const ModeratorPage = (props) => {
                   User ID: {offerObj.userId} 
                 </p>
                 <img src="" alt="picture" />
+                <button onClick={() => approveHandler(offerObj)}>+</button>
+                <button onClick={() => rejectHandler(offerObj)}>-</button>
+                
               </li>;
             } else if (offerObj.text){
               return <li>
@@ -56,6 +78,8 @@ const ModeratorPage = (props) => {
                 <p>
                   User ID: {offerObj.userId} 
                 </p>
+                <button onClick={() => approveHandler(offerObj)}>+</button>
+                <button onClick={() => rejectHandler(offerObj)}>-</button>
               </li>;
             } else if (offerObj.fileName){
               return <li>
@@ -67,6 +91,8 @@ const ModeratorPage = (props) => {
                 </p>
                 <img src="" alt="picture">
                 </img>
+                <button onClick={() => approveHandler(offerObj)}>+</button>
+                <button onClick={() => rejectHandler(offerObj)}>-</button>
               </li>;
             }
           })}
@@ -81,6 +107,7 @@ const mapStateToProps = (state) => {
   return { auth, offersList };
 };
 const mapDispatchToProps = (dispatch) => ({
+  setOfferStatusByModerator: (data)=> dispatch(setOfferStatusByModerator(data)),
   getUser: () => dispatch(headerRequest()),
   clearauth: () => dispatch(clearauth()),
   getOffers: (data) => dispatch(getOffers(data)),
