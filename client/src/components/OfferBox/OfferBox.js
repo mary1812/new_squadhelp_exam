@@ -80,13 +80,57 @@ const OfferBox = (props) => {
   const offerStatus = () => {
     const { status } = props.data;
     if (status === CONSTANTS.OFFER_STATUS_REJECTED) {
-      return <i className={classNames('fas fa-times-circle reject', styles.reject)} />;
-    } if (status === CONSTANTS.OFFER_STATUS_WON) {
-      return <i className={classNames('fas fa-check-circle resolve', styles.resolve)} />;
+      return (
+        <div className={classNames(styles.reject)}>
+          {props.role === CONSTANTS.CREATOR && (
+            <p className={classNames(styles.moderationStatus)}>
+              Rejected by customer
+            </p>
+          )}
+          <i className={classNames("fas fa-times-circle")} />
+        </div>
+      );
+    }
+    if (status === CONSTANTS.OFFER_STATUS_WON) {
+      return (
+        <i
+          className={classNames("fas fa-check-circle resolve", styles.resolve)}
+        />
+      );
+    }
+    if (status === CONSTANTS.OFFER_STATUS_VOIDED) {
+      return (
+        <div className={classNames(styles.reject)}>
+          <p className={classNames(styles.moderationStatus)}>
+            Voided by moderator
+          </p>
+          <i className={classNames("fas fa-ban")} />
+        </div>
+      );
+    }
+    if (status === CONSTANTS.OFFER_STATUS_PENDING) {
+      return (
+        <div className={classNames(styles.pending)}>
+          <p className={classNames(styles.moderationStatus)}>On moderation</p>
+        </div>
+      );
+    }
+    if (
+      status === CONSTANTS.OFFER_STATUS_VERIFIED &&
+      props.role === CONSTANTS.CREATOR
+    ) {
+      return (
+        <div className={classNames(styles.verified)}>
+          <p className={classNames(styles.moderationStatus)}>
+            Approved by moderator
+          </p>
+        </div>
+      );
     }
     return null;
   };
 
+  
   const goChat = () => {
     props.goToExpandedDialog({ interlocutor: props.data.User, conversationData: findConversationInfo() });
   };

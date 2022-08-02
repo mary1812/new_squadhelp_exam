@@ -204,9 +204,11 @@ const resolveOffer = async (
   const updatedOffers = await contestQueries.updateOfferStatus(
     {
       status: sequelize.literal(` CASE
-            WHEN "id"=${offerId} THEN '${CONSTANTS.OFFER_STATUSES.WON}'::"enum_Offers_status"
-            ELSE '${CONSTANTS.OFFER_STATUSES.REJECTED}'::"enum_Offers_status"
-            END
+      WHEN "id"=${offerId} THEN '${CONSTANTS.OFFER_STATUSES.WON}'::"enum_Offers_status"
+      WHEN "status"='${CONSTANTS.OFFER_STATUSES.VERIFIED}' THEN '${CONSTANTS.OFFER_STATUSES.REJECTED}'::"enum_Offers_status"
+      WHEN "status"='${CONSTANTS.OFFER_STATUSES.PENDING}' THEN '${CONSTANTS.OFFER_STATUSES.REJECTED}'::"enum_Offers_status"
+      WHEN "status"='${CONSTANTS.OFFER_STATUSES.VOIDED}' THEN '${CONSTANTS.OFFER_STATUSES.VOIDED}'::"enum_Offers_status"
+      END
     `),
     },
     {
@@ -311,6 +313,10 @@ module.exports.getContests = (req, res, next) => {
     req.body.industry,
     req.body.awardSort
   );
+
+  if (!req.body.ownEntries) {
+    predicates.where.status = CONSTANTS.CONTEST_STATUS.ACTIVE
+  }
   Contest.findAll({
     where: predicates.where,
     order: predicates.order,
