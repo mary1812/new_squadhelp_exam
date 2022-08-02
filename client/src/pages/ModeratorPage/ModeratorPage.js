@@ -24,6 +24,8 @@ const ModeratorPage = (props) => {
       creatorId: offerObj.userId,
       contestId: offerObj.contestId
     })
+
+    props.getOffers()
   }
 
   const rejectHandler = (offerObj) => {
@@ -33,6 +35,12 @@ const ModeratorPage = (props) => {
       creatorId: offerObj.userId,
       contestId: offerObj.contestId
     })
+
+    props.getOffers()
+  }
+
+  const updatePage = () => {
+    props.getOffers()
   }
 
   useEffect(() => props.getOffers(), []);
@@ -49,6 +57,8 @@ const ModeratorPage = (props) => {
         </Link>
       </div>
       <div>
+        <button onClick={()=> updatePage()}>UPDATE
+        </button>
         {props.offersList.isFetching ? (<SpinnerLoader />) : (<ul>
           {props.offersList.offers.map(offerObj => {
             if (offerObj.text && offerObj.fileName) {

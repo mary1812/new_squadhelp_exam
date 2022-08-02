@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
         ...state,
         isFetching: false,
         error: null,
-        offers: [...state.offers, ...action.data],
+        offers: [...action.data],
         haveMore: action.data.haveMore,
       };
     }
