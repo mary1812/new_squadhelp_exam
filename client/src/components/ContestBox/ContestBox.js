@@ -23,7 +23,7 @@ const ContestBox = (props) => {
   const ucFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
   const {
-    id, title, contestType, prize, count, goToExtended,
+    id, title, contestType, prize, count, goToExtended, status
   } = props.data;
   return (
     <div className={styles.contestBoxContainer} onClick={() => props.goToExtended(id)}>
@@ -61,7 +61,7 @@ const ContestBox = (props) => {
         </div>
         <div className={styles.timeContainer}>
           <span className={styles.timeContest}>{getTimeStr()}</span>
-          <span>Going</span>
+          <span>{ status === CONSTANTS.CONTEST_STATUS_ACTIVE ? 'Going' : (status === CONSTANTS.CONTEST_STATUS_PENDING ? 'Pending' : 'Finished')} </span>
         </div>
       </div>
     </div>

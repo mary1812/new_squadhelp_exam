@@ -17,7 +17,7 @@ const ContestSideBar = (props) => {
 
   const renderContestInfo = () => {
     const { totalEntries } = props;
-    const { User, prize } = props.contestData;
+    const { User, prize, status } = props.contestData;
     return (
       <div className={styles.contestSideBarInfo}>
         <div className={styles.contestInfo}>
@@ -29,7 +29,7 @@ const ContestSideBar = (props) => {
             <div className={styles.timeContainer}>
               <div className={styles.timeDesc}>
                 <img src={`${CONSTANTS.STATIC_IMAGES_PATH}clock.png`} alt="clock" />
-                <span>Going</span>
+                <span>{ status === CONSTANTS.CONTEST_STATUS_ACTIVE ? 'Going' : (status === CONSTANTS.CONTEST_STATUS_PENDING ? 'Pending' : 'Finished')} </span>
               </div>
               <span className={styles.time}>{getTimeStr()}</span>
             </div>
@@ -43,7 +43,7 @@ const ContestSideBar = (props) => {
           <div className={styles.contestStats}>
             <span>Contest Stats</span>
             <div className={styles.totalEntrie}>
-              <span className={styles.totalEntriesLabel}>Total Entries</span>
+              <span className={styles.totalEntriesLabel}>Your Entries</span>
               <span>{totalEntries}</span>
             </div>
           </div>
