@@ -2,13 +2,20 @@ const { Offer } = require("../models");
 const ServerError = require("../errors/ServerError");
 const CONSTANTS = require('../constants');
 const contestQueries = require("./queries/contestQueries");
+const userQueries = require("./queries/userQueries");
+const mailCli = require("./../api/email/sendEmail");
 
-module.exports.getOffers = async (req, res, next) => {
+module.exports.getPendingOffers = async (req, res, next) => {
   try {
-    let offers = await Offer.findAll({
+    let count = await Offer.findAll({
       where: { status: CONSTANTS.OFFER_STATUSES.PENDING },
     });
-    res.send(offers);
+    let offers = await Offer.findAll({
+      where: { status: CONSTANTS.OFFER_STATUSES.PENDING },
+      limit: req.body.limit,
+      offset: req.body.offset ? req.body.offset : 0,
+    });
+    res.send({offers: offers, count: count.length});
   } catch (error) {
     next(new ServerError(error));
   }
@@ -30,6 +37,11 @@ const approveOffer = async (offerId, creatorId, contestId) => {
   return approvedOffer;
 };
 
+const foundUser = async (userId) => {
+  const user = await userQueries.findUser({ id: userId })
+  return user;
+}
+
 
 module.exports.setOfferStatusByModerator = async (req, res, next) => {
   let transaction;
@@ -40,6 +52,8 @@ module.exports.setOfferStatusByModerator = async (req, res, next) => {
         req.body.creatorId,
         req.body.contestId
       );
+      const user = await foundUser(req.body.creatorId)
+      mailCli.sendEmail(user.email, user.firstName, req.body.offerId, req.body.contestId, CONSTANTS.OFFER_STATUSES.VOIDED)
       res.send(offer);
     } catch (err) {
       next(err);
@@ -51,6 +65,8 @@ module.exports.setOfferStatusByModerator = async (req, res, next) => {
         req.body.creatorId,
         req.body.contestId
       );
+      const user = await foundUser(req.body.creatorId)
+      mailCli.sendEmail(user.email, user.firstName, req.body.offerId, req.body.contestId, CONSTANTS.OFFER_STATUSES.VERIFIED)
       res.send(offer);
     } catch (err) {
       next(err);
