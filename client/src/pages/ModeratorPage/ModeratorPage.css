@@ -1,4 +1,4 @@
-.containerModerPage{
+.headerModerPage {
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -11,8 +11,99 @@
   padding-bottom: 20px;
 }
 
-.logoModerPage{
-  
+.wrapContainerModerPage {
+  width: 1050px;
+  margin: 0 auto;
   display: flex;
-  
+  flex-direction: column;
+}
+
+.ulOfferCard {
+  width: 100%;
+}
+
+.judgeOffersModer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.listOfferCard {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 30px 40px 30px 40px;
+}
+
+.contentListOfferCard {
+  width: 100%;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* background-color: wheat; */
+  color: #556da5;
+}
+
+.contestIdOffer {
+  color: #6e7072;
+  margin-right: 20px;
+}
+.decisionBtn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logoModerPage {
+  display: flex;
+}
+
+.verifiedButton {
+  cursor: pointer;
+  text-align: center;
+  border-style: none;
+  border-radius: 8px;
+  color: #FFFF;
+  padding: 10px;
+  width: 100px;
+  margin: 0 25px;
+  background-color: #8aca6b;
+}
+
+.voidedButton {
+  cursor: pointer;
+  text-align: center;
+  border-style: none;
+  border-radius: 8px;
+  color: #FFFF;
+  padding: 10px;
+  width: 100px;
+  background-color: #CD5C5C;
+}
+
+.imglistOfferCard{
+  width: 50%;
+}
+
+.updateListOfferBtn {
+  color: #556da5;
+  background: transparent;
+  border: none;
+}
+
+.MuiPagination-root ::marker{
+  color: transparent;
+}
+
+.paginationEl{
+  margin-top: 30px;
 }
