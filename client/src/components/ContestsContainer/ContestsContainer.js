@@ -13,7 +13,7 @@ class ContestsContainer extends React.Component {
   }
 
     scrollHandler = () => {
-      if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+      if (window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight -1) {
         if (this.props.haveMore) {
           this.props.loadMore(this.props.children.length);
         }
