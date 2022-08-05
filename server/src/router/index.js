@@ -58,10 +58,10 @@ router.post(
   contestController.getContests,
 );
 
-router.get(
+router.post(
   '/getOffers',
-  basicMiddlewares.canGetOffer,
-  offerController.getOffers
+  basicMiddlewares.canGetPendingOffer,
+  offerController.getPendingOffers
 )
 
 router.get(

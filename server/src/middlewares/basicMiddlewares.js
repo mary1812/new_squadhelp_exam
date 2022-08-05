@@ -41,7 +41,7 @@ module.exports.canGetContest = async (req, res, next) => {
   }
 };
 
-module.exports.canGetOffer = async (req, res, next) => {
+module.exports.canGetPendingOffer = async (req, res, next) => {
   let result = null;
   try {
     if (req.tokenData.role === CONSTANTS.ROLES.MODERATOR) {
@@ -59,18 +59,16 @@ module.exports.canJudgeOffer = async (req, res, next) => {
   let result = null;
   try {
     if (req.tokenData.role === CONSTANTS.ROLES.MODERATOR) {
-      result = await Offer.findAll({
-        where: { id: req.body.offerId }
-      })
+      next()
     }
-    result ?  next() : next(new RightsError())
+    else{next(new RightsError())}
   } catch (error) {
     next(new ServerError(error))
   }
 }
 
 module.exports.onlyForCreative = (req, res, next) => {
-  if (req.tokenData.role === CONSTANTS.ROLES.CUSTOMER) {
+  if (req.tokenData.role !== CONSTANTS.ROLES.CREATOR) {
     next(new RightsError());
   } else {
     next();
@@ -78,7 +76,7 @@ module.exports.onlyForCreative = (req, res, next) => {
 };
 
 module.exports.onlyForCustomer = (req, res, next) => {
-  if (req.tokenData.role === CONSTANTS.ROLES.CREATOR) {
+  if (req.tokenData.role !== CONSTANTS.ROLES.CUSTOMER) {
     return next(new RightsError('this page only for customers'));
   } else {
     next();
