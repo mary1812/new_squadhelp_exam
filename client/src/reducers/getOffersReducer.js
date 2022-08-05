@@ -6,6 +6,7 @@ const initialState = {
   error: null,
   offers: [],
   haveMore: true,
+  count: 0
 };
 
 export default function (state = initialState, action) {
@@ -22,13 +23,15 @@ export default function (state = initialState, action) {
         ...state,
         isFetching: false,
         error: null,
-        offers: [...action.data],
+        offers: [...action.data.offers],
+        count: action.data.count,
         haveMore: action.data.haveMore,
       };
     }
     case ACTION.GET_OFFERS_FOR_MODERATOR_ACTION_ERROR: {
       return {
         ...state,
+        count: 0,
         isFetching: false,
         error: action.error,
         offers: [],

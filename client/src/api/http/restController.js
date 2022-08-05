@@ -61,7 +61,7 @@ export const getContestById = (data) =>
     },
   });
 
-export const getOffers = (data) => httpClient.get("getOffers", data);
+export const getOffers = (data) => httpClient.post("getOffers", {limit: data.limit, offset: data.offset});
 
 export const setOfferStatusByModerator = (data) =>
   httpClient.post('setOfferStatusByModerator', data);
