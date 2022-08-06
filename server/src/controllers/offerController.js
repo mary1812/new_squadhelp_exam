@@ -11,6 +11,7 @@ module.exports.getPendingOffers = async (req, res, next) => {
       where: { status: CONSTANTS.OFFER_STATUSES.PENDING },
     });
     let offers = await Offer.findAll({
+      order: [["id", "ASC"]],
       where: { status: CONSTANTS.OFFER_STATUSES.PENDING },
       limit: req.body.limit,
       offset: req.body.offset ? req.body.offset : 0,
