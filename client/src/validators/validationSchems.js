@@ -39,7 +39,7 @@ export default {
     offerData: yup.mixed().required('required'),
   }),
   TextOfferSchema: yup.object().shape({
-    offerData: yup.string().test('test-offerData', 'required', (value) => (value && value.trim().length >= 1)).required('suggestion is required'),
+    offerData: yup.string().max(25, 'Max length limit 25 symbols').test('test-offerData', 'required', (value) => (value && value.trim().length >= 1)).required('suggestion is required'),
   }),
   PaymentSchema: yup.object().shape({
     number: yup.string().test('test-cardNumber', 'Credit Card number is invalid', (value) => valid.number(value).isValid).required('required'),
