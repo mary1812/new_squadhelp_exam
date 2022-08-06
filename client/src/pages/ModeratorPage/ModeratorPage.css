@@ -32,16 +32,7 @@
   padding-bottom: 50px;
 }
 
-.listOfferCard {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #f9fafb;
-  border-radius: 10px;
-  margin-top: 15px;
-  padding: 30px 40px 30px 40px;
-}
+
 
 .contentListOfferCard {
   width: 100%;
@@ -91,7 +82,8 @@
 }
 
 .imglistOfferCard{
-  width: 50%;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 .updateListOfferBtn {
@@ -106,4 +98,6 @@
 
 .paginationEl{
   margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }

@@ -12,6 +12,7 @@ import {
 import SpinnerLoader from "../../components/Spinner/Spinner";
 import { Pagination, Box } from "@mui/material";
 import Stack from '@mui/material/Stack';
+import OfferCardForModerator from "../../components/OfferCardForModerator/OfferCardForModerator";
 
 const ModeratorPage = (props) => {
   const [page, setPage] = useState(1);
@@ -75,62 +76,8 @@ const ModeratorPage = (props) => {
           ) : (
               <div>
           <ul className="ulOfferCard">
-            {props.offersList.offers.map((offerObj) => {
-              if (offerObj.text && offerObj.fileName) {
-                return (
-                  <li className="listOfferCard">
-                    <div className="contentListOfferCard">
-                      <h2 className="contestIdOffer">(#{offerObj.contestId})</h2>
-                      <p>{offerObj.text}</p>
-                      <img src="" alt="picture" className="imglistOfferCard"/>
-                      </div>
-                      <div className="decisionBtn">
-                        <button onClick={() => approveHandler(offerObj)} className="verifiedButton">
-                          Approve
-                        </button>
-                        <button onClick={() => rejectHandler(offerObj)} className="voidedButton">
-                          Reject
-                        </button>
-                      </div>
-                    
-                  </li>
-                );
-              } else if (offerObj.text) {
-                return (
-                  <li className="listOfferCard">
-                    <div className="contentListOfferCard">
-                      <h2 className="contestIdOffer">(#{offerObj.contestId})</h2>
-                      <p>{offerObj.text}</p>
-                      </div>
-                      <div className="decisionBtn">
-                        <button onClick={() => approveHandler(offerObj)} className="verifiedButton">
-                          Approve
-                        </button>
-                        <button onClick={() => rejectHandler(offerObj)} className="voidedButton">
-                          Reject
-                        </button>
-                      </div>
-                  </li>
-                );
-              } else if (offerObj.fileName) {
-                return (
-                  <li className="listOfferCard">
-                    <div className="contentListOfferCard">
-                      <h2 className="contestIdOffer">(#{offerObj.contestId})</h2>
-                      <img src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg" className="imglistOfferCard" alt="picture"></img>
-                      </div>
-                      <div className="decisionBtn">
-                        <button onClick={() => approveHandler(offerObj)} className="verifiedButton">
-                          Approve
-                        </button>
-                        <button onClick={() => rejectHandler(offerObj)} className="voidedButton">
-                          Reject
-                        </button>
-                      </div>
-                    
-                  </li>
-                );
-              }
+                  {props.offersList.offers.map((offerObj) => {
+                    return <OfferCardForModerator offerObj={offerObj} approveHandler={ approveHandler } rejectHandler={rejectHandler} />
             })}
                 </ul>
                   <Stack>
