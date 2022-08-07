@@ -23,29 +23,25 @@ const ModeratorPage = (props) => {
     props.history.replace("/login");
   };
 
-  const approveHandler = (offerObj) => {
+  
+  const moderationHandler = (offerObj, command) => {
     props.setOfferStatusByModerator({
       offerId: offerObj.id,
-      command: CONSTANTS.OFFER_STATUS_VERIFIED,
+      command: command,
       creatorId: offerObj.userId,
       contestId: offerObj.contestId,
     });
 
-   updatePage(limit*(page-1));
+    if (props.offersList.offers.length === 1 && page > 1) {
+      updatePage(limit * (page - 2))
+      setPage(prevState => prevState - 1 )
+    } else {
+       updatePage(limit*(page-1));
+    }
+
   };
 
-  const rejectHandler = (offerObj) => {
-    props.setOfferStatusByModerator({
-      offerId: offerObj.id,
-      command: CONSTANTS.OFFER_STATUS_VOIDED,
-      creatorId: offerObj.userId,
-      contestId: offerObj.contestId,
-    });
-
-    updatePage(limit*(page-1));
-  };
-
-  const updatePage = (offset=0) => {
+  const updatePage = (offset = 0) => {
     props.getOffers({limit: limit, offset:offset});
   };
 
@@ -77,7 +73,7 @@ const ModeratorPage = (props) => {
               <div>
           <ul className="ulOfferCard">
                   {props.offersList.offers.map((offerObj) => {
-                    return <OfferCardForModerator offerObj={offerObj} approveHandler={ approveHandler } rejectHandler={rejectHandler} />
+                    return <OfferCardForModerator offerObj={offerObj} moderationHandler={moderationHandler} />
             })}
                 </ul>
                   <Stack>

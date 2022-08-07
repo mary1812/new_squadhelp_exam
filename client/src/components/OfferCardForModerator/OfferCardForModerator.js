@@ -2,7 +2,7 @@ import React from "react";
 import "./OfferCardForModerator.css";
 import CONSTANTS from "./../../constants"
 
-export default function OfferCardForModerator({ offerObj, rejectHandler, approveHandler }) {
+export default function OfferCardForModerator({ offerObj, moderationHandler }) {
   console.log(offerObj)
     return (
       <li className="listOfferCard">
@@ -16,13 +16,13 @@ export default function OfferCardForModerator({ offerObj, rejectHandler, approve
         </div>
         <div className="decisionBtn">
           <button
-            onClick={() => approveHandler(offerObj)}
+            onClick={() => moderationHandler(offerObj, CONSTANTS.OFFER_STATUS_VERIFIED)}
             className="verifiedButton"
           >
             Approve
           </button>
           <button
-            onClick={() => rejectHandler(offerObj)}
+            onClick={() => moderationHandler(offerObj, CONSTANTS.OFFER_STATUS_VOIDED)}
             className="voidedButton"
           >
             Reject
