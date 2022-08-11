@@ -27,9 +27,9 @@ const DialogList = (props) => {
     event.stopPropagation();
   };
 
-  const onlyFavoriteDialogs = (chatPreview, userId) => chatPreview.favoriteList[chatPreview.participants.indexOf(userId)];
+  const onlyFavoriteDialogs = (chatPreview, userId) => chatPreview.favoriteList[[chatPreview.userOneId, chatPreview.userTwoId].indexOf(userId)];
 
-  const onlyBlockDialogs = (chatPreview, userId) => chatPreview.blackList[chatPreview.participants.indexOf(userId)];
+  const onlyBlockDialogs = (chatPreview, userId) => chatPreview.blackList[[chatPreview.userOneId, chatPreview.userTwoId].indexOf(userId)];
 
   const getTimeStr = (time) => {
     const currentTime = moment();
