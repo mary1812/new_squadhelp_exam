@@ -47,7 +47,7 @@ class Dialog extends React.Component {
         messagesArray.push(
           <div
             key={i}
-            className={className(userId === message.sender ? styles.ownMessage : styles.message)}
+            className={className(userId === message.senderId ? styles.ownMessage : styles.message)}
           >
             <span>{message.body}</span>
             <span className={styles.messageTime}>{moment(message.createdAt).format('HH:mm')}</span>
