@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       return bcrypt.compare(password, this.password);
     }
 
-    static associate({ Offer, Contest, Rating, RefreshToken }) {
+    static associate({ Offer, Contest, Rating, RefreshToken, Message, Catalog, Conversation }) {
       User.hasMany(Offer, {
         foreignKey: 'userId',
         targetKey: 'id',
@@ -25,7 +25,29 @@ module.exports = (sequelize, DataTypes) => {
 
       User.hasMany(RefreshToken, {
         foreignKey: 'userId',
+        targetKey: 'id'
       });
+
+      User.hasMany(Message, {
+        foreignKey: 'senderId',
+        targetKey: 'id',
+      });
+
+      User.hasMany(Catalog, {
+        foreignKey: 'userId',
+        targetKey: 'id',
+      });
+
+      User.hasMany(Conversation, {
+        foreignKey: 'userOneId',
+        targetKey: 'id',
+      });
+
+      User.hasMany(Conversation, {
+        foreignKey: 'userTwoId',
+        targetKey: 'id',
+      });
+      
     }
   }
   User.init(
