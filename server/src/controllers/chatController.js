@@ -125,7 +125,6 @@ module.exports.getChat = async (req, res, next) => {
 
 module.exports.getPreview = async (req, res, next) => {
   try {
-
     const conversations = await Conversation.findAll(
       {
         where: {
@@ -133,7 +132,8 @@ module.exports.getPreview = async (req, res, next) => {
             { userOneId: req.tokenData.userId },
             { userTwoId: req.tokenData.userId },
           ]
-        }
+        },
+        include: [{model: Message}]
       }
     );
 
@@ -180,6 +180,7 @@ module.exports.getPreview = async (req, res, next) => {
           })
         }
       });
+      conversation.setDataValue("text", conversation.Messages.pop().body)
     });
     res.send(conversations);
   } catch (err) {
@@ -216,6 +217,9 @@ module.exports.blackList = async (req, res, next) => {
 };
 
 module.exports.favoriteChat = async (req, res, next) => {
+  req.body.participants.sort(
+    (participant1, participant2) => participant1 - participant2
+  );
   
   try {
     const chat = await Conversation.findOne({
@@ -226,6 +230,7 @@ module.exports.favoriteChat = async (req, res, next) => {
     })
 
     let newFavoriteList = [...chat.dataValues.favoriteList];
+    
     newFavoriteList[req.body.participants.indexOf(req.tokenData.userId)] =
       req.body.favoriteFlag;
     
