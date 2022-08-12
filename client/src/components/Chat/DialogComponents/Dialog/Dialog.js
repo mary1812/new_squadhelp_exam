@@ -68,9 +68,9 @@ class Dialog extends React.Component {
       const userIndex = participants.indexOf(userId);
       let message;
       if (chatData && blackList[userIndex]) {
-        message = 'You block him';
+        message = "You blocked this user, so you can't send messages to him.";
       } else if (chatData && blackList.includes(true)) {
-        message = 'He block you';
+        message = "You're blocked. You can't send messages to this user.";
       }
       return (
         <span className={styles.messageBlock}>{message}</span>

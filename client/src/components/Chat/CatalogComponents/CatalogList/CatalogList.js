@@ -26,7 +26,7 @@ const CatalogList = (props) => {
         goToCatalog={goToCatalog}
       />);
     });
-    return elementList.length ? elementList : <span className={styles.notFound}>Not found</span>;
+    return elementList.length ? elementList : <span className={styles.notFound}>No catalogs here</span>;
   };
 
   return (

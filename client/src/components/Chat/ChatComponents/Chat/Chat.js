@@ -52,7 +52,7 @@ class Chat extends React.Component {
               onClick={() => setChatPreviewMode(NORMAL_PREVIEW_CHAT_MODE)}
               className={classNames(styles.button, { [styles.activeButton]: chatMode === NORMAL_PREVIEW_CHAT_MODE })}
             >
-              Normal
+              Chats
             </span>
             <span
               onClick={() => setChatPreviewMode(FAVORITE_PREVIEW_CHAT_MODE)}
@@ -70,7 +70,7 @@ class Chat extends React.Component {
               onClick={() => setChatPreviewMode(CATALOG_PREVIEW_CHAT_MODE)}
               className={classNames(styles.button, { [styles.activeButton]: chatMode === CATALOG_PREVIEW_CHAT_MODE })}
             >
-              Catalog
+              Catalogs
             </span>
           </div>
           )}

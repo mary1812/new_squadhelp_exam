@@ -65,7 +65,7 @@ const DialogList = (props) => {
         arrayList.push(dialogNode);
       }
     });
-    return arrayList.length ? arrayList : <span className={styles.notFound}>Not found</span>;
+    return arrayList.length ? arrayList : <span className={styles.notFound}>No users here</span>;
   };
 
   const renderChatPreview = () => {
