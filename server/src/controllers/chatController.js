@@ -35,6 +35,8 @@ module.exports.addMessage = async (req, res, next) => {
       conversationId: newConversation.id,
     });
 
+    message.setDataValue("participants", participants)
+
     const interlocutorId = participants.filter(
       (participant) => participant !== req.tokenData.userId
     )[0];
@@ -153,7 +155,6 @@ module.exports.getPreview = async (req, res, next) => {
       );
     });
 
-
     const senders = await User.findAll({
       where: {
         id: interlocutors,
@@ -180,7 +181,11 @@ module.exports.getPreview = async (req, res, next) => {
           })
         }
       });
-      conversation.setDataValue("text", conversation.Messages.pop().body)
+
+      const lastMessage = conversation.Messages.pop()
+      conversation.setDataValue("text", lastMessage.body)
+      conversation.setDataValue("sender", lastMessage.senderId)
+      conversation.setDataValue("participants", [conversation.dataValues.userOneId, conversation.dataValues.userTwoId])
     });
     res.send(conversations);
   } catch (err) {
@@ -192,7 +197,7 @@ module.exports.blackList = async (req, res, next) => {
   try {
     const chat = await Conversation.findOne({
       where: {
-           userOneId: req.body.participants,
+          userOneId: req.body.participants,
           userTwoId: req.body.participants,
       }
     })
@@ -205,7 +210,10 @@ module.exports.blackList = async (req, res, next) => {
      blackList: newBlackList
     })
     await chat.save();
+
+    chat.setDataValue("participants", [chat.dataValues.userOneId, chat.dataValues.userTwoId])
     res.send(chat)
+    console.log("++++++", chat)
   
     const interlocutorId = req.body.participants.filter(
       (participant) => participant !== req.tokenData.userId
@@ -224,8 +232,8 @@ module.exports.favoriteChat = async (req, res, next) => {
   try {
     const chat = await Conversation.findOne({
       where: {
-           userOneId: req.body.participants,
-          userTwoId: req.body.participants,
+          userOneId: req.body.participants[0],
+          userTwoId: req.body.participants[1],
       }
     })
 
@@ -238,6 +246,8 @@ module.exports.favoriteChat = async (req, res, next) => {
      favoriteList: newFavoriteList
     })
     await chat.save();
+    chat.setDataValue("participants", [chat.dataValues.userOneId, chat.dataValues.userTwoId])
+
     res.send(chat)
   } catch (err) {
     res.send(err);
@@ -253,7 +263,7 @@ module.exports.createCatalog = async (req, res, next) => {
     }
     })
     if (!catalogCheck) {
-      const catalog = Catalog.create({
+      const catalog = await Catalog.create({
         userId: req.tokenData.userId,
         catalogName: req.body.catalogName,
         chats: [req.body.chatId]

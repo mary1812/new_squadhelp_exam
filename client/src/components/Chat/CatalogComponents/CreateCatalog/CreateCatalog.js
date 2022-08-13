@@ -3,15 +3,14 @@ import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
 import FormInput from '../../../FormInput/FormInput';
 import styles from './CreateCatalog.module.sass';
-import { createCatalog, getCatalogList } from '../../../../actions/actionCreator';
+import { createCatalog } from '../../../../actions/actionCreator';
 import Schems from '../../../../validators/validationSchems';
 
 const CreateCatalog = (props) => {
   const click = (values) => {
-    const { createCatalog, getCatalogList } = props;
+    const { createCatalog } = props;
     const { addChatId } = props;
     createCatalog({ catalogName: values.catalogName, chatId: addChatId });
-    getCatalogList()
   };
   return (
     <Formik
@@ -38,8 +37,7 @@ const CreateCatalog = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  createCatalog: (data) => dispatch(createCatalog(data)),
-  getCatalogList: (data) => dispatch(getCatalogList(data))
+  createCatalog: (data) => dispatch(createCatalog(data))
 });
 
 const mapStateToProps = (state) => state.chatStore;
