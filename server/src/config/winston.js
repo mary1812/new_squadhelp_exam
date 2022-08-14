@@ -5,7 +5,7 @@ const { WINSTON_LOGS_PATH } = require("./../constants");
 const logFormat = printf(({ status, message, timestamp, stack }) => {
 
   if (!status) {
-    status = 0
+    status = 500
   }
 
   if (!message) {
