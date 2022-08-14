@@ -3,9 +3,26 @@ const { printf, combine, timestamp } = format;
 const { WINSTON_LOGS_PATH } = require("./../constants");
 
 const logFormat = printf(({ status, message, timestamp, stack }) => {
-  return `{"message": "${message}", "time": ${new Date(
+
+  if (!status) {
+    status = 0
+  }
+
+  if (!message) {
+    message = "Unexpected error"
+  }
+
+  if (!timestamp) {
+    timestamp = Date.now()
+  }
+
+  if (!stack) {
+    stack = ""
+  }
+
+  return `{"message": "${message.replace(/(")/gm, "'")}", "time": ${new Date(
     timestamp
-  ).getTime()}, "code": ${status}, "stackTrace": "${stack}"};`.replace(
+  ).getTime()}, "code": ${status}, "stackTrace": "${stack.replace(/(")/gm, "'")}"};`.replace(
     /(\r\n|\n|\r)/gm,
     ""
   );
