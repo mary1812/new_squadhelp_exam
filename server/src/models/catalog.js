@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   class Catalog extends Model {
     static associate({ User, Conversation }) {
       Catalog.belongsTo(User, { foreignKey: 'userId', sourceKey: 'id' });
-      Catalog.belongsToMany(Conversation, { through: 'CatalogsToConversations'});
+      Catalog.belongsToMany(Conversation, { through: 'CatalogToConversation', foreignKey: 'catalogId'});
     }
   }
   Catalog.init(

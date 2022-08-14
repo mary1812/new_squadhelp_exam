@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       Conversation.belongsTo(User, { foreignKey: 'userOneId', sourceKey: 'id' });
       Conversation.belongsTo(User, { foreignKey: 'userTwoId', sourceKey: 'id' });
       Conversation.hasMany(Message, { foreignKey: 'conversationId', targetKey: 'id' });
-      Conversation.belongsToMany(Catalog, { through: 'CatalogsToConversations'});
+      Conversation.belongsToMany(Catalog, { through: 'CatalogToConversation', foreignKey:  'conversationId'});
     }
   }
   Conversation.init(
