@@ -206,8 +206,9 @@ const resolveOffer = async (
       status: sequelize.literal(` CASE
       WHEN "id"=${offerId} THEN '${CONSTANTS.OFFER_STATUSES.WON}'::"enum_Offers_status"
       WHEN "status"='${CONSTANTS.OFFER_STATUSES.VERIFIED}' THEN '${CONSTANTS.OFFER_STATUSES.REJECTED}'::"enum_Offers_status"
-      WHEN "status"='${CONSTANTS.OFFER_STATUSES.PENDING}' THEN '${CONSTANTS.OFFER_STATUSES.REJECTED}'::"enum_Offers_status"
+      WHEN "status"='${CONSTANTS.OFFER_STATUSES.PENDING}' THEN '${CONSTANTS.OFFER_STATUSES.VOIDED}'::"enum_Offers_status"
       WHEN "status"='${CONSTANTS.OFFER_STATUSES.VOIDED}' THEN '${CONSTANTS.OFFER_STATUSES.VOIDED}'::"enum_Offers_status"
+      WHEN "status"='${CONSTANTS.OFFER_STATUSES.REJECTED}' THEN '${CONSTANTS.OFFER_STATUSES.REJECTED}'::"enum_Offers_status"
       END
     `),
     },
