@@ -5,7 +5,7 @@ import styles from "./ContestsWork.module.sass"
 const ContestsWork = () => {
   return (
     <div className={styles.ct}>
-    <div className="cntswork border-top border-bottom space-top-1 vw-100 mb-5">
+    <div className="cntswork border-top border-bottom space-top-1 vw-99 mb-5">
     <div className="container space-2 space-md-3 py-5 mt-5 " style={{width: "1140px"}}>
       <div className="text-center">
         <img
