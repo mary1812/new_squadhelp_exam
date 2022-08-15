@@ -14,14 +14,18 @@ module.exports.findConversation = async (predicate) => {
   }
 }
 
-module.exports.createOrFindConversation = async (data, predicate) => {
+module.exports.createOrFindConversation = async (data) => {
   let newConversation = await Conversation.findOne(
     {
-      where: predicate,
+      where: data,
     }
   )
   if (!newConversation) {
-    newConversation = await Conversation.create(data)
+    newConversation = await Conversation.create({
+      ...data,
+      blackList: [false, false],
+      favoriteList: [false, false]
+    })
   }
   return newConversation
 }

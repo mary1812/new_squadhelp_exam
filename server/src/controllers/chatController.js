@@ -21,12 +21,7 @@ module.exports.addMessage = async (req, res, next) => {
       {
         userOneId: participants[0],
         userTwoId: participants[1],
-        blackList: [false, false],
-        favoriteList: [false, false],
-      },
-      {
-        userOneId: participants[0],
-        userTwoId: participants[1],
+        
       }
     );
 
@@ -87,7 +82,7 @@ module.exports.getChat = async (req, res, next) => {
     (participant1, participant2) => participant1 - participant2
   );
   try {
-    const conversation = await chatQueries.findConversation({
+    const conversation = await chatQueries.createOrFindConversation({
       userOneId: participants[0],
       userTwoId: participants[1],
     });
@@ -182,8 +177,10 @@ module.exports.getPreview = async (req, res, next) => {
       });
 
       const lastMessage = conversation.Messages.pop();
+      if (lastMessage) {
       conversation.setDataValue("text", lastMessage.body);
       conversation.setDataValue("sender", lastMessage.senderId);
+      }
       conversation.setDataValue("participants", [
         conversation.dataValues.userOneId,
         conversation.dataValues.userTwoId,
