@@ -78,6 +78,7 @@ const ModeratorPage = (props) => {
                 </ul>
                   <Stack>
                   <Pagination
+                    siblingCount={0}
                     className="paginationEl"
                     count={Math.ceil(props.offersList.count / limit)}
                     page={page}
@@ -88,7 +89,7 @@ const ModeratorPage = (props) => {
                 </div>
         )}
               </div> 
-        </div>
+      </div>
     </div>
   );
 };

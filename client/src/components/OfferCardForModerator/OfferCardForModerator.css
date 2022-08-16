@@ -14,3 +14,32 @@
   width: 200px;
   overflow-wrap: break-word;
 }
+
+@media (max-width: 720px) {
+  .listOfferCard{
+    margin: 0 auto;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 200px;
+    }
+
+  .contentListOfferCard{
+    display: flex;
+    flex-direction: column;
+  }  
+
+  .contestIdOffer{
+    margin-bottom: 15px;
+  }
+
+  .verifiedButton{
+    margin-left: 0px;
+  }
+
+  .imgWrapperOfferCard{
+    padding-bottom: 20px;
+  }
+
+  }

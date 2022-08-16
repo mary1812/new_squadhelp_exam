@@ -12,7 +12,7 @@
 }
 
 .wrapContainerModerPage {
-  width: 1050px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,6 @@
 }
 
 .judgeOffersModer {
-  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -32,15 +31,16 @@
   padding-bottom: 50px;
 }
 
-
+.containerModerPage{
+  width: 100%;
+  margin: 0 auto;
+}
 
 .contentListOfferCard {
   width: 100%;
   align-self: stretch;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
-  /* background-color: wheat; */
   color: #556da5;
 }
 
@@ -58,6 +58,12 @@
   display: flex;
 }
 
+.verifiedButton{
+  margin: 0 25px;
+  background-color: #8aca6b;
+}
+
+.voidedButton,
 .verifiedButton {
   cursor: pointer;
   text-align: center;
@@ -66,18 +72,9 @@
   color: #FFFF;
   padding: 10px;
   width: 100px;
-  margin: 0 25px;
-  background-color: #8aca6b;
 }
 
-.voidedButton {
-  cursor: pointer;
-  text-align: center;
-  border-style: none;
-  border-radius: 8px;
-  color: #FFFF;
-  padding: 10px;
-  width: 100px;
+.voidedButton{
   background-color: #CD5C5C;
 }
 
@@ -92,12 +89,18 @@
   border: none;
 }
 
-.MuiPagination-root ::marker{
-  color: transparent;
-}
-
 .paginationEl{
   margin-top: 30px;
   display: flex;
   justify-content: center;
+}
+
+.ulOfferCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.MuiPagination-ul > li {
+  list-style: none;
 }
