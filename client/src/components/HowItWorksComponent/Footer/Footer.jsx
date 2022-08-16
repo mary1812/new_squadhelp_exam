@@ -5,13 +5,13 @@ import styles from "./Footer.module.sass";
 
 const Footer = () => {
   return (
-    <Row classname="row align-items-lg-center mb-4" >
+    <Row className={`row align-items-lg-center mb-4 ${styles.rowFooter}`} >
       <Col className="col-md-6 col-lg-4">
         <div className="pl-md-4">
           <h6 className="h3 pt-5">Featured In</h6>
         </div>
       </Col>
-      <Col className="col-md-6 col-lg-8 mb-5 mb-md-0 col-sm-7">
+      <Col className={`col-md-6 col-lg-8 mb-5 mb-md-0 col-sm-7 ${styles.imgLogoFooter}`}>
         <Col className="pt-5 row justify-content-center border-top space-top-1">
           <div className="col-4 col-lg-3 mb-4 mb-lg-0 ">
             <a href="http://www.forbes.com/sites/forbestreptalks/2016/07/11/not-sure-how-to-name-a-startup-squadhelp-will-crowdsource-it-for-199">

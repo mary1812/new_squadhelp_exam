@@ -8,14 +8,14 @@ const Title = () => {
   return (
     <>
       <div className={`container-space-1  ${styles.titleContainer}`}>
-        <div className={ `container ${styles.containertitle}`}>
-        <div className="row justify-content-lg-between align-items-center">
-            <div className="col col-lg-7">
+        <div className={ `container `}>
+        <div className={`row justify-content-lg-between align-items-center ${styles.divTitle}`}>
+            <div className={`col col-lg-7 ${styles.divTitle}`}>
             <small className="btn btn-xs btn-soft-primary btn-pill mb-2 pe-none " >
               World's #1 Naming Platform
             </small>
             <div className="mb-4">
-                <h1 className={ `h1 ${styles.htitle}`}>How Does Squadhelp Work?</h1>
+                <h1 className={`h1 ${styles.htitle}`}>How Does Squadhelp Work?</h1>
               <p>
                 Squadhelp helps you come up with a great name for your business
                 by combining the power of crowdsourcing with sophisticated
@@ -28,7 +28,7 @@ const Title = () => {
               </div>
             </div>
           </div>
-          <div className="col col-lg-5 mb-4">
+          <div className={`col col-lg-5 mb-4 ${styles.imgWrapperTitle}`}>
             <img
               src={`${CONSTANTS.STATIC_IMAGES_PATH}titlePhone.png`}
                 alt="Smartphone"

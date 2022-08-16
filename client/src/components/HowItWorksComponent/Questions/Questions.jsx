@@ -12,7 +12,7 @@ const Questions = () => {
 
   return (
     <div className="container row justify-content-lg-between align-items-start px-0 mx-0">
-      <ul className="js-sticky-block card bg-primary col-3" style={{width: "232px"}}>
+      <ul className={`js-sticky-block card bg-primary col-3 ${styles.containerQuestions}`}>
         <div className={styles.listGroup}>
           <div className="js-scroll-nav list-group">
             <a className="btn btn-primary py-3 btn-sm text-start" href="/">

@@ -18,7 +18,7 @@ const QuestionBox = ({ dataForQuestionBox, index }) => {
     <div className={styles.qstnBox}>
       <div style={{ margin: "0px 0px 16px" }}>
         <Button
-          className="d-flex justify-content-between"
+          className={`d-flex justify-content-between ${styles.btnQstnBox}`}
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
           aria-expanded={open}

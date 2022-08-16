@@ -13,6 +13,7 @@ import Footer from "./Footer/Footer";
 const HowItWorksComponent = () => {
   return (
     <div>
+      
       <Container className={styles.mainContainer}>
         <Title />
         <ServicesSection />

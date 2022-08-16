@@ -18,7 +18,7 @@ const ServicesSection = () => {
 
       <div>
         <div className={styles.cardsSection}>
-        <Card style={{ width: "350px"}} className="py-5">
+        <Card style={{ width: "350px"}} className={`py-5 ${styles.oneCardInSection}`}>
           <Card.Img
             className="mx-auto"
             style={{ height: "100px", width: "100px" }}
@@ -34,7 +34,7 @@ const ServicesSection = () => {
             <Button variant="primary" >Launch a Contest</Button>
           </Card.Body >
         </Card>
-        <Card style={{ width: "350px" }}  className="py-5">
+        <Card style={{ width: "350px" }}  className={`py-5 ${styles.oneCardInSection}`}>
           <Card.Img
             className="mx-auto"
             style={{ height: "100px", width: "100px" }}

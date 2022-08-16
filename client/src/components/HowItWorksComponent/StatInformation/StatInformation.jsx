@@ -14,7 +14,7 @@ const StatInformation = () => {
                 style={{ height: "72px", width: "77px" }}
                 src={`${CONSTANTS.STATIC_IMAGES_PATH}stars.svg`}
               ></img>
-              <p className="mb-0">
+              <p className={`mb-0 ${styles.pStatInfo}`}>
                 <span className="text-dark">4.9 out of 5 stars</span>{" "}
                 from 25,000+ customers.
               </p>
@@ -27,7 +27,7 @@ const StatInformation = () => {
                 style={{ height: "72px", width: "77px" }}
                 src={`${CONSTANTS.STATIC_IMAGES_PATH}peoplesInfo.png`}
               ></img>
-              <p className="mb-0">
+              <p className={`mb-0 ${styles.pStatInfo}`}>
                 Our branding community <br /> stands
                 <span className="text-dark"> 200,000+</span> strong.
               </p>
@@ -43,7 +43,7 @@ const StatInformation = () => {
               <p className="mb-0">
                 <span className="text-dark"> 140+ Industries </span>
                 supported <br/> across more than
-                <span className="text-dark"> 85 countries </span> <br /> -
+                <span className="text-dark"> 85 countries</span> -
                 and counting.
               </p>
             </div>

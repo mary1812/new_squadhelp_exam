@@ -19,12 +19,12 @@ const GetStarted = () => {
           <Button variant="outline-*">Start A Contest</Button>
         </div>
         <div
-              class="vr"
+              className={styles.vr}
               style={{ height: "65px", transform: "rotate(15deg)", position: "absolute",
               marginLeft: "-190px", marginTop:"90px"}}
             ></div>
         <div
-              class="vr"
+              className={styles.vr}
               style={{ height: "65px", transform: "rotate(15deg)", position: "absolute",
               marginLeft: "200px", marginTop:"90px"}}
         ></div>
