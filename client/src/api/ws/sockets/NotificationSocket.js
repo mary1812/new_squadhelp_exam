@@ -15,8 +15,8 @@ class NotificationSocket extends WebSocket {
     };
 
     onChangeMark = () => {
-      this.socket.on('changeMark', () => {
-        toast('Someone liked your offer');
+      this.socket.on('changeMark', (message) => {
+        toast(<Notification message={message.message} contestId={message.contestId} />)
       });
     };
 
@@ -27,8 +27,8 @@ class NotificationSocket extends WebSocket {
     };
 
     onEntryCreated = () => {
-      this.socket.on('onEntryCreated', () => {
-        toast('New Entry');
+      this.socket.on('onEntryCreated', (message) => {
+        toast(<Notification message={message.message} contestId={message.contestId} />)
       });
     };
 
@@ -36,7 +36,7 @@ class NotificationSocket extends WebSocket {
       this.socket.emit('subscribe', id);
     };
 
-    unsubsctibe = (id) => {
+    unsubscribe = (id) => {
       this.socket.emit('unsubscribe', id);
     }
 }
