@@ -110,7 +110,11 @@ module.exports.changeMark = async (req, res, next) => {
 
     await userQueries.updateUser({ rating: avg }, creatorId, transaction);
     transaction.commit();
-    controller.getNotificationController().emitChangeMark(creatorId);
+    const offer = await Offer.findOne({
+      where: {
+      id: offerId
+    }})
+    controller.getNotificationController().emitChangeMark(creatorId, 'Your offer was appreciated', offer.dataValues.contestId);
     res.send({ userId: creatorId, rating: avg });
   } catch (err) {
     transaction.rollback();
