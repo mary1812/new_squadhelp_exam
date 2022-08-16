@@ -1,9 +1,10 @@
-const { Offer } = require("../models");
+const { Offer, Contest } = require("../models");
 const ServerError = require("../errors/ServerError");
 const CONSTANTS = require('../constants');
 const contestQueries = require("./queries/contestQueries");
 const userQueries = require("./queries/userQueries");
 const mailCli = require("./../api/email/sendEmail");
+const controller = require("../socketInit");
 
 module.exports.getPendingOffers = async (req, res, next) => {
   try {
@@ -27,6 +28,7 @@ const voidOffer = async (offerId, creatorId, contestId) => {
     { status: CONSTANTS.OFFER_STATUSES.VOIDED },
     { id: offerId }
   );
+  controller.getNotificationController().emitEntryCreated(parseInt(creatorId), "Some of your offers voided by moderator", parseInt(contestId))
   return voidOffer;
 };
 
@@ -35,6 +37,16 @@ const approveOffer = async (offerId, creatorId, contestId) => {
     { status: CONSTANTS.OFFER_STATUSES.VERIFIED },
     { id: offerId }
   );
+
+  const contest = await Contest.findOne({
+    where: {
+      id: contestId
+    }
+  })
+
+  controller.getNotificationController().emitEntryCreated(parseInt(contest.dataValues.userId), 'New entry to your contest', parseInt(contestId))
+
+  controller.getNotificationController().emitEntryCreated(parseInt(creatorId), 'Some of your offers approved by moderator', parseInt(contestId))
   return approvedOffer;
 };
 
@@ -45,7 +57,6 @@ const foundUser = async (userId) => {
 
 
 module.exports.setOfferStatusByModerator = async (req, res, next) => {
-  let transaction;
   if (req.body.command === CONSTANTS.OFFER_STATUSES.VOIDED) {
     try {
       const offer = await voidOffer(

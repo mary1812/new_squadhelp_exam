@@ -144,9 +144,6 @@ module.exports.setNewOffer = async (req, res, next) => {
     const result = await contestQueries.createOffer(obj);
     delete result.contestId;
     delete result.userId;
-    controller
-      .getNotificationController()
-      .emitEntryCreated(req.body.customerId);
     const user = await User.findOne({
       where: { id: req.tokenData.userId },
       attributes: { exclude: ["password"] },
@@ -221,17 +218,18 @@ const resolveOffer = async (
   const arrayRoomsId = [];
   updatedOffers.forEach((offer) => {
     if (
-      offer.status === CONSTANTS.OFFER_STATUSES.REJECTED &&
-      creatorId !== offer.userId
+      offer.status === CONSTANTS.OFFER_STATUSES.REJECTED
     ) {
-      arrayRoomsId.push(offer.userId);
+      if (!arrayRoomsId.includes(offer.userId)) {
+        arrayRoomsId.push(offer.userId);
+      }
     }
   });
   controller
     .getNotificationController()
     .emitChangeOfferStatus(
       arrayRoomsId,
-      "Someone of yours offers was rejected",
+      "Some of yours offers was rejected",
       contestId
     );
   controller
