@@ -28,7 +28,7 @@ class Auth {
     return this.#_client.post(`${this.#_url}registration`, data);
   };
   refresh = (data) => {
-    return this.#_client.post(`${this.#_url}/refresh`, data);
+    return this.#_client.post(`${this.#_url}refresh`, data);
   };
 
   logout = () => {
