@@ -1,5 +1,6 @@
 .idea/
 .vscode/
+.DS_Store
 
 ./client/node_modules
 ./server/node_modules
@@ -11,5 +12,6 @@
 .server/public/images
 **server/public/*
 *server/public/*
+.DS_Store
 
 *.log

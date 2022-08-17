@@ -1,13 +1,14 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Route } from "react-router-dom";
-import { selectBundle } from "../../actions/actionCreator";
-import BundleBox from "../../components/BundleBox/BundleBox";
-import CONSTANTS from "../../constants";
-import styles from "./StartContestPage.module.sass";
-import Footer from "../../components/Footer/Footer";
-import ProgressBar from "../../components/ProgressBar/ProgressBar";
-import Header from "../../components/Header/Header";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import { selectBundle } from '../../actions/actionCreator';
+import BundleBox from '../../components/BundleBox/BundleBox';
+import CONSTANTS from '../../constants';
+import styles from './StartContestPage.module.sass';
+import Footer from '../../components/Footer/Footer';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import Header from '../../components/Header/Header';
+import ButtonGroupComponent from '../../components/ButtonGroupComponent/ButtonGroupComponent';
 
 const StartContestPage = (props) => {
   if (props.auth.data.role !== CONSTANTS.CUSTOMER) {
@@ -110,6 +111,7 @@ const StartContestPage = (props) => {
             setBundle={setBundle}
           />
         </div>
+        <ButtonGroupComponent/>
       </div>
       <Footer />
     </div>

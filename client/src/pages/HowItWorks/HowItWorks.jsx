@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import HowItWorksComponent from '../../components/HowItWorksComponent/HowItWorksComponent';
 
 const HowItWorks = (props) => {
@@ -9,7 +11,9 @@ const HowItWorks = (props) => {
   return (
     <div>
       <div>
-        <HowItWorksComponent/>
+        <Header />
+        <HowItWorksComponent />
+        <Footer />
       </div>
     </div>
   );
@@ -21,4 +25,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, null)(HowItWorks);
-

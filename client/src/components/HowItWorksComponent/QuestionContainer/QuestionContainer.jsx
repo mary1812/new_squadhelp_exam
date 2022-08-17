@@ -5,8 +5,8 @@ import QuestionBox from '../QuestionBox/QuestionBox';
 const QuestionContainer = ({dataForQuestionBoxArray, header}) => {
   
   return (
-    <div className="questionContainerBox" >
-      <h3 className="h3 text-primary">{header}</h3>
+    <div className="questionContainerBox pb-3" >
+      <h3 className="h3 pb-3 text-primary">{header}</h3>
       {dataForQuestionBoxArray.map((dataForQuestionBox, index)=>
         <QuestionBox key={dataForQuestionBox.question} dataForQuestionBox={dataForQuestionBox} index={index} />
       )}
@@ -14,3 +14,4 @@ const QuestionContainer = ({dataForQuestionBoxArray, header}) => {
   );
 }
 export default QuestionContainer;
+

@@ -1,0 +1,90 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.listTimersContainer{
+  min-width: 500px;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.progressLabel {
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+  max-height: 50px;
+  padding-left: 10px;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+}
+
+.remainingTime{
+  display: flex;
+} 
+.headerOfListTimers{
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+.listOfEvents{
+  margin-top: 20px;
+}
+
+.faBtnDelete{
+  height: 100%;
+  background-color: transparent;
+  padding: 3px;
+  border: none;
+  border-radius: 10px;
+}
+
+.btnDelete{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: min-content;
+  margin-left: 10px;
+}
+
+.wrapperBtnProgress{
+  display: flex;
+}
+
+@media screen and (max-width:1024px) {
+  .headerOfListTimers{
+    display: flex;
+    justify-content:space-around;
+
+  }
+  .wrapperBtnProgress{
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .progressBarBtn{
+    max-width: 400px;
+    justify-content: center;
+  }
+
+  .firstTimer{
+    margin-right: 200px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .progressBarBtn{
+    max-width: 300px;
+    justify-content: center;
+  }
+  .firstTimer{
+    margin-right: 300px;
+  }
+} 
