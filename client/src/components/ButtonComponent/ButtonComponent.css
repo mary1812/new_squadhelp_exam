@@ -1,0 +1,62 @@
+.inActive{
+  color: #77838f;
+  font-weight: 400;
+  border: 0.5px solid #c0c6cd83;
+  border-radius: 5px;
+  min-height: 110px;
+  max-height: 110px;
+}
+
+.textInCard{
+  max-width: 285px;
+}
+
+.notActive:hover{
+  transition: 0.2s;
+  border: 0.5px solid #2cb9b77a;
+  box-shadow:0 0 3px #2cb9b77a;
+}
+
+.passiveColor{
+  background-color: #77838f;
+}
+.activeColor{
+  background-color: #2cb9b7;
+}
+
+.getActive{
+  border: 0.5px solid #2cb9b7 ;
+  border-color: rgba(44,185,183,.5);
+  box-shadow: 0px 0px 0px 3px #2cb9b769;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.getActive:hover{
+  transform: scale( 0.98);
+  transition: all 0.3s;
+}
+
+.getActive span{
+  background-color: #2cb9b7;
+}
+
+.getActive > div > h5{
+  color: #555C6B!important;
+}
+
+.textInBadge{
+  word-wrap: break-word;
+  text-align: center;
+  font-size: 12px;
+}
+
+.badgeYesNo{
+  color: #fff;
+  font-weight: 500;
+  font-size: 75%;
+  line-height: 1;
+  padding: 7px 15px;
+  border-radius: 15px;
+  transition: all 0.2s;
+}

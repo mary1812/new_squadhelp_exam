@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.formCreateTimer {
+  width: 250px;
+}
+
+.inputdataEvents {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerCreateTimer {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.buttonCreateTimer {
+  background-color: #1976d2;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldName,
+.fieldEventDate,
+.fieldNotificationDate {
+  margin: 7px 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 50px;
+  padding-left: 5px;
+}
+
+.deadlineTime {
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+.enterDate,
+.enterTime {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #1976d2;
+}
