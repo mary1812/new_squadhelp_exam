@@ -93,6 +93,7 @@ class Chat extends React.Component {
           {isShowCatalogCreation && <CatalogCreation />}
           {isExpanded ? <Dialog userId={id} /> : this.renderDialogList()}
           <div
+            id="Chat-widget"
             className={styles.toggleChat}
             onClick={() => changeShow()}
           >

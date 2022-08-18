@@ -14,6 +14,11 @@ class Header extends React.Component {
     this.props.history.replace("/login");
   };
 
+  openChat = () => {
+    const button = document.getElementById("Chat-widget")
+    button.click()
+  }
+
   renderLoginButtons = () => {
     if (this.props.data) {
       return (
@@ -51,23 +56,23 @@ class Header extends React.Component {
             )}
               </li>
               <li>
-                <Link
+                <div
                   to="http:/www.google.com"
                   style={{ textDecoration: "none" }}
                 >
-                  <span>Messages</span>
-                </Link>
+                  <span onClick={this.openChat}>Messages</span>
+                </div>
               </li>
               <li>
                 <Link
-                  to="http:/www.google.com"
+                  to="/dashboard"
                   style={{ textDecoration: "none" }}
                 >
                   <span>Affiliate Dashboard</span>
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/login">
                   <span onClick={this.logOut}>Logout</span>
                 </Link>
               </li>
@@ -77,6 +82,7 @@ class Header extends React.Component {
             src={`${CONSTANTS.STATIC_IMAGES_PATH}email.png`}
             className={styles.emailIcon}
             alt="email"
+            onClick={this.openChat}
           />
         </>
       );
@@ -118,7 +124,7 @@ class Header extends React.Component {
             <Link to ="/"><img src={`${CONSTANTS.STATIC_IMAGES_PATH}blue-logo.png`} className={styles.logo} alt="blue_logo" /></Link>
             <div className={styles.leftNav}>
               <div className={styles.nav}>
-                <ul>
+                <ul className={styles.ulHeaderPage}>
                   <li>
                     <span>NAME IDEAS</span>
                     <img
