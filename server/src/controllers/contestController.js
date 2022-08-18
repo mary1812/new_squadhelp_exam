@@ -13,6 +13,10 @@ const userQueries = require("./queries/userQueries");
 const controller = require("../socketInit");
 const UtilFunctions = require("../utils/functions");
 const CONSTANTS = require("../constants");
+const fs = require("fs");
+const path = require("path");
+const devFilePath = path.resolve(CONSTANTS.FILES_PATH, "images");
+const { deleteFiles } = require("./../utils/deleteFile");
 
 module.exports.dataForContest = async (req, res, next) => {
   const response = {};
@@ -113,11 +117,17 @@ module.exports.downloadFile = async (req, res, next) => {
 };
 
 module.exports.updateContest = async (req, res, next) => {
+  const contestId = req.body.contestId;
   if (req.file) {
     req.body.fileName = req.file.filename;
     req.body.originalFileName = req.file.originalname;
+    const findContest = await Contest.findOne({
+      where: {
+        id: contestId,
+      },
+    })
+    deleteFiles(findContest.fileName)
   }
-  const contestId = req.body.contestId;
   delete req.body.contestId;
   try {
     const updatedContest = await contestQueries.updateContest(req.body, {
@@ -217,9 +227,7 @@ const resolveOffer = async (
   transaction.commit();
   const arrayRoomsId = [];
   updatedOffers.forEach((offer) => {
-    if (
-      offer.status === CONSTANTS.OFFER_STATUSES.REJECTED
-    ) {
+    if (offer.status === CONSTANTS.OFFER_STATUSES.REJECTED) {
       if (!arrayRoomsId.includes(offer.userId)) {
         arrayRoomsId.push(offer.userId);
       }
@@ -314,7 +322,7 @@ module.exports.getContests = (req, res, next) => {
   );
 
   if (!req.body.ownEntries) {
-    predicates.where.status = CONSTANTS.CONTEST_STATUS.ACTIVE
+    predicates.where.status = CONSTANTS.CONTEST_STATUS.ACTIVE;
   }
   Contest.findAll({
     where: predicates.where,
