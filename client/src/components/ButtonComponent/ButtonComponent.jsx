@@ -5,6 +5,7 @@ import "./ButtonComponent.css";
 export default function ButtonComponent(props) {
   
   return (
+    <div className="wrapperBtnGroup">
         <div
           class={`card card-frame text-center mb-5 inActive ${
             props.isActive ?"getActive" :"notActive"
@@ -19,6 +20,6 @@ export default function ButtonComponent(props) {
             </h5>
           </div>
       </div>
-
+      </div>
   );
 }

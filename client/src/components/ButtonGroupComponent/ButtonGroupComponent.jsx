@@ -28,7 +28,7 @@ export default function ButtonGroupComponent(badge, headerBadge) {
   const buttonsGroup = contents.map((content) => (
     <div onClick={() => {
       setSelectedId(content.id)
-    }}>
+    }} className="buttonsGroup">
     <ButtonComponent
       badge={content.badge}
       headerBadge={content.headerBadge}

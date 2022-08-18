@@ -60,3 +60,9 @@
   border-radius: 15px;
   transition: all 0.2s;
 }
+
+@media (max-width: 1250px){
+  .wrapperBtnGroup{
+  width: 100%;
+  }
+}
