@@ -7,11 +7,14 @@ import HowItWorksComponent from "../HowItWorksComponent/HowItWorksComponent";
 import CONSTANTS from "../../constants";
 import { clearauth, headerRequest } from "../../actions/actionCreator";
 import NotificationCircle from "../NotificationCircle/NotificationCircle";
+import {notificationController, chatController} from "../../api/ws/socketController"
 
 class Header extends React.Component {
   logOut = () => {
+    notificationController.unsubscribe(this.props.data.id);
+    chatController.unsubscribeChat(this.props.data.id);
     this.props.clearauth();
-    this.props.history.replace("/login");
+    window.location.href ="/login";
   };
 
   openChat = () => {
