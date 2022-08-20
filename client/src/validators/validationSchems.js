@@ -61,9 +61,9 @@ export default {
     file: yup.mixed(),
   }),
   MessageSchema: yup.object({
-    message: yup.string().test('test-message', '* this field is required', (value) => value && value.trim().length >= 1).required('required'),
+    message: yup.string().max(255, '* max 255 characters').test('test-message', '* this field is required', (value) => value && value.trim().length >= 1).required('required'),
   }),
   CatalogSchema: yup.object({
-    catalogName: yup.string().test('test-catalogName', '*complete this field', (value) => value && value.trim().length >= 1).required('required'),
+    catalogName: yup.string().test('test-catalogName', '* complete this field', (value) => value && value.trim().length >= 1).required('required'),
   }),
 };
