@@ -19,7 +19,7 @@ const FormInput = ({
       return (
         <div className={classes.container}>
           <input type="text" {...field} placeholder={label} className={inputClassName} {...rest} />
-          <ErrorMessage name={name} component="span" className={classes.warning} />
+          <ErrorMessage name={name} component="span" className={classes.warning} style={{color: "red", fontSize:"14px"}} />
         </div>
       );
     }}

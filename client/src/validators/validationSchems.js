@@ -3,18 +3,18 @@ import valid from 'card-validator';
 
 export default {
   LoginSchem: yup.object().shape({
-    email: yup.string().email('check email').required('required'),
-    password: yup.string().test('test-password', 'min 6 symbols', (value) => (value && value.trim().length >= 6)).required('required'),
+    email: yup.string().email('* Please enter a valid email address').required('* The email field is required'),
+    password: yup.string().test('test-password', '* The password field is require & must be at least 6 characters long', (value) => (value && value.trim().length >= 6)).required('required'),
   }),
   RegistrationSchem: yup.object().shape({
-    email: yup.string().email('check email').required('* This field is required, enter email address'),
-    password: yup.string().min(6).max(32).matches(/[a-zA-Z]/, 'Password can only contain Latin letters.').required('required'),
+    email: yup.string().email('* Please enter a valid email address').required('* This field is required, enter email address'),
+    password: yup.string().min(6).max(32).matches(/[a-zA-Z]/, 'Password can only contain Latin letters.').required('* This field is required, enter your password'),
     confirmPassword: yup.string().required('* This field is required, enter confirm password').oneOf([yup.ref('password')], '* Confirmation pass must match password'),
     firstName: yup.string().test('test-firstName', '* This field is required, enter first name', (value) => (value && value.trim().length >= 1)).required('First Name is required'),
     lastName: yup.string().test('test-lastName', '* This field is required, enter last name', (value) => (value && value.trim().length >= 1)).required('Last Name is required'),
     displayName: yup.string().test('test-displayName', '* This field is required, enter display name', (value) => (value && value.trim().length >= 1)).required('Display Name is required'),
     role: yup.string().matches(/(customer|creator)/).required('Role is required'),
-    agreeOfTerms: yup.boolean().oneOf([true], 'Must Accept Terms and Conditions').required('Must Accept Terms and Conditions'),
+    agreeOfTerms: yup.boolean().oneOf([true], '* Must Accept Terms and Conditions').required('* Must Accept Terms and Conditions'),
   }),
   ContestSchem: yup.object({
     nameVenture: yup.string().min(3),
@@ -61,7 +61,7 @@ export default {
     file: yup.mixed(),
   }),
   MessageSchema: yup.object({
-    message: yup.string().test('test-message', 'required', (value) => value && value.trim().length >= 1).required('required'),
+    message: yup.string().test('test-message', '* this field is required', (value) => value && value.trim().length >= 1).required('required'),
   }),
   CatalogSchema: yup.object({
     catalogName: yup.string().test('test-catalogName', '*complete this field', (value) => value && value.trim().length >= 1).required('required'),
