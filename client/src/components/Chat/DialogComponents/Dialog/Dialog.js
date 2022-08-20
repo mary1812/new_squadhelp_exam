@@ -34,7 +34,6 @@ class Dialog extends React.Component {
       const uniqueIdSet = new Set();
       const { messages, userId } = this.props;
       let currentTime = moment();
-      console.log(messages)
       messages.forEach((message, i) => {
         if (!currentTime.isSame(message.createdAt, 'date')) {
           messagesArray.push(

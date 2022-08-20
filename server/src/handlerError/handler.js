@@ -2,7 +2,6 @@ const { TokenExpiredError, JsonWebTokenError } = require('jsonwebtoken');
 const logger = require('./../config/winston');
 
 module.exports = (err, req, res, next) => {
-  console.log(err);
 
   if (err instanceof TokenExpiredError) {
     if (!err.status) {

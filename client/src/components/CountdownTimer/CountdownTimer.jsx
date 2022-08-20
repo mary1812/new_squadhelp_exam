@@ -21,10 +21,8 @@ const CountdownTimer = (props) => {
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       if (distance < 0) {
-        //stop timer
         clearInterval(interval.current);
       } else {
-        //update timer
         setTimerDays(days);
         setTimerHours(hours);
         setTimerMinutes(minutes);
@@ -43,7 +41,6 @@ const CountdownTimer = (props) => {
   return (
     <div>
       <section className='timerContainer'>
-        {/* <h2 className='headerTimer'>Live upcomming checks</h2> */}
         <section className='timer'>
           <div className='firstTimer'>
             <section className='counter'>

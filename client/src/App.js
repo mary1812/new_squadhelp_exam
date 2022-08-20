@@ -123,7 +123,6 @@ function App(props) {
         <Route component={NotFound} />
       </Switch>
       <Route render={({location}) => location.pathname !== "/moderation" && <ChatContainer/>}/>
-      {/* <ChatContainer /> */}
     </Router>
   );
 }

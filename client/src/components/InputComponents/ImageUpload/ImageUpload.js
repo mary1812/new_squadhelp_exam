@@ -13,7 +13,6 @@ const ImageUpload = (props) => {
     if (!file.type.match(imageType)) {
       e.target.value = '';
     } else {
-      console.log(file);
       helpers.setValue(file);
       const reader = new FileReader();
       reader.onload = () => {

@@ -49,7 +49,6 @@ class Auth {
   requestInterceptorError = (err) => Promise.reject(err);
 
   responseInterceptor = (response) => {
-    console.log(response);
     if (response.data?.data?.tokenPair) {
       const {
         data: {

@@ -102,7 +102,6 @@ module.exports.getChat = async (req, res, next) => {
       id: req.body.interlocutorId,
     });
 
-    console.log("-------1-----", messages)
 
     res.send({
       messages,
@@ -189,7 +188,6 @@ module.exports.getPreview = async (req, res, next) => {
       ]);
     });
     res.send(conversations);
-    // console.log("---------", conversations[2].Messages)
   } catch (err) {
     next(err);
   }
@@ -216,7 +214,6 @@ module.exports.blackList = async (req, res, next) => {
       chat.dataValues.userTwoId,
     ]);
     res.send(chat);
-    console.log("++++++", chat);
 
     const interlocutorId = req.body.participants.filter(
       (participant) => participant !== req.tokenData.userId

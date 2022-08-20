@@ -30,7 +30,6 @@ module.exports.checkAuth = async (req, res, next) => {
     next(createHttpError(401, 'Need token'));
 
   } catch (err) {
-    console.log(err);
     next(new TokenError());
   }
 };

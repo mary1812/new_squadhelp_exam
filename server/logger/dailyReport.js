@@ -17,7 +17,6 @@ const dailyReport = () => {
             const dataArray = data.split(";");
             dataArray.pop();
             const outputArray = dataArray.map((logString) => {
-              console.log(logString);
               const parsedLog = JSON.parse(logString);
               delete parsedLog.stackTrace;
               return parsedLog;
