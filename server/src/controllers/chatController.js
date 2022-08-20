@@ -59,7 +59,7 @@ module.exports.addMessage = async (req, res, next) => {
         favoriteList: newConversation.favoriteList,
         interlocutor: {
           id: req.tokenData.userId,
-          firstName: req.tokenData.firstName,
+          firstName: req.tokenData.firstName || req.tokenData.email,
           lastName: req.tokenData.lastName,
           displayName: req.tokenData.displayName,
           avatar: req.tokenData.avatar,
@@ -101,6 +101,8 @@ module.exports.getChat = async (req, res, next) => {
     const interlocutor = await userQueries.findUser({
       id: req.body.interlocutorId,
     });
+
+    console.log("-------1-----", messages)
 
     res.send({
       messages,
@@ -187,6 +189,7 @@ module.exports.getPreview = async (req, res, next) => {
       ]);
     });
     res.send(conversations);
+    // console.log("---------", conversations[2].Messages)
   } catch (err) {
     next(err);
   }
