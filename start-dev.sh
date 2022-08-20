@@ -8,7 +8,7 @@
 started_at=$(date +"%s")
 
 echo "-----> Provisioning containers"
-docker-compose --file docker-compose-dev.yaml up -d
+docker-compose --file docker-compose-dev.yaml up
 echo ""
 
 # Run Sequalize's migrations.
@@ -28,6 +28,3 @@ seconds=$(((ended_at - started_at) % 60))
 
 echo "-----> Done in ${minutes}m${seconds}s"
 
-echo "-----> Running application"
-docker-compose --file docker-compose-dev.yaml up
-echo ""
