@@ -1,9 +1,9 @@
 import axios from 'axios';
-import CONTANTS from '../../constants';
+import CONSTANTS from '../../constants';
 import Auth from './AuthApi';
 
 const httpClient = axios.create({
-  baseURL: CONTANTS.BASE_URL,
+  baseURL: CONSTANTS.BASE_URL,
 });
 
 export const AuthAPI = new Auth(httpClient); 
