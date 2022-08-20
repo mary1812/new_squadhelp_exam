@@ -19,22 +19,21 @@ class Dialog extends React.Component {
       this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
     };
 
-    componentWillReceiveProps(nextProps, nextContext) {
-      if (nextProps.interlocutor.id !== this.props.interlocutor.id) this.props.getDialog({ interlocutorId: nextProps.interlocutor.id });
-    }
-
     componentWillUnmount() {
       this.props.clearMessageList();
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
       if (this.messagesEnd.current) this.scrollToBottom();
+      if (prevProps.interlocutor.id !== this.props.interlocutor.id) this.props.getDialog({ interlocutorId: this.interlocutor.id })
     }
 
     renderMainDialog = () => {
       const messagesArray = [];
+      const uniqueIdSet = new Set();
       const { messages, userId } = this.props;
       let currentTime = moment();
+      console.log(messages)
       messages.forEach((message, i) => {
         if (!currentTime.isSame(message.createdAt, 'date')) {
           messagesArray.push(
@@ -44,16 +43,20 @@ class Dialog extends React.Component {
           );
           currentTime = moment(message.createdAt);
         }
-        messagesArray.push(
-          <div
-            key={i}
-            className={className(userId === message.senderId ? styles.ownMessage : styles.message)}
-          >
-            <span>{message.body}</span>
-            <span className={styles.messageTime}>{moment(message.createdAt).format('HH:mm')}</span>
-            <div ref={this.messagesEnd} />
-          </div>,
-        );
+        if (!uniqueIdSet.has(message.id)) {
+          messagesArray.push(
+        <div
+          key={i}
+          className={className(userId === message.senderId ? styles.ownMessage : styles.message)}
+        >
+          <span>{message.body}</span>
+          <span className={styles.messageTime}>{moment(message.createdAt).format('HH:mm')}</span>
+          <div ref={this.messagesEnd} />
+        </div>,
+          )
+          uniqueIdSet.add(message.id)
+        }
+       
       });
       return (
         <div className={styles.messageList}>
@@ -79,7 +82,6 @@ class Dialog extends React.Component {
 
     render() {
       const { chatData, userId } = this.props;
-      console.log("DIALOGOOO", chatData)
       return (
         <>
           <ChatHeader userId={userId} />
