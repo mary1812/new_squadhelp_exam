@@ -6,12 +6,13 @@
 // Select the database to use.
 
 use('shm-chat');
+db.messages.aggregate([{$match: {body: "паровоз"}}, {$count: "count"}
+])
+
+use('shm-chat');
 db.messages.find({body: "паровоз"}).count()
 
 
-use('shm-chat');
-db.messages.aggregate([{$match: {body: "HELLO"}}, {$count: "sender"}
-])
 
 
 
