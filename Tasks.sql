@@ -2,7 +2,7 @@
 SELECT role "роль",
   count(*) "количество"
 FROM "Users"
-WHERE role IN('customer', 'creator')
+WHERE role IN('customer', 'creator', 'moderator')
 GROUP BY role;
 
 
@@ -11,11 +11,11 @@ WITH t AS (
   SELECT sum("prize" / 10 ) as cashback, "userId" as userid
   FROM "Contests" c
   JOIN "Users" u ON c."userId" = u.id
-  WHERE c."createdAt" BETWEEN date('2022-02-14') and date('2022-03-08')
+  WHERE c."createdAt" BETWEEN date('2022-12-25') and date('2022-01-15')
   GROUP BY c."userId" 
 )
 UPDATE "Users" u 
-SET balance = balance + t.cashback
+SET balance = ROUND(balance + t.cashback, -1)
 FROM t
 WHERE u.id = t.userid
 AND u."role" = 'customer'
