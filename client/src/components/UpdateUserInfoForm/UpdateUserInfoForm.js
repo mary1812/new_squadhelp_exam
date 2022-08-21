@@ -64,6 +64,7 @@ const UpdateUserInfoForm = (props) => {
             uploadContainer: styles.imageUploadContainer,
             inputContainer: styles.uploadInputContainer,
             imgStyle: styles.imgStyle,
+            imgHidden: styles.imgHidden
           }}
         />
         <button type="submit" disabled={submitting}>
