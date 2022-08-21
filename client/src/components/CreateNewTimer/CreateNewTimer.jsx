@@ -72,6 +72,7 @@ const CreateNewTimer = () => {
             type="date"
             name="eventEndDate"
             className="fieldEventDate"
+            max="2050-12-31"
             required
           />
           <p className="enterTime">Select the end time of the event </p>
@@ -82,6 +83,7 @@ const CreateNewTimer = () => {
             type="date"
             name="eventNotification"
             className="fieldNotificationDate"
+            max="2050-12-31"
             required
           />
           <p className="enterTime">Select the event notification time </p>
