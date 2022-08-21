@@ -6,7 +6,7 @@
 // Select the database to use.
 
 use('shm-chat');
-db.messages.find({body: "HELLO"}).count()
+db.messages.find({body: "паровоз"}).count()
 
 
 use('shm-chat');
