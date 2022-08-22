@@ -11,7 +11,9 @@ class Dialog extends React.Component {
   componentDidMount() {
     this.props.getDialog({ interlocutorId: this.props.interlocutor.id });
     this.scrollToBottom();
-    document.getElementById('chatInput').focus()
+    if (document.getElementById('chatInput')) {
+      document.getElementById('chatInput').focus()
+    }
   }
 
     messagesEnd = React.createRef();
