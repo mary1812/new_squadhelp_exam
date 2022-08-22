@@ -17,7 +17,7 @@ export default {
     agreeOfTerms: yup.boolean().oneOf([true], '* Must Accept Terms and Conditions').required('* Must Accept Terms and Conditions'),
   }),
   ContestSchem: yup.object({
-    nameVenture: yup.string().min(3),
+    nameVenture: yup.string().when("contestType", {is: (contestType) => contestType === "logo" || contestType === "tagline", then: yup.string().min(3).required("name of venture required")}),
     contestType: yup.string().matches(/(name|tagline|logo)/).required(),
     title: yup.string().test('test-title', 'required', (value) => (value && value.trim().length >= 1)).required('title of contest required'),
     industry: yup.string().required('industry required'),
@@ -28,7 +28,6 @@ export default {
     typeOfTagline: yup.string().min(1),
     brandStyle: yup.string().min(1),
     file: yup.mixed(),
-    nameVenture: yup.string().test('test-nameVenture', 'required', (value) => (value && value.trim().length >= 1)).required('name of venture required')
   }),
   filterSchem: yup.object().shape({
     typeIndex: yup.number().oneOf([1, 2, 3, 4, 5, 6, 7]),
