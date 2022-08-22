@@ -2,8 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import styles from "./Header.module.sass";
-import HowItWorks from "../../pages/HowItWorks/HowItWorks";
-import HowItWorksComponent from "../HowItWorksComponent/HowItWorksComponent";
 import CONSTANTS from "../../constants";
 import { clearauth, headerRequest } from "../../actions/actionCreator";
 import NotificationCircle from "../NotificationCircle/NotificationCircle";
