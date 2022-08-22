@@ -75,6 +75,15 @@ class ContestPage extends React.Component {
   setOfferStatus = (creatorId, offerId, command) => {
     this.props.clearSetOfferStatusError();
     const { id, orderId, priority } = this.props.contestByIdStore.contestData;
+    if(command === 'resolve'){
+      this.props.contestByIdStore.offers = this.props.contestByIdStore.offers.map((offerObj)=>{
+        if(offerObj.id === offerId){
+          offerObj.status = CONSTANTS.OFFER_STATUS_WON
+        } else {
+          offerObj.status = CONSTANTS.OFFER_STATUS_REJECTED
+        }
+      })
+    }
     const obj = {
       command,
       offerId,
