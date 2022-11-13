@@ -5,6 +5,13 @@
 
 // Select the database to use.
 
+
+use('shm-chat');
+db.messages.aggregate([{$match: {body: {$regex: "паровоз"}}}, {$count: "count"}
+])
+
+
+// old solution
 use('shm-chat');
 db.messages.aggregate([{$match: {body: "паровоз"}}, {$count: "count"}
 ])
