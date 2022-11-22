@@ -1,7 +1,6 @@
 import React from "react";
 import QuestionContainer from "../QuestionContainer/QuestionContainer";
 import CONSTANTS from "../../../constants";
-import { ListGroup } from "react-bootstrap";
 import styles from "./Questions.module.sass";
 
 const Questions = () => {

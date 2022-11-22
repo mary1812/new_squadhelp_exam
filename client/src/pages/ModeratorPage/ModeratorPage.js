@@ -10,7 +10,7 @@ import {
   setOfferStatusByModerator,
 } from "../../actions/actionCreator";
 import SpinnerLoader from "../../components/Spinner/Spinner";
-import { Pagination, Box } from "@mui/material";
+import { Pagination } from "@mui/material";
 import Stack from '@mui/material/Stack';
 import OfferCardForModerator from "../../components/OfferCardForModerator/OfferCardForModerator";
 

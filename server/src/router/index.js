@@ -10,17 +10,10 @@ const router = express.Router();
 const authRouter = require('./authRouter');
 const { checkAccessToken } = require('../middlewares/tokenMw');
 const offerController = require('../controllers/offerController');
- // authRouter
  
 router.use('/auth', authRouter);
 
-// router.post(
-//   '/getUser',
-//   checkToken.checkAuth,
-// );
-
 router.use(checkAccessToken);
-// contestRouter
 
 router.post(
   '/dataForContest',

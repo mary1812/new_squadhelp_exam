@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import * as bootstrap from "bootstrap";
 import "./ButtonGroupComponent.css";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
-export default function ButtonGroupComponent(badge, headerBadge) {
+const ButtonGroupComponent = (badge, headerBadge) => {
   const [selectedId, setSelectedId] = useState('');
 
   const contents = [
@@ -28,7 +27,7 @@ export default function ButtonGroupComponent(badge, headerBadge) {
   const buttonsGroup = contents.map((content) => (
     <div onClick={() => {
       setSelectedId(content.id)
-    }} className="buttonsGroup">
+    }} className="buttonsGroup" key={content.id}>
     <ButtonComponent
       badge={content.badge}
       headerBadge={content.headerBadge}
@@ -36,5 +35,7 @@ export default function ButtonGroupComponent(badge, headerBadge) {
     /></div>
   ));
 
-  return <div class="btnGrp">{buttonsGroup}</div>;
+  return <div className="btnGrp">{buttonsGroup}</div>;
 }
+
+export default ButtonGroupComponent;

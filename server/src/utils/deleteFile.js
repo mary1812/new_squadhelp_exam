@@ -8,7 +8,7 @@ module.exports.deleteFiles = (fileName) => {
 if (fileName) {
   fs.readdir(devFilePath, (err, files) => {
     if (err) throw err;
-    foundFiles = files.filter((file) => file === fileName);
+    const foundFiles = files.filter((file) => file === fileName);
     if (foundFiles[0]) {
       fs.unlink(path.join(devFilePath, foundFiles[0]), (err) => {
         if (err) throw err;

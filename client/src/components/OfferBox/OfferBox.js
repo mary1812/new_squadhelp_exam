@@ -9,8 +9,7 @@ import {
   changeMark,
   clearChangeMarkError,
   goToExpandedDialog,
-  changeShowImage,
-  changeModalShow,
+  changeShowImage
 } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.sass';

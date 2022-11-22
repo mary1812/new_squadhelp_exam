@@ -43,7 +43,7 @@ const ListOfTimers = () => {
                 setEvents(events.filter((event) => !event.isDeleted));
               }}
             >
-              <i class="far fa-trash-alt"></i>
+              <i className="far fa-trash-alt"></i>
             </button>
           </div>
         </div>
@@ -58,7 +58,7 @@ const ListOfTimers = () => {
         </div>
         <div className="remainingTime">
           <p style={{ paddingRight: "5px" }}>Remaining time</p>
-          <i class="far fa-clock"></i>
+          <i className="far fa-clock"></i>
         </div>
       </div>
       <ol>{eventsArray}</ol>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import QuestionBox from '../QuestionBox/QuestionBox';
 
 const QuestionContainer = ({dataForQuestionBoxArray, header}) => {

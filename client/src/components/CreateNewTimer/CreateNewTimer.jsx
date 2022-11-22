@@ -46,7 +46,7 @@ const CreateNewTimer = () => {
     <div className="formCreateTimer">
       <div style={{ display: "flex" }}>
         <h1 className="headerCreateTimer">Create new timer</h1>
-        <i class="far fa-calendar-plus" style={{ paddingLeft: "10px" }}></i>
+        <i className="far fa-calendar-plus" style={{ paddingLeft: "10px" }}></i>
       </div>
       <Formik
         className="inputdataEvents"

@@ -1,10 +1,9 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import Header from "../../components/Header/Header"
 import "./Events.css";
 import { TimerContext } from "../../contexts";
 import ListOfTimers from "../../components/ListOfTimers/ListOfTimers";
 import CreateNewTimer from "../../components/CreateNewTimer/CreateNewTimer";
-import NotificationCircle from "../../components/NotificationCircle/NotificationCircle";
 const Events = () => {
   const [events, setEvents] = useState([]);
   
