@@ -21,14 +21,14 @@ class Auth {
   }
 
   login = (data) => {
-    return this.#_client.post(`${this.#_url}login`, data);
+    return this.#_client.post(`${this.#_url}login`, data, {withCredentials: true});
   };
 
   registration = (data) => {
-    return this.#_client.post(`${this.#_url}registration`, data);
+    return this.#_client.post(`${this.#_url}registration`, data, {withCredentials: true});
   };
   refresh = (data) => {
-    return this.#_client.post(`${this.#_url}refresh`, data);
+    return this.#_client.post(`${this.#_url}refresh`, data, {withCredentials: true});
   };
 
   logout = () => {
