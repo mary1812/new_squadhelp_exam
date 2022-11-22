@@ -11,7 +11,8 @@ COPY . .
 
 RUN npm install && \
   npm install -g nodemon && \
-  npm install -g sequelize-cli 
+  npm install -g sequelize-cli && \
+  npm install -g cookie-parser
 
 
 EXPOSE 3000
