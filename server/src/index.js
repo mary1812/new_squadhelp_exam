@@ -7,18 +7,23 @@ const controller = require("./socketInit");
 const handlerError = require("./handlerError/handler");
 const CONSTANTS = require("./constants");
 const dailyReport = require("./../logger/dailyReport")
-var CronJob = require('cron').CronJob;
+const CronJob = require('cron').CronJob;
+const cookieParser = require('cookie-parser');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: CONSTANTS.SQUADHELP_APPLICATION_LINK,
+  credentials: true
+}));
+app.use(cookieParser());
 app.use(express.json());
 app.use("/public", express.static(CONSTANTS.FILES_PATH));
 app.use(router);
 app.use(handlerError);
 
-var job = new CronJob(
+const job = new CronJob(
   CONSTANTS.DAILY_CRON,
   function () {
     dailyReport ();

@@ -1,5 +1,6 @@
 const { User, RefreshToken } = require('../models');
 const AuthService = require('../services/authService');
+const CONSTANTS = require('./../constants');
 
 module.exports.login = async (req, res, next) => {
   try {
@@ -12,6 +13,9 @@ module.exports.login = async (req, res, next) => {
     if (user && (await user.comparePasswords(password))) {
 
       const data = await AuthService.createSession(user);
+
+      res.cookie('refreshToken', data.tokenPair.refreshToken, { overwrite: true, httpOnly: true })
+      data.tokenPair.refreshToken = CONSTANTS.FAKE_REFRESH_TOKEN
 
       return res.status(200).send({ data });
     }
@@ -30,6 +34,9 @@ module.exports.registration = async (req, res, next) => {
 
     const data = await AuthService.createSession(user);
 
+    res.cookie('refreshToken', data.tokenPair.refreshToken, { overwrite: true, httpOnly: true })
+    data.tokenPair.refreshToken = CONSTANTS.FAKE_REFRESH_TOKEN
+
     res.status(200).send({ data });
   } catch (err) {
     next(err);
@@ -38,9 +45,8 @@ module.exports.registration = async (req, res, next) => {
 
 module.exports.refresh = async (req, res, next) => {
   try {
-    const {
-      body: { refreshToken: refresh },
-    } = req; 
+    
+    const refresh = req.cookies.refreshToken
 
     const foundToken = await RefreshToken.findOne({
       where: {
@@ -49,6 +55,9 @@ module.exports.refresh = async (req, res, next) => {
     });
 
     const data = await AuthService.refreshSession(foundToken);
+
+    res.cookie('refreshToken', data.tokenPair.refreshToken, { overwrite: true, httpOnly: true })
+    data.tokenPair.refreshToken = CONSTANTS.FAKE_REFRESH_TOKEN
 
     res.status(200).send({
       data,

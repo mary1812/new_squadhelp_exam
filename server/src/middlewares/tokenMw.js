@@ -3,7 +3,7 @@ const JwtService = require('../services/jwtService');
 
 module.exports.checkRefreshToken = async(req, res, next) => {
   try {
-    const { body : {refreshToken}} = req;
+    const {refreshToken} = req.cookies
 
     req.tokenData = await JwtService.verifyRefreshToken(refreshToken);
 
